@@ -44,7 +44,7 @@ const check = async (name, fn) => {
   if (!ok) process.exitCode = 1;
 };
 
-await check("vista inicial desde hash (#v=flujo)", async () => (await page.textContent("main h1")) === "Flujo");
+await check("vista inicial desde hash (#v=flujo) — h1 = título de la hoja del libro", async () => /^Flujo/.test(await page.textContent("main h1")));
 await check("caso desde hash (c=custom)", async () => (await page.getAttribute('[role=radiogroup][aria-label=Caso] [aria-checked=true]', "aria-checked")) === "true" && (await page.textContent('[role=radiogroup][aria-label=Caso] [aria-checked=true]')) === "Custom");
 await check("edición declarada en DOM", async () => (await page.getAttribute("[data-edition]", "data-edition")) === edition);
 await check("body pinta var(--bg)", async () => (await page.evaluate(() => getComputedStyle(document.body).backgroundColor)) === "rgb(244, 245, 247)");
@@ -74,7 +74,7 @@ await page.keyboard.press("Control+K");
 await check("paleta ⌘K abre", async () => (await page.$("[cmdk-root]")) !== null);
 await page.keyboard.type("Riesgos");
 await page.keyboard.press("Enter");
-await check("paleta navega a Riesgos", async () => (await page.textContent("main h1")) === "Riesgos");
+await check("paleta navega a Riesgos", async () => /riesgos/i.test(await page.textContent("main h1")) && (await page.evaluate(() => location.hash)).includes("v=riesgos"));
 
 // Oscuro por preferencia del sistema (sin data-theme)
 const dark = await browser.newPage({ viewport: { width: 1280, height: 800 }, colorScheme: "dark" });
@@ -116,11 +116,34 @@ if (existsSync(fragmentPath)) {
   host.on("pageerror", (e) => errors.push(String(e)));
   await host.goto(`${pathToFileURL(hostPath).href}#v=guia`);
   await host.waitForSelector("main h1");
-  await check("fragmento en esqueleto host: título del documento", async () => (await host.title()) === "Modelo FV Montecristi → GPM");
-  await check("fragmento en esqueleto host: vista renderizada", async () => (await host.textContent("main h1")) === "Guía");
+  await check("fragmento en esqueleto host: título del documento (por edición)", async () => (await host.title()) === (edition === "externo" ? "Proyecto FV Montecristi → GPM" : "Modelo FV Montecristi → GPM"));
+  await check("fragmento en esqueleto host: vista renderizada", async () => /^Guía/.test(await host.textContent("main h1")));
   await check("fragmento en esqueleto host: body pinta var(--bg) sobre el reset del host", async () => (await host.evaluate(() => getComputedStyle(document.body).backgroundColor)) === "rgb(244, 245, 247)");
   await host.screenshot({ path: resolve(shots, "06-fragment-host-guia.png") });
 }
+
+
+// F1-01 / F1-04 (doc 25): ninguna vista muestra tokens de AST ni fórmulas crudas fuera de la columna «Fórmula del libro» de Controles,
+// y ninguna desborda horizontalmente el <main> (1280 px).
+const VIEWS = ["resumen","sensibilidad","supuestos","energia","capex","opex","fiscal","flujo","exergy","legal","tramites","riesgos","fuentes","controles","guia"];
+const sweep = await browser.newPage({ viewport: { width: 1280, height: 800 }, colorScheme: "light" });
+sweep.on("pageerror", (e) => errors.push(String(e)));
+const leaks = [], overflows = [];
+for (const v of VIEWS) {
+  await sweep.goto(`${url}#v=${v}&c=custom`);
+  await sweep.waitForSelector("main h1");
+  await sweep.waitForTimeout(150);
+  const r = await sweep.evaluate((view) => {
+    const main = document.querySelector("main");
+    const text = view === "controles" ? [...main.querySelectorAll("table tbody tr td:nth-child(-n+3)")].map((td) => td.innerText).join("\n") : main.innerText;
+    const leak = /fbin&|callTEXT|\bstr#|\bname[A-Z][A-Za-z_]+str|\[object Object\]/.test(text);
+    return { leak, over: main.scrollWidth - main.clientWidth };
+  }, v);
+  if (r.leak) leaks.push(v);
+  if (r.over > 0) overflows.push(`${v}:${r.over}px`);
+}
+await check("sin AST ni fórmulas crudas en el DOM de las 15 vistas (F1-01)", async () => { if (leaks.length) console.log("    vistas con fuga:", leaks); return leaks.length === 0; });
+await check("sin desborde horizontal de <main> en las 15 vistas (F1-04)", async () => { if (overflows.length) console.log("    desbordes:", overflows); return overflows.length === 0; });
 
 await check("sin errores de consola/página", async () => {
   const relevant = errors.filter((e) => !/fonts\.g(oogleapis|static)\.com|net::ERR|Failed to load resource/i.test(e));
