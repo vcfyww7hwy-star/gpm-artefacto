@@ -190,7 +190,7 @@ export function Resumen({ caseId, onNavigate }: Props) {
               return (
                 <li key={m.live(c.label)} className="grid grid-cols-[176px_minmax(0,1fr)] items-start gap-x-2 py-1.5">
                   <Status kind={statusOf(estado)} className="items-start leading-snug [&>span:first-child]:mt-1.5">{m.live(c.label)}</Status>
-                  <span className="text-ink-2"><span className="text-ink">{estado.replace(/^[●▲■◇]\s*/, "")}</span> · {c.criterio}</span>
+                  <span className="min-w-0 break-words text-ink-2"><span className="text-ink">{estado.replace(/^[●▲■◇]\s*/, "")}</span> · {m.live(c.criterio)}</span>
                 </li>
               );
             })}

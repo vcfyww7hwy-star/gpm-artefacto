@@ -1,0 +1,10 @@
+import { createRequire } from "node:module"; import { resolve } from "node:path"; import { pathToFileURL } from "node:url";
+const require = createRequire(import.meta.url); const { chromium } = require("/home/claude/.npm-global/lib/node_modules/playwright");
+const bundle = pathToFileURL(resolve(process.env.APP_DIR, "out/interno/bundle.html")).href;
+const browser = await chromium.launch(); const page = await browser.newPage({ viewport: { width: 1280, height: 800 } });
+await page.goto(`${bundle}#v=resumen&c=custom`); await page.waitForSelector("main h1"); await page.waitForTimeout(300);
+const sec = page.locator("section", { hasText: "Los cinco candados del régimen" }).first();
+await sec.scrollIntoViewIfNeeded(); await page.waitForTimeout(200);
+await sec.screenshot({ path: "out2_interno/resumen-candados-FIX.png" });
+console.log((await sec.innerText()).split("\n").filter(l => /Físico|Económico|Capacidad|Peaje de red/.test(l)).join("\n"));
+await browser.close();
