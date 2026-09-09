@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Los tokens viven en ./styles/tokens.css (importado antes que este archivo en
+   main.tsx). Aquí sólo se mapea el sistema de variables de shadcn/ui a esos
+   tokens — una indirección, sin bloque oscuro propio: los tokens ya cambian. */
+@layer base {
+  :root {
+    --background: var(--bg);
+    --foreground: var(--ink);
+    --card: var(--surface);
+    --card-foreground: var(--ink);
+    --popover: var(--surface);
+    --popover-foreground: var(--ink);
+    --primary: var(--accent);
+    --primary-foreground: var(--on-accent);
+    --secondary: var(--surface-2);
+    --secondary-foreground: var(--ink);
+    --muted: var(--surface-2);
+    --muted-foreground: var(--ink-2);
+    --destructive: var(--risk);
+    --destructive-foreground: var(--on-accent);
+    --border: var(--hairline);
+    --input: var(--hairline);
+    --ring: var(--accent);
+    --radius: var(--radius-2);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    /* El host pinta su propio fondo: el lienzo debe fijarse explícitamente. */
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.45;
+    font-variant-numeric: tabular-nums;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  #root {
+    min-height: 100dvh;
+  }
+
+  code,
+  kbd,
+  pre,
+  samp {
+    font-family: var(--font-mono);
+  }
+
+  ::selection {
+    background: var(--accent-soft);
+  }
+}
+
+@layer utilities {
+  /* Cifras: monoespaciado tabular y alineación a la derecha. */
+  .num {
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+}
+
+
+/* ---- impresión: sólo el contenido de la vista, a lo ancho, sin barras ni cajón ------------------------------- */
+@media print {
+  html, body, #root { height: auto !important; overflow: visible !important; background: #fff !important; }
+  #root > div { display: block !important; height: auto !important; }
+  #root header, #root nav, #root aside, .print\:hidden { display: none !important; }
+  main { overflow: visible !important; height: auto !important; padding: 0 !important; }
+  main > div { max-width: none !important; }
+  section, table, svg { break-inside: avoid; }
+  a { text-decoration: none; }
+}
+
+/* ---- destino de la paleta ⌘K: resalte breve ----------------------------------------------------------------- */
+@keyframes focus-flash { 0% { box-shadow: 0 0 0 0 var(--accent-soft), inset 0 0 0 999px var(--accent-soft); } 100% { box-shadow: none; } }
+.focus-flash { animation: focus-flash 2.4s ease-out 1; outline: 1px solid var(--accent); outline-offset: 1px; border-radius: 3px; }
+tr.focus-flash > td:first-child { box-shadow: inset 2px 0 0 var(--accent); }

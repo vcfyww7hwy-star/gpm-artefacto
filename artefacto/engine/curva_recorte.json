@@ -1,0 +1,100 @@
+[
+ {
+  "ratio": 1.0,
+  "yield": 1299.85,
+  "clipping": 0.0,
+  "rel_vs_132": 0.00178,
+  "horas": 0
+ },
+ {
+  "ratio": 1.05,
+  "yield": 1299.85,
+  "clipping": 0.0,
+  "rel_vs_132": 0.00178,
+  "horas": 0
+ },
+ {
+  "ratio": 1.1,
+  "yield": 1299.85,
+  "clipping": 0.0,
+  "rel_vs_132": 0.00178,
+  "horas": 0
+ },
+ {
+  "ratio": 1.15,
+  "yield": 1299.83,
+  "clipping": 1e-05,
+  "rel_vs_132": 0.00177,
+  "horas": 2
+ },
+ {
+  "ratio": 1.2,
+  "yield": 1299.69,
+  "clipping": 0.00012,
+  "rel_vs_132": 0.00166,
+  "horas": 8
+ },
+ {
+  "ratio": 1.25,
+  "yield": 1299.25,
+  "clipping": 0.00046,
+  "rel_vs_132": 0.00132,
+  "horas": 24
+ },
+ {
+  "ratio": 1.3,
+  "yield": 1298.17,
+  "clipping": 0.00129,
+  "rel_vs_132": 0.00049,
+  "horas": 47
+ },
+ {
+  "ratio": 1.32,
+  "yield": 1297.54,
+  "clipping": 0.00178,
+  "rel_vs_132": 0.0,
+  "horas": 62
+ },
+ {
+  "ratio": 1.35,
+  "yield": 1296.28,
+  "clipping": 0.00275,
+  "rel_vs_132": -0.00098,
+  "horas": 88
+ },
+ {
+  "ratio": 1.4,
+  "yield": 1293.52,
+  "clipping": 0.00487,
+  "rel_vs_132": -0.0031,
+  "horas": 120
+ },
+ {
+  "ratio": 1.45,
+  "yield": 1290.07,
+  "clipping": 0.00752,
+  "rel_vs_132": -0.00576,
+  "horas": 160
+ },
+ {
+  "ratio": 1.5,
+  "yield": 1286.1,
+  "clipping": 0.01057,
+  "rel_vs_132": -0.00881,
+  "horas": 193
+ },
+ {
+  "ratio": 1.55,
+  "yield": 1281.26,
+  "clipping": 0.0143,
+  "rel_vs_132": -0.01255,
+  "horas": 267
+ },
+ {
+  "ratio": 1.6,
+  "yield": 1274.94,
+  "clipping": 0.01917,
+  "rel_vs_132": -0.01742,
+  "horas": 358
+ }
+]

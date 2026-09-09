@@ -1,0 +1,11 @@
+node_modules/
+artefacto/app/out/
+artefacto/app/dist/
+artefacto/app/.parcel-cache/
+artefacto/app/bundle.html
+__pycache__/
+*.xlsx
+*.pdf
+*.tar.gz
+*.zip
+.DS_Store

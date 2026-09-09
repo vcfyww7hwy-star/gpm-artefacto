@@ -1,0 +1,142 @@
+/* ============================================================================
+   Design tokens — Modelo FV Montecristi → GPM
+   Tres capas, en este orden y sin excepciones:
+     (a) paleta clara completa en :root (todo color se define aquí primero);
+     (b) redefiniciones oscuras bajo prefers-color-scheme: dark, salvo que el
+         host fije data-theme="light";
+     (c) redefiniciones oscuras bajo [data-theme="dark"] (elección explícita).
+   Ningún color se define únicamente dentro de un bloque @media / [data-theme].
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* --- fondos ------------------------------------------------------------ */
+  --bg: #f4f5f7;          /* lienzo de la app (el host pinta su propio fondo) */
+  --surface: #ffffff;     /* tarjetas, barras, paneles */
+  --surface-2: #fafbfc;   /* superficie secundaria / cabeceras de tabla */
+  --hairline: #e3e6ea;    /* bordes finos (1px) */
+
+  /* --- tinta (texto) ------------------------------------------------------- */
+  --ink: #14171c;         /* texto principal, cifras */
+  --ink-2: #586170;       /* texto secundario, etiquetas */
+  --ink-3: #8b94a3;       /* texto terciario, ejes, pistas */
+
+  /* --- acento «tinta»: editable / interactivo / caso Custom ---------------- */
+  --accent: #2a5bd7;
+  --accent-soft: rgba(42, 91, 215, 0.12); /* --accent al 12 % */
+  --on-accent: #ffffff;                    /* texto sobre --accent (extra) */
+
+  /* --- estado -------------------------------------------------------------- */
+  --ok: #2e7d57;
+  --warn-text: #996311;   /* advertencia como texto (contraste AA sobre --surface) */
+  --warn-fill: #b7791f;   /* advertencia como relleno / trazo */
+  --risk: #b23a32;
+  --info: #6f7987;
+
+  /* --- casos ordinales (Conservador · Base · Favorable): grises + trazo ----- */
+  --c-conservador: #2b2f36;
+  --c-base: #6b7280;
+  --c-favorable: #a9aeb6;
+  --dash-conservador: 6 3;
+  --dash-base: 0;         /* trazo continuo */
+  --dash-favorable: 2 3;
+
+  /* --- categóricos (comparaciones de ≤3 series) ---------------------------- */
+  --cat-1: #2a5bd7;
+  --cat-2: #d9722c;
+  --cat-3: #159c6e;
+
+  /* --- interacción (extras, derivados de --ink) ---------------------------- */
+  --surface-hover: rgba(20, 23, 28, 0.06); /* relleno hover/selección */
+
+  /* --- tipografía ---------------------------------------------------------- */
+  --font-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "IBM Plex Serif", Georgia, serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* --- espaciado (base 4 px), radios, sombra ------------------------------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --radius-1: 4px;
+  --radius-2: 8px;
+  --shadow-1: 0 1px 2px rgba(20, 23, 28, 0.06), 0 0 0 1px rgba(20, 23, 28, 0.04);
+}
+
+/* (b) Preferencia del sistema: oscuro, salvo elección explícita «light». */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+
+    --bg: #0f1216;
+    --surface: #161a20;
+    --surface-2: #1c2129;
+    --hairline: #2a313b;
+
+    --ink: #eef1f5;
+    --ink-2: #a5aebb;
+    --ink-3: #6f7987;
+
+    --accent: #6d96f0;
+    --accent-soft: rgba(109, 150, 240, 0.12);
+    --on-accent: #0f1216;
+
+    --ok: #5dbb8a;
+    --warn-text: #e0a63a;
+    --warn-fill: #e0a63a;
+    --risk: #e5665d;
+    --info: #8f99a8;
+
+    --c-conservador: #e6e8eb;
+    --c-base: #a0a6ae;
+    --c-favorable: #656b73;
+
+    --cat-1: #4a8cec;
+    --cat-2: #d65e2b;
+    --cat-3: #1fa476;
+
+    --surface-hover: rgba(238, 241, 245, 0.07);
+    --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  }
+}
+
+/* (c) Elección explícita «dark»: gana en ambas direcciones. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: #0f1216;
+  --surface: #161a20;
+  --surface-2: #1c2129;
+  --hairline: #2a313b;
+
+  --ink: #eef1f5;
+  --ink-2: #a5aebb;
+  --ink-3: #6f7987;
+
+  --accent: #6d96f0;
+  --accent-soft: rgba(109, 150, 240, 0.12);
+  --on-accent: #0f1216;
+
+  --ok: #5dbb8a;
+  --warn-text: #e0a63a;
+  --warn-fill: #e0a63a;
+  --risk: #e5665d;
+  --info: #8f99a8;
+
+  --c-conservador: #e6e8eb;
+  --c-base: #a0a6ae;
+  --c-favorable: #656b73;
+
+  --cat-1: #4a8cec;
+  --cat-2: #d65e2b;
+  --cat-3: #1fa476;
+
+  --surface-hover: rgba(238, 241, 245, 0.07);
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.04);
+}

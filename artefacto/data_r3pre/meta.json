@@ -1,0 +1,19 @@
+{
+ "version": "v3.1",
+ "fecha_analisis": "2026-09-08",
+ "raw": {
+  "path": "/root/gpm13/out30/Modelo_FV_5MWp_GPM_v3.1_r3pre_raw.xlsx",
+  "sha256": "54129189379bb437a65bfb07fa7b748ceaa7f10c45b28287ac80b465b481bacc"
+ },
+ "calc": {
+  "path": "/root/gpm13/out30/Modelo_FV_5MWp_GPM_v3.1_r3pre_calc.xlsx",
+  "sha256": "26f30e9fc024ff2e8c180f1623005a3ff40eead27f3ef6c2f073fc8dbe765bdc"
+ },
+ "n_names": 317,
+ "n_cases": 111,
+ "n_params": 30,
+ "n_scalars": 22,
+ "n_outputs": 16,
+ "n_blocks": 28,
+ "extracted": "2026-09-08T22:18:17.423176Z"
+}

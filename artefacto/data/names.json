@@ -1,0 +1,3474 @@
+{
+"Consumo_Anual": {
+"sheet": "04_Energia",
+"ref": "K29",
+"value": 10417111.1444286,
+"formula": "=SUM(K17:K28)"
+},
+"Cobertura_Anual": {
+"sheet": "04_Energia",
+"ref": "J45",
+"value": 0.602460693083469,
+"formula": "=I45/K29"
+},
+"Perfil_Mensual": {
+"sheet": "04_Energia",
+"ref": "D33:D44",
+"value": [
+[
+0.0746753246753247
+],
+[
+0.0706555349412492
+],
+[
+0.0929189857761286
+],
+[
+0.0946196660482375
+],
+[
+0.0902906617192332
+],
+[
+0.0793135435992579
+],
+[
+0.0796227581941868
+],
+[
+0.0850340136054422
+],
+[
+0.0875077303648732
+],
+[
+0.0853432282003711
+],
+[
+0.080395794681509
+],
+[
+0.0796227581941869
+]
+],
+"formula": [
+[
+0.07467532467532467
+],
+[
+0.07065553494124922
+],
+[
+0.09291898577612863
+],
+[
+0.09461966604823747
+],
+[
+0.09029066171923315
+],
+[
+0.07931354359925788
+],
+[
+0.07962275819418677
+],
+[
+0.08503401360544217
+],
+[
+0.08750773036487322
+],
+[
+0.08534322820037106
+],
+[
+0.08039579468150897
+],
+[
+0.07962275819418685
+]
+]
+},
+"Tarifa_Evitable": {
+"sheet": "04_Energia",
+"ref": "K61",
+"value": 0.112752,
+"formula": "=J61/I45"
+},
+"Ahorro_Mensual_Anio1": {
+"sheet": "04_Energia",
+"ref": "J61",
+"value": 707620.2768,
+"formula": "=SUM(J49:J60)"
+},
+"Factor_Nivel_2026": {
+"sheet": "04_Energia",
+"ref": "D72",
+"value": 1.17197693697624,
+"formula": "=E71/D71"
+},
+"Factura_Referencia": {
+"sheet": "04_Energia",
+"ref": "D76",
+"value": 1275954.69666187,
+"formula": "=H29*Tarifa_A+I29*Tarifa_A+J29*Tarifa_C+D74*Cargo_Demanda*D75*12+(Cargo_Comercializacion+SAPG_mes)*12"
+},
+"Reduccion_Factura": {
+"sheet": "04_Energia",
+"ref": "D77",
+"value": 0.554581035401384,
+"formula": "=J61/D76"
+},
+"CR_Ratio": {
+"sheet": "04_Energia",
+"ref": "H66:H79",
+"value": [
+[
+1
+],
+[
+1.05
+],
+[
+1.1
+],
+[
+1.15
+],
+[
+1.2
+],
+[
+1.25
+],
+[
+1.3
+],
+[
+1.32
+],
+[
+1.35
+],
+[
+1.4
+],
+[
+1.45
+],
+[
+1.5
+],
+[
+1.55
+],
+[
+1.6
+]
+],
+"formula": [
+[
+1
+],
+[
+1.05
+],
+[
+1.1
+],
+[
+1.15
+],
+[
+1.2
+],
+[
+1.25
+],
+[
+1.3
+],
+[
+1.32
+],
+[
+1.35
+],
+[
+1.4
+],
+[
+1.45
+],
+[
+1.5
+],
+[
+1.55
+],
+[
+1.6
+]
+]
+},
+"CR_Loss": {
+"sheet": "04_Energia",
+"ref": "I66:I79",
+"value": [
+[
+0
+],
+[
+0
+],
+[
+0
+],
+[
+1e-05
+],
+[
+0.00012
+],
+[
+0.00046
+],
+[
+0.00129
+],
+[
+0.00178
+],
+[
+0.00275
+],
+[
+0.00487
+],
+[
+0.00752
+],
+[
+0.01057
+],
+[
+0.0143
+],
+[
+0.01917
+]
+],
+"formula": [
+[
+0
+],
+[
+0
+],
+[
+0
+],
+[
+1e-05
+],
+[
+0.00012
+],
+[
+0.00046
+],
+[
+0.00129
+],
+[
+0.00178
+],
+[
+0.00275
+],
+[
+0.00487
+],
+[
+0.00752
+],
+[
+0.01057
+],
+[
+0.0143
+],
+[
+0.01917
+]
+]
+},
+"Loss_Ref": {
+"sheet": "04_Energia",
+"ref": "J80",
+"value": 0.00178,
+"formula": "=(INDEX(CR_Loss,MIN(MATCH(MIN(MAX(Ratio_Ref,INDEX(CR_Ratio,1)),INDEX(CR_Ratio,ROWS(CR_Ratio))),CR_Ratio,1),ROWS(CR_Ratio)-1))+(MIN(MAX(Ratio_Ref,INDEX(CR_Ratio,1)),INDEX(CR_Ratio,ROWS(CR_Ratio)))-INDEX(CR_Ratio,MIN(MATCH(MIN(MAX(Ratio_Ref,INDEX(CR_Ratio,1)),INDEX(CR_Ratio,ROWS(CR_Ratio))),CR_Ratio,1),ROWS(CR_Ratio)-1)))*(INDEX(CR_Loss,MIN(MATCH(MIN(MAX(Ratio_Ref,INDEX(CR_Ratio,1)),INDEX(CR_Ratio,ROWS(CR_Ratio))),CR_Ratio,1),ROWS(CR_Ratio)-1)+1)-INDEX(CR_Loss,MIN(MATCH(MIN(MAX(Ratio_Ref,INDEX(CR_Ratio,1)),INDEX(CR_Ratio,ROWS(CR_Ratio))),CR_Ratio,1),ROWS(CR_Ratio)-1)))/(INDEX(CR_Ratio,MIN(MATCH(MIN(MAX(Ratio_Ref,INDEX(CR_Ratio,1)),INDEX(CR_Ratio,ROWS(CR_Ratio))),CR_Ratio,1),ROWS(CR_Ratio)-1)+1)-INDEX(CR_Ratio,MIN(MATCH(MIN(MAX(Ratio_Ref,INDEX(CR_Ratio,1)),INDEX(CR_Ratio,ROWS(CR_Ratio))),CR_Ratio,1),ROWS(CR_Ratio)-1))))"
+},
+"Loss_Act": {
+"sheet": "04_Energia",
+"ref": "J81",
+"value": 0.00178,
+"formula": "=(INDEX(CR_Loss,MIN(MATCH(MIN(MAX(Ratio_DCAC,INDEX(CR_Ratio,1)),INDEX(CR_Ratio,ROWS(CR_Ratio))),CR_Ratio,1),ROWS(CR_Ratio)-1))+(MIN(MAX(Ratio_DCAC,INDEX(CR_Ratio,1)),INDEX(CR_Ratio,ROWS(CR_Ratio)))-INDEX(CR_Ratio,MIN(MATCH(MIN(MAX(Ratio_DCAC,INDEX(CR_Ratio,1)),INDEX(CR_Ratio,ROWS(CR_Ratio))),CR_Ratio,1),ROWS(CR_Ratio)-1)))*(INDEX(CR_Loss,MIN(MATCH(MIN(MAX(Ratio_DCAC,INDEX(CR_Ratio,1)),INDEX(CR_Ratio,ROWS(CR_Ratio))),CR_Ratio,1),ROWS(CR_Ratio)-1)+1)-INDEX(CR_Loss,MIN(MATCH(MIN(MAX(Ratio_DCAC,INDEX(CR_Ratio,1)),INDEX(CR_Ratio,ROWS(CR_Ratio))),CR_Ratio,1),ROWS(CR_Ratio)-1)))/(INDEX(CR_Ratio,MIN(MATCH(MIN(MAX(Ratio_DCAC,INDEX(CR_Ratio,1)),INDEX(CR_Ratio,ROWS(CR_Ratio))),CR_Ratio,1),ROWS(CR_Ratio)-1)+1)-INDEX(CR_Ratio,MIN(MATCH(MIN(MAX(Ratio_DCAC,INDEX(CR_Ratio,1)),INDEX(CR_Ratio,ROWS(CR_Ratio))),CR_Ratio,1),ROWS(CR_Ratio)-1))))"
+},
+"F_Recorte": {
+"sheet": "04_Energia",
+"ref": "J82",
+"value": 1,
+"formula": "=(1-Loss_Act)/(1-Loss_Ref)"
+},
+"Y_P50": {
+"sheet": "04_Energia",
+"ref": "F91:AI91",
+"value": [
+[
+1294,
+1286.8,
+1279.6,
+1272.6,
+1265.6,
+1258.8,
+1251.8,
+1244.8,
+1238,
+1231.2,
+1224.4,
+1217.6,
+1211,
+1204.4,
+1197.6,
+1191.2,
+1184.6,
+1178,
+1171.6,
+1165.2,
+1158.8,
+1152.4,
+1146,
+1139.6,
+1133.6,
+1127.2,
+1121,
+1114.8,
+1108.8,
+1102.6
+]
+],
+"formula": [
+[
+1294,
+1286.8,
+1279.6,
+1272.6,
+1265.6,
+1258.8,
+1251.8,
+1244.8,
+1238,
+1231.2,
+1224.4,
+1217.6,
+1211,
+1204.4,
+1197.6,
+1191.2,
+1184.6,
+1178,
+1171.6,
+1165.2,
+1158.8,
+1152.4,
+1146,
+1139.6,
+1133.6,
+1127.2,
+1121,
+1114.8,
+1108.8,
+1102.6
+]
+]
+},
+"Y_P90": {
+"sheet": "04_Energia",
+"ref": "F92:AI92",
+"value": [
+[
+1155.4,
+1149.2,
+1142.8,
+1136.4,
+1130.2,
+1124,
+1117.8,
+1111.6,
+1105.6,
+1099.6,
+1093.4,
+1087.4,
+1081.4,
+1075.6,
+1069.6,
+1063.6,
+1057.8,
+1052,
+1046.2,
+1040.4,
+1034.8,
+1029,
+1023.4,
+1017.8,
+1012.2,
+1006.6,
+1001.2,
+995.6,
+990,
+984.6
+]
+],
+"formula": [
+[
+1155.4,
+1149.2,
+1142.8,
+1136.4,
+1130.2,
+1124,
+1117.8,
+1111.6,
+1105.6,
+1099.6,
+1093.4,
+1087.4,
+1081.4,
+1075.6,
+1069.6,
+1063.6,
+1057.8,
+1052,
+1046.2,
+1040.4,
+1034.8,
+1029,
+1023.4,
+1017.8,
+1012.2,
+1006.6,
+1001.2,
+995.6,
+990,
+984.6
+]
+]
+},
+"E_P50": {
+"sheet": "04_Energia",
+"ref": "F93:AI93",
+"value": [
+[
+6275.9,
+6178.5702,
+6082.559406,
+5988.79216089,
+5896.2920047416,
+5805.96543284848,
+5715.94252744783,
+5627.13948361191,
+5540.43596875356,
+5454.90381024401,
+5370.52825130778,
+5287.29471316925,
+5206.04858629393,
+5125.89865248479,
+5045.98842905482,
+4968.83233343621,
+4891.8888468491,
+4815.98734676039,
+4741.92416613737,
+4668.86065039214,
+4596.7842125452,
+4525.68241739016,
+4455.54297971697,
+4386.3537625555,
+4319.62699103246,
+4252.28714612638,
+4186.60907727076,
+4121.81934107763,
+4058.63881640923,
+3995.58496336859
+]
+],
+"formula": [
+[
+"=Potencia_DC/1000*F_Recorte*F91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,F$89-1)",
+"=Potencia_DC/1000*F_Recorte*G91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,G$89-1)",
+"=Potencia_DC/1000*F_Recorte*H91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,H$89-1)",
+"=Potencia_DC/1000*F_Recorte*I91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,I$89-1)",
+"=Potencia_DC/1000*F_Recorte*J91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,J$89-1)",
+"=Potencia_DC/1000*F_Recorte*K91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,K$89-1)",
+"=Potencia_DC/1000*F_Recorte*L91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,L$89-1)",
+"=Potencia_DC/1000*F_Recorte*M91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,M$89-1)",
+"=Potencia_DC/1000*F_Recorte*N91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,N$89-1)",
+"=Potencia_DC/1000*F_Recorte*O91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,O$89-1)",
+"=Potencia_DC/1000*F_Recorte*P91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,P$89-1)",
+"=Potencia_DC/1000*F_Recorte*Q91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,Q$89-1)",
+"=Potencia_DC/1000*F_Recorte*R91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,R$89-1)",
+"=Potencia_DC/1000*F_Recorte*S91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,S$89-1)",
+"=Potencia_DC/1000*F_Recorte*T91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,T$89-1)",
+"=Potencia_DC/1000*F_Recorte*U91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,U$89-1)",
+"=Potencia_DC/1000*F_Recorte*V91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,V$89-1)",
+"=Potencia_DC/1000*F_Recorte*W91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,W$89-1)",
+"=Potencia_DC/1000*F_Recorte*X91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,X$89-1)",
+"=Potencia_DC/1000*F_Recorte*Y91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,Y$89-1)",
+"=Potencia_DC/1000*F_Recorte*Z91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,Z$89-1)",
+"=Potencia_DC/1000*F_Recorte*AA91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,AA$89-1)",
+"=Potencia_DC/1000*F_Recorte*AB91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,AB$89-1)",
+"=Potencia_DC/1000*F_Recorte*AC91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,AC$89-1)",
+"=Potencia_DC/1000*F_Recorte*AD91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,AD$89-1)",
+"=Potencia_DC/1000*F_Recorte*AE91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,AE$89-1)",
+"=Potencia_DC/1000*F_Recorte*AF91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,AF$89-1)",
+"=Potencia_DC/1000*F_Recorte*AG91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,AG$89-1)",
+"=Potencia_DC/1000*F_Recorte*AH91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,AH$89-1)",
+"=Potencia_DC/1000*F_Recorte*AI91*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,AI$89-1)"
+]
+]
+},
+"E_P90": {
+"sheet": "04_Energia",
+"ref": "F94:AI94",
+"value": [
+[
+5603.69,
+5517.8838,
+5432.282658,
+5347.84175046,
+5265.4782109347,
+5184.22715802486,
+5104.07457835212,
+5025.00662755704,
+4947.90469067362,
+4871.84229186511,
+4795.92909995094,
+4721.9154657525,
+4648.90251132804,
+4577.7288198378,
+4506.67102848784,
+4436.5766200829,
+4368.25934678117,
+4300.86476128347,
+4234.38124156105,
+4168.79730575694,
+4104.89498027423,
+4041.06838553842,
+3978.88541487116,
+3917.54199677869,
+3857.02755850657,
+3797.33165480023,
+3739.19090826359,
+3681.09377105929,
+3623.78465750824,
+3567.97837378261
+]
+],
+"formula": [
+[
+"=Potencia_DC/1000*F_Recorte*F92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,F$89-1)",
+"=Potencia_DC/1000*F_Recorte*G92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,G$89-1)",
+"=Potencia_DC/1000*F_Recorte*H92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,H$89-1)",
+"=Potencia_DC/1000*F_Recorte*I92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,I$89-1)",
+"=Potencia_DC/1000*F_Recorte*J92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,J$89-1)",
+"=Potencia_DC/1000*F_Recorte*K92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,K$89-1)",
+"=Potencia_DC/1000*F_Recorte*L92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,L$89-1)",
+"=Potencia_DC/1000*F_Recorte*M92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,M$89-1)",
+"=Potencia_DC/1000*F_Recorte*N92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,N$89-1)",
+"=Potencia_DC/1000*F_Recorte*O92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,O$89-1)",
+"=Potencia_DC/1000*F_Recorte*P92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,P$89-1)",
+"=Potencia_DC/1000*F_Recorte*Q92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,Q$89-1)",
+"=Potencia_DC/1000*F_Recorte*R92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,R$89-1)",
+"=Potencia_DC/1000*F_Recorte*S92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,S$89-1)",
+"=Potencia_DC/1000*F_Recorte*T92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,T$89-1)",
+"=Potencia_DC/1000*F_Recorte*U92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,U$89-1)",
+"=Potencia_DC/1000*F_Recorte*V92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,V$89-1)",
+"=Potencia_DC/1000*F_Recorte*W92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,W$89-1)",
+"=Potencia_DC/1000*F_Recorte*X92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,X$89-1)",
+"=Potencia_DC/1000*F_Recorte*Y92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,Y$89-1)",
+"=Potencia_DC/1000*F_Recorte*Z92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,Z$89-1)",
+"=Potencia_DC/1000*F_Recorte*AA92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,AA$89-1)",
+"=Potencia_DC/1000*F_Recorte*AB92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,AB$89-1)",
+"=Potencia_DC/1000*F_Recorte*AC92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,AC$89-1)",
+"=Potencia_DC/1000*F_Recorte*AD92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,AD$89-1)",
+"=Potencia_DC/1000*F_Recorte*AE92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,AE$89-1)",
+"=Potencia_DC/1000*F_Recorte*AF92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,AF$89-1)",
+"=Potencia_DC/1000*F_Recorte*AG92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,AG$89-1)",
+"=Potencia_DC/1000*F_Recorte*AH92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,AH$89-1)",
+"=Potencia_DC/1000*F_Recorte*AI92*Disponibilidad*(1-Degradacion_Adicional)^MAX(0,AI$89-1)"
+]
+]
+},
+"E_Activa": {
+"sheet": "04_Energia",
+"ref": "D95:AD95",
+"value": [
+[
+0,
+0,
+6275.9,
+6178.5702,
+6082.559406,
+5988.79216089,
+5896.2920047416,
+5805.96543284848,
+5715.94252744783,
+5627.13948361191,
+5540.43596875356,
+5454.90381024401,
+5370.52825130778,
+5287.29471316925,
+5206.04858629393,
+5125.89865248479,
+5045.98842905482,
+4968.83233343621,
+4891.8888468491,
+4815.98734676039,
+4741.92416613737,
+4668.86065039214,
+4596.7842125452,
+4525.68241739016,
+4455.54297971697,
+4386.3537625555,
+4319.62699103246
+]
+],
+"formula": [
+[
+"=IF(OR(D$89<1,D$89>Horizonte),0,IF(Eff_Scen=1,D93,D94))",
+"=IF(OR(E$89<1,E$89>Horizonte),0,IF(Eff_Scen=1,E93,E94))",
+"=IF(OR(F$89<1,F$89>Horizonte),0,IF(Eff_Scen=1,F93,F94))",
+"=IF(OR(G$89<1,G$89>Horizonte),0,IF(Eff_Scen=1,G93,G94))",
+"=IF(OR(H$89<1,H$89>Horizonte),0,IF(Eff_Scen=1,H93,H94))",
+"=IF(OR(I$89<1,I$89>Horizonte),0,IF(Eff_Scen=1,I93,I94))",
+"=IF(OR(J$89<1,J$89>Horizonte),0,IF(Eff_Scen=1,J93,J94))",
+"=IF(OR(K$89<1,K$89>Horizonte),0,IF(Eff_Scen=1,K93,K94))",
+"=IF(OR(L$89<1,L$89>Horizonte),0,IF(Eff_Scen=1,L93,L94))",
+"=IF(OR(M$89<1,M$89>Horizonte),0,IF(Eff_Scen=1,M93,M94))",
+"=IF(OR(N$89<1,N$89>Horizonte),0,IF(Eff_Scen=1,N93,N94))",
+"=IF(OR(O$89<1,O$89>Horizonte),0,IF(Eff_Scen=1,O93,O94))",
+"=IF(OR(P$89<1,P$89>Horizonte),0,IF(Eff_Scen=1,P93,P94))",
+"=IF(OR(Q$89<1,Q$89>Horizonte),0,IF(Eff_Scen=1,Q93,Q94))",
+"=IF(OR(R$89<1,R$89>Horizonte),0,IF(Eff_Scen=1,R93,R94))",
+"=IF(OR(S$89<1,S$89>Horizonte),0,IF(Eff_Scen=1,S93,S94))",
+"=IF(OR(T$89<1,T$89>Horizonte),0,IF(Eff_Scen=1,T93,T94))",
+"=IF(OR(U$89<1,U$89>Horizonte),0,IF(Eff_Scen=1,U93,U94))",
+"=IF(OR(V$89<1,V$89>Horizonte),0,IF(Eff_Scen=1,V93,V94))",
+"=IF(OR(W$89<1,W$89>Horizonte),0,IF(Eff_Scen=1,W93,W94))",
+"=IF(OR(X$89<1,X$89>Horizonte),0,IF(Eff_Scen=1,X93,X94))",
+"=IF(OR(Y$89<1,Y$89>Horizonte),0,IF(Eff_Scen=1,Y93,Y94))",
+"=IF(OR(Z$89<1,Z$89>Horizonte),0,IF(Eff_Scen=1,Z93,Z94))",
+"=IF(OR(AA$89<1,AA$89>Horizonte),0,IF(Eff_Scen=1,AA93,AA94))",
+"=IF(OR(AB$89<1,AB$89>Horizonte),0,IF(Eff_Scen=1,AB93,AB94))",
+"=IF(OR(AC$89<1,AC$89>Horizonte),0,IF(Eff_Scen=1,AC93,AC94))",
+"=IF(OR(AD$89<1,AD$89>Horizonte),0,IF(Eff_Scen=1,AD93,AD94))"
+]
+]
+},
+"E_Val": {
+"sheet": "04_Energia",
+"ref": "D96:AD96",
+"value": [
+[
+0,
+0,
+6275.9,
+6178.5702,
+6082.559406,
+5988.79216089,
+5896.2920047416,
+5805.96543284848,
+5715.94252744783,
+5627.13948361191,
+5540.43596875356,
+5454.90381024401,
+5370.52825130778,
+5287.29471316925,
+5206.04858629393,
+5125.89865248479,
+5045.98842905482,
+4968.83233343621,
+4891.8888468491,
+4815.98734676039,
+4741.92416613737,
+4668.86065039214,
+4596.7842125452,
+4525.68241739016,
+4455.54297971697,
+4386.3537625555,
+4319.62699103246
+]
+],
+"formula": [
+[
+"=MIN(D95,IF(D$89<1,0,Consumo_Anual*(1+Crecimiento_Consumo)^(D$89-1)/1000))",
+"=MIN(E95,IF(E$89<1,0,Consumo_Anual*(1+Crecimiento_Consumo)^(E$89-1)/1000))",
+"=MIN(F95,IF(F$89<1,0,Consumo_Anual*(1+Crecimiento_Consumo)^(F$89-1)/1000))",
+"=MIN(G95,IF(G$89<1,0,Consumo_Anual*(1+Crecimiento_Consumo)^(G$89-1)/1000))",
+"=MIN(H95,IF(H$89<1,0,Consumo_Anual*(1+Crecimiento_Consumo)^(H$89-1)/1000))",
+"=MIN(I95,IF(I$89<1,0,Consumo_Anual*(1+Crecimiento_Consumo)^(I$89-1)/1000))",
+"=MIN(J95,IF(J$89<1,0,Consumo_Anual*(1+Crecimiento_Consumo)^(J$89-1)/1000))",
+"=MIN(K95,IF(K$89<1,0,Consumo_Anual*(1+Crecimiento_Consumo)^(K$89-1)/1000))",
+"=MIN(L95,IF(L$89<1,0,Consumo_Anual*(1+Crecimiento_Consumo)^(L$89-1)/1000))",
+"=MIN(M95,IF(M$89<1,0,Consumo_Anual*(1+Crecimiento_Consumo)^(M$89-1)/1000))",
+"=MIN(N95,IF(N$89<1,0,Consumo_Anual*(1+Crecimiento_Consumo)^(N$89-1)/1000))",
+"=MIN(O95,IF(O$89<1,0,Consumo_Anual*(1+Crecimiento_Consumo)^(O$89-1)/1000))",
+"=MIN(P95,IF(P$89<1,0,Consumo_Anual*(1+Crecimiento_Consumo)^(P$89-1)/1000))",
+"=MIN(Q95,IF(Q$89<1,0,Consumo_Anual*(1+Crecimiento_Consumo)^(Q$89-1)/1000))",
+"=MIN(R95,IF(R$89<1,0,Consumo_Anual*(1+Crecimiento_Consumo)^(R$89-1)/1000))",
+"=MIN(S95,IF(S$89<1,0,Consumo_Anual*(1+Crecimiento_Consumo)^(S$89-1)/1000))",
+"=MIN(T95,IF(T$89<1,0,Consumo_Anual*(1+Crecimiento_Consumo)^(T$89-1)/1000))",
+"=MIN(U95,IF(U$89<1,0,Consumo_Anual*(1+Crecimiento_Consumo)^(U$89-1)/1000))",
+"=MIN(V95,IF(V$89<1,0,Consumo_Anual*(1+Crecimiento_Consumo)^(V$89-1)/1000))",
+"=MIN(W95,IF(W$89<1,0,Consumo_Anual*(1+Crecimiento_Consumo)^(W$89-1)/1000))",
+"=MIN(X95,IF(X$89<1,0,Consumo_Anual*(1+Crecimiento_Consumo)^(X$89-1)/1000))",
+"=MIN(Y95,IF(Y$89<1,0,Consumo_Anual*(1+Crecimiento_Consumo)^(Y$89-1)/1000))",
+"=MIN(Z95,IF(Z$89<1,0,Consumo_Anual*(1+Crecimiento_Consumo)^(Z$89-1)/1000))",
+"=MIN(AA95,IF(AA$89<1,0,Consumo_Anual*(1+Crecimiento_Consumo)^(AA$89-1)/1000))",
+"=MIN(AB95,IF(AB$89<1,0,Consumo_Anual*(1+Crecimiento_Consumo)^(AB$89-1)/1000))",
+"=MIN(AC95,IF(AC$89<1,0,Consumo_Anual*(1+Crecimiento_Consumo)^(AC$89-1)/1000))",
+"=MIN(AD95,IF(AD$89<1,0,Consumo_Anual*(1+Crecimiento_Consumo)^(AD$89-1)/1000))"
+]
+]
+},
+"Frac_Peaje": {
+"sheet": "04_Energia",
+"ref": "D99:AD99",
+"value": [
+[
+0,
+0,
+0.336986301369863,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1,
+1
+]
+],
+"formula": [
+[
+"=IF(D$89<1,0,MAX(0,MIN(1,(EDATE(Fecha_COD,12*D$89)-MAX(Fecha_Peaje,EDATE(Fecha_COD,12*(D$89-1))))/(EDATE(Fecha_COD,12*D$89)-EDATE(Fecha_COD,12*(D$89-1))))))",
+"=IF(E$89<1,0,MAX(0,MIN(1,(EDATE(Fecha_COD,12*E$89)-MAX(Fecha_Peaje,EDATE(Fecha_COD,12*(E$89-1))))/(EDATE(Fecha_COD,12*E$89)-EDATE(Fecha_COD,12*(E$89-1))))))",
+"=IF(F$89<1,0,MAX(0,MIN(1,(EDATE(Fecha_COD,12*F$89)-MAX(Fecha_Peaje,EDATE(Fecha_COD,12*(F$89-1))))/(EDATE(Fecha_COD,12*F$89)-EDATE(Fecha_COD,12*(F$89-1))))))",
+"=IF(G$89<1,0,MAX(0,MIN(1,(EDATE(Fecha_COD,12*G$89)-MAX(Fecha_Peaje,EDATE(Fecha_COD,12*(G$89-1))))/(EDATE(Fecha_COD,12*G$89)-EDATE(Fecha_COD,12*(G$89-1))))))",
+"=IF(H$89<1,0,MAX(0,MIN(1,(EDATE(Fecha_COD,12*H$89)-MAX(Fecha_Peaje,EDATE(Fecha_COD,12*(H$89-1))))/(EDATE(Fecha_COD,12*H$89)-EDATE(Fecha_COD,12*(H$89-1))))))",
+"=IF(I$89<1,0,MAX(0,MIN(1,(EDATE(Fecha_COD,12*I$89)-MAX(Fecha_Peaje,EDATE(Fecha_COD,12*(I$89-1))))/(EDATE(Fecha_COD,12*I$89)-EDATE(Fecha_COD,12*(I$89-1))))))",
+"=IF(J$89<1,0,MAX(0,MIN(1,(EDATE(Fecha_COD,12*J$89)-MAX(Fecha_Peaje,EDATE(Fecha_COD,12*(J$89-1))))/(EDATE(Fecha_COD,12*J$89)-EDATE(Fecha_COD,12*(J$89-1))))))",
+"=IF(K$89<1,0,MAX(0,MIN(1,(EDATE(Fecha_COD,12*K$89)-MAX(Fecha_Peaje,EDATE(Fecha_COD,12*(K$89-1))))/(EDATE(Fecha_COD,12*K$89)-EDATE(Fecha_COD,12*(K$89-1))))))",
+"=IF(L$89<1,0,MAX(0,MIN(1,(EDATE(Fecha_COD,12*L$89)-MAX(Fecha_Peaje,EDATE(Fecha_COD,12*(L$89-1))))/(EDATE(Fecha_COD,12*L$89)-EDATE(Fecha_COD,12*(L$89-1))))))",
+"=IF(M$89<1,0,MAX(0,MIN(1,(EDATE(Fecha_COD,12*M$89)-MAX(Fecha_Peaje,EDATE(Fecha_COD,12*(M$89-1))))/(EDATE(Fecha_COD,12*M$89)-EDATE(Fecha_COD,12*(M$89-1))))))",
+"=IF(N$89<1,0,MAX(0,MIN(1,(EDATE(Fecha_COD,12*N$89)-MAX(Fecha_Peaje,EDATE(Fecha_COD,12*(N$89-1))))/(EDATE(Fecha_COD,12*N$89)-EDATE(Fecha_COD,12*(N$89-1))))))",
+"=IF(O$89<1,0,MAX(0,MIN(1,(EDATE(Fecha_COD,12*O$89)-MAX(Fecha_Peaje,EDATE(Fecha_COD,12*(O$89-1))))/(EDATE(Fecha_COD,12*O$89)-EDATE(Fecha_COD,12*(O$89-1))))))",
+"=IF(P$89<1,0,MAX(0,MIN(1,(EDATE(Fecha_COD,12*P$89)-MAX(Fecha_Peaje,EDATE(Fecha_COD,12*(P$89-1))))/(EDATE(Fecha_COD,12*P$89)-EDATE(Fecha_COD,12*(P$89-1))))))",
+"=IF(Q$89<1,0,MAX(0,MIN(1,(EDATE(Fecha_COD,12*Q$89)-MAX(Fecha_Peaje,EDATE(Fecha_COD,12*(Q$89-1))))/(EDATE(Fecha_COD,12*Q$89)-EDATE(Fecha_COD,12*(Q$89-1))))))",
+"=IF(R$89<1,0,MAX(0,MIN(1,(EDATE(Fecha_COD,12*R$89)-MAX(Fecha_Peaje,EDATE(Fecha_COD,12*(R$89-1))))/(EDATE(Fecha_COD,12*R$89)-EDATE(Fecha_COD,12*(R$89-1))))))",
+"=IF(S$89<1,0,MAX(0,MIN(1,(EDATE(Fecha_COD,12*S$89)-MAX(Fecha_Peaje,EDATE(Fecha_COD,12*(S$89-1))))/(EDATE(Fecha_COD,12*S$89)-EDATE(Fecha_COD,12*(S$89-1))))))",
+"=IF(T$89<1,0,MAX(0,MIN(1,(EDATE(Fecha_COD,12*T$89)-MAX(Fecha_Peaje,EDATE(Fecha_COD,12*(T$89-1))))/(EDATE(Fecha_COD,12*T$89)-EDATE(Fecha_COD,12*(T$89-1))))))",
+"=IF(U$89<1,0,MAX(0,MIN(1,(EDATE(Fecha_COD,12*U$89)-MAX(Fecha_Peaje,EDATE(Fecha_COD,12*(U$89-1))))/(EDATE(Fecha_COD,12*U$89)-EDATE(Fecha_COD,12*(U$89-1))))))",
+"=IF(V$89<1,0,MAX(0,MIN(1,(EDATE(Fecha_COD,12*V$89)-MAX(Fecha_Peaje,EDATE(Fecha_COD,12*(V$89-1))))/(EDATE(Fecha_COD,12*V$89)-EDATE(Fecha_COD,12*(V$89-1))))))",
+"=IF(W$89<1,0,MAX(0,MIN(1,(EDATE(Fecha_COD,12*W$89)-MAX(Fecha_Peaje,EDATE(Fecha_COD,12*(W$89-1))))/(EDATE(Fecha_COD,12*W$89)-EDATE(Fecha_COD,12*(W$89-1))))))",
+"=IF(X$89<1,0,MAX(0,MIN(1,(EDATE(Fecha_COD,12*X$89)-MAX(Fecha_Peaje,EDATE(Fecha_COD,12*(X$89-1))))/(EDATE(Fecha_COD,12*X$89)-EDATE(Fecha_COD,12*(X$89-1))))))",
+"=IF(Y$89<1,0,MAX(0,MIN(1,(EDATE(Fecha_COD,12*Y$89)-MAX(Fecha_Peaje,EDATE(Fecha_COD,12*(Y$89-1))))/(EDATE(Fecha_COD,12*Y$89)-EDATE(Fecha_COD,12*(Y$89-1))))))",
+"=IF(Z$89<1,0,MAX(0,MIN(1,(EDATE(Fecha_COD,12*Z$89)-MAX(Fecha_Peaje,EDATE(Fecha_COD,12*(Z$89-1))))/(EDATE(Fecha_COD,12*Z$89)-EDATE(Fecha_COD,12*(Z$89-1))))))",
+"=IF(AA$89<1,0,MAX(0,MIN(1,(EDATE(Fecha_COD,12*AA$89)-MAX(Fecha_Peaje,EDATE(Fecha_COD,12*(AA$89-1))))/(EDATE(Fecha_COD,12*AA$89)-EDATE(Fecha_COD,12*(AA$89-1))))))",
+"=IF(AB$89<1,0,MAX(0,MIN(1,(EDATE(Fecha_COD,12*AB$89)-MAX(Fecha_Peaje,EDATE(Fecha_COD,12*(AB$89-1))))/(EDATE(Fecha_COD,12*AB$89)-EDATE(Fecha_COD,12*(AB$89-1))))))",
+"=IF(AC$89<1,0,MAX(0,MIN(1,(EDATE(Fecha_COD,12*AC$89)-MAX(Fecha_Peaje,EDATE(Fecha_COD,12*(AC$89-1))))/(EDATE(Fecha_COD,12*AC$89)-EDATE(Fecha_COD,12*(AC$89-1))))))",
+"=IF(AD$89<1,0,MAX(0,MIN(1,(EDATE(Fecha_COD,12*AD$89)-MAX(Fecha_Peaje,EDATE(Fecha_COD,12*(AD$89-1))))/(EDATE(Fecha_COD,12*AD$89)-EDATE(Fecha_COD,12*(AD$89-1))))))"
+]
+]
+},
+"Subtotal_EPC": {
+"sheet": "05_CAPEX",
+"ref": "N17",
+"value": 3850916.4,
+"formula": "=SUM(N7:N16)"
+},
+"Fee_Gerencia_USD": {
+"sheet": "05_CAPEX",
+"ref": "N18",
+"value": 269564.148,
+"formula": "=Fee_Gerencia_Pct*N17"
+},
+"CAPEX_Total": {
+"sheet": "05_CAPEX",
+"ref": "N19",
+"value": 4120480.548,
+"formula": "=N17+N18"
+},
+"IVA_Total": {
+"sheet": "05_CAPEX",
+"ref": "P19",
+"value": 459043.4982,
+"formula": "=P17+P18"
+},
+"CAPEX_SC_f1": {
+"sheet": "05_CAPEX",
+"ref": "X19",
+"value": 4120480.548,
+"formula": "=X17+X18"
+},
+"CAPEX_CC_f1": {
+"sheet": "05_CAPEX",
+"ref": "Y19",
+"value": 3866192.908,
+"formula": "=Y17+Y18"
+},
+"IVA_SC_f1": {
+"sheet": "05_CAPEX",
+"ref": "Z19",
+"value": 459043.4982,
+"formula": "=Z17+Z18"
+},
+"IVA_CC_f1": {
+"sheet": "05_CAPEX",
+"ref": "AA19",
+"value": 436542.4722,
+"formula": "=AA17+AA18"
+},
+"CAPEX_SC_Wp": {
+"sheet": "05_CAPEX",
+"ref": "AB19",
+"value": 2516744.432,
+"formula": "=AB17+AB18"
+},
+"CAPEX_SC_Wac": {
+"sheet": "05_CAPEX",
+"ref": "AC19",
+"value": 981155.5888,
+"formula": "=AC17+AC18"
+},
+"CAPEX_SC_Fijo": {
+"sheet": "05_CAPEX",
+"ref": "AD19",
+"value": 622580.5272,
+"formula": "=AD17+AD18"
+},
+"CAPEX_CC_Wp": {
+"sheet": "05_CAPEX",
+"ref": "AE19",
+"value": 2342984.992,
+"formula": "=AE17+AE18"
+},
+"CAPEX_CC_Wac": {
+"sheet": "05_CAPEX",
+"ref": "AF19",
+"value": 913591.2948,
+"formula": "=AF17+AF18"
+},
+"CAPEX_CC_Fijo": {
+"sheet": "05_CAPEX",
+"ref": "AG19",
+"value": 609616.6212,
+"formula": "=AG17+AG18"
+},
+"IVA_SC_Wp": {
+"sheet": "05_CAPEX",
+"ref": "AH19",
+"value": 268940.9088,
+"formula": "=AH17+AH18"
+},
+"IVA_SC_Wac": {
+"sheet": "05_CAPEX",
+"ref": "AI19",
+"value": 103920.60792,
+"formula": "=AI17+AI18"
+},
+"IVA_SC_Fijo": {
+"sheet": "05_CAPEX",
+"ref": "AJ19",
+"value": 86181.98148,
+"formula": "=AJ17+AJ18"
+},
+"IVA_CC_Wp": {
+"sheet": "05_CAPEX",
+"ref": "AK19",
+"value": 252068.5128,
+"formula": "=AK17+AK18"
+},
+"IVA_CC_Wac": {
+"sheet": "05_CAPEX",
+"ref": "AL19",
+"value": 99466.41582,
+"formula": "=AL17+AL18"
+},
+"IVA_CC_Fijo": {
+"sheet": "05_CAPEX",
+"ref": "AM19",
+"value": 85007.54358,
+"formula": "=AM17+AM18"
+},
+"Terreno_SALELGI": {
+"sheet": "05_CAPEX",
+"ref": "N21",
+"value": 253750,
+"formula": "=IF(Comprador_Terreno=\"SALELGI\",Precio_Terreno_ha*Hectareas*(1+Costos_Transaccion_Terreno_Pct),0)"
+},
+"CAPEX_Total_Terreno": {
+"sheet": "05_CAPEX",
+"ref": "N22",
+"value": 4374230.548,
+"formula": "=N19+N21"
+},
+"Aranceles_ISD": {
+"sheet": "05_CAPEX",
+"ref": "N23",
+"value": 224200,
+"formula": "=SUM(M7:M15)"
+},
+"Pct_CAPEX_Civil": {
+"sheet": "05_CAPEX",
+"ref": "N24",
+"value": 0.0970760558969638,
+"formula": "=N12/N19"
+},
+"CAPEX_Base_f1": {
+"sheet": "05_CAPEX",
+"ref": "D28",
+"value": 4120480.548,
+"formula": "=IF(Contrato_Inversion=\"Sí\",Escala_Wp*CAPEX_CC_Wp+Escala_Wac*CAPEX_CC_Wac+CAPEX_CC_Fijo,Escala_Wp*CAPEX_SC_Wp+Escala_Wac*CAPEX_SC_Wac+CAPEX_SC_Fijo)"
+},
+"Factor_Escalacion": {
+"sheet": "05_CAPEX",
+"ref": "D29",
+"value": 1,
+"formula": "=Fase_m1*(1+Escalacion_CAPEX)^MAX(0,Anios_Precios-1)+(1-Fase_m1)*(1+Escalacion_CAPEX)^MAX(0,Anios_Precios)"
+},
+"Factor_Caso": {
+"sheet": "05_CAPEX",
+"ref": "D30",
+"value": 1,
+"formula": "=IF(N(CAPEX_Fijo_Wp)>0,CAPEX_Fijo_Wp*Potencia_DC*1000/D28,Factor_CAPEX)*Factor_Escalacion"
+},
+"Reemplazo_USD": {
+"sheet": "05_CAPEX",
+"ref": "H40",
+"value": 227272.727272727,
+"formula": "=IF(Reemplazo_Pagador=\"No\",0,Reemplazo_USD_Wac*Potencia_AC*1000)"
+},
+"Desmantelamiento_USD": {
+"sheet": "05_CAPEX",
+"ref": "H41",
+"value": 0,
+"formula": "=Desmantelamiento_Pct*CAPEX_Total"
+},
+"Drv_Wp": {
+"sheet": "05_CAPEX",
+"ref": "D45:D53",
+"value": [
+[
+1
+],
+[
+0
+],
+[
+1
+],
+[
+0
+],
+[
+0.7
+],
+[
+0.7
+],
+[
+0.9
+],
+[
+0
+],
+[
+0.4
+]
+],
+"formula": [
+[
+1
+],
+[
+0
+],
+[
+1
+],
+[
+0
+],
+[
+0.7
+],
+[
+0.7
+],
+[
+0.9
+],
+[
+0
+],
+[
+0.4
+]
+]
+},
+"Drv_Wac": {
+"sheet": "05_CAPEX",
+"ref": "E45:E53",
+"value": [
+[
+0
+],
+[
+1
+],
+[
+0
+],
+[
+0.85
+],
+[
+0.3
+],
+[
+0
+],
+[
+0.1
+],
+[
+0.3
+],
+[
+0
+]
+],
+"formula": [
+[
+0
+],
+[
+1
+],
+[
+0
+],
+[
+0.85
+],
+[
+0.3
+],
+[
+0
+],
+[
+0.1
+],
+[
+0.3
+],
+[
+0
+]
+]
+},
+"Drv_Fijo": {
+"sheet": "05_CAPEX",
+"ref": "F45:F53",
+"value": [
+[
+0
+],
+[
+0
+],
+[
+0
+],
+[
+0.15
+],
+[
+0
+],
+[
+0.3
+],
+[
+0
+],
+[
+0.7
+],
+[
+0.6
+]
+],
+"formula": [
+[
+0
+],
+[
+0
+],
+[
+0
+],
+[
+0.15
+],
+[
+0
+],
+[
+0.3
+],
+[
+0
+],
+[
+0.7
+],
+[
+0.6
+]
+]
+},
+"Check_Drivers": {
+"sheet": "05_CAPEX",
+"ref": "D54",
+"value": "● drivers OK",
+"formula": "=IF(SUMPRODUCT(--(ABS(D45:D53+E45:E53+F45:F53-1)>0.0005))=0,\"● drivers OK\",\"■ drivers ≠ 100 %\")"
+},
+"OPEX_Anio1": {
+"sheet": "06_OPEX",
+"ref": "F23",
+"value": 106500,
+"formula": "=SUM(F18:F22)"
+},
+"OPEX_Row": {
+"sheet": "06_OPEX",
+"ref": "D23:AD23",
+"value": [
+[
+0,
+0,
+106500,
+108630,
+110802.6,
+113018.652,
+115279.02504,
+117584.6055408,
+119936.297651616,
+122335.023604648,
+124781.724076741,
+127277.358558276,
+129822.905729442,
+132419.363844031,
+135067.751120911,
+137769.106143329,
+140524.488266196,
+143334.97803152,
+146201.67759215,
+149125.711143993,
+152108.225366873,
+155150.389874211,
+158253.397671695,
+161418.465625129,
+164646.834937631,
+167939.771636384,
+171298.567069112
+]
+],
+"formula": [
+[
+"=SUM(D18:D22)",
+"=SUM(E18:E22)",
+"=SUM(F18:F22)",
+"=SUM(G18:G22)",
+"=SUM(H18:H22)",
+"=SUM(I18:I22)",
+"=SUM(J18:J22)",
+"=SUM(K18:K22)",
+"=SUM(L18:L22)",
+"=SUM(M18:M22)",
+"=SUM(N18:N22)",
+"=SUM(O18:O22)",
+"=SUM(P18:P22)",
+"=SUM(Q18:Q22)",
+"=SUM(R18:R22)",
+"=SUM(S18:S22)",
+"=SUM(T18:T22)",
+"=SUM(U18:U22)",
+"=SUM(V18:V22)",
+"=SUM(W18:W22)",
+"=SUM(X18:X22)",
+"=SUM(Y18:Y22)",
+"=SUM(Z18:Z22)",
+"=SUM(AA18:AA22)",
+"=SUM(AB18:AB22)",
+"=SUM(AC18:AC22)",
+"=SUM(AD18:AD22)"
+]
+]
+},
+"CAPEX_Depreciable": {
+"sheet": "07_Fiscal",
+"ref": "D7",
+"value": 4120480.548,
+"formula": "=CAPEX_Total+IF(IVA_Recuperable=\"No\",IVA_Total,0)"
+},
+"DedAd_Anual": {
+"sheet": "07_Fiscal",
+"ref": "D8",
+"value": 267831.23562,
+"formula": "=IF(Aplica_DedAd=\"Sí\",1,0)*MIN(CAPEX_Depreciable*Pct_Elegible_DedAd/Vida_Fiscal_Equipos,Tope_DedAd_Pct*Ingresos_SALELGI)"
+},
+"Ahorro_Row": {
+"sheet": "07_Fiscal",
+"ref": "D22:AD22",
+"value": [
+[
+0,
+0,
+707620.2768,
+710579.070134208,
+713527.895966383,
+716578.891286969,
+719621.15889671,
+722769.069330283,
+725793.606397623,
+728808.009650064,
+731930.033935618,
+735043.255175922,
+738147.200992078,
+741241.390592002,
+744448.282344105,
+747646.840351397,
+750711.224006709,
+754017.061368698,
+757187.756282869,
+760348.181018784,
+763628.186234845,
+766899.455713835,
+770161.503223608,
+773413.833840845,
+776655.943827411,
+779887.320505112,
+783383.865511175
+]
+],
+"formula": [
+[
+"=IF(OR(D$18<1,D$18>Horizonte),0,INDEX(E_Val,1,D$18+2)*1000*Tarifa_Evitable*(1+Eff_EscT)^(D$18-1))",
+"=IF(OR(E$18<1,E$18>Horizonte),0,INDEX(E_Val,1,E$18+2)*1000*Tarifa_Evitable*(1+Eff_EscT)^(E$18-1))",
+"=IF(OR(F$18<1,F$18>Horizonte),0,INDEX(E_Val,1,F$18+2)*1000*Tarifa_Evitable*(1+Eff_EscT)^(F$18-1))",
+"=IF(OR(G$18<1,G$18>Horizonte),0,INDEX(E_Val,1,G$18+2)*1000*Tarifa_Evitable*(1+Eff_EscT)^(G$18-1))",
+"=IF(OR(H$18<1,H$18>Horizonte),0,INDEX(E_Val,1,H$18+2)*1000*Tarifa_Evitable*(1+Eff_EscT)^(H$18-1))",
+"=IF(OR(I$18<1,I$18>Horizonte),0,INDEX(E_Val,1,I$18+2)*1000*Tarifa_Evitable*(1+Eff_EscT)^(I$18-1))",
+"=IF(OR(J$18<1,J$18>Horizonte),0,INDEX(E_Val,1,J$18+2)*1000*Tarifa_Evitable*(1+Eff_EscT)^(J$18-1))",
+"=IF(OR(K$18<1,K$18>Horizonte),0,INDEX(E_Val,1,K$18+2)*1000*Tarifa_Evitable*(1+Eff_EscT)^(K$18-1))",
+"=IF(OR(L$18<1,L$18>Horizonte),0,INDEX(E_Val,1,L$18+2)*1000*Tarifa_Evitable*(1+Eff_EscT)^(L$18-1))",
+"=IF(OR(M$18<1,M$18>Horizonte),0,INDEX(E_Val,1,M$18+2)*1000*Tarifa_Evitable*(1+Eff_EscT)^(M$18-1))",
+"=IF(OR(N$18<1,N$18>Horizonte),0,INDEX(E_Val,1,N$18+2)*1000*Tarifa_Evitable*(1+Eff_EscT)^(N$18-1))",
+"=IF(OR(O$18<1,O$18>Horizonte),0,INDEX(E_Val,1,O$18+2)*1000*Tarifa_Evitable*(1+Eff_EscT)^(O$18-1))",
+"=IF(OR(P$18<1,P$18>Horizonte),0,INDEX(E_Val,1,P$18+2)*1000*Tarifa_Evitable*(1+Eff_EscT)^(P$18-1))",
+"=IF(OR(Q$18<1,Q$18>Horizonte),0,INDEX(E_Val,1,Q$18+2)*1000*Tarifa_Evitable*(1+Eff_EscT)^(Q$18-1))",
+"=IF(OR(R$18<1,R$18>Horizonte),0,INDEX(E_Val,1,R$18+2)*1000*Tarifa_Evitable*(1+Eff_EscT)^(R$18-1))",
+"=IF(OR(S$18<1,S$18>Horizonte),0,INDEX(E_Val,1,S$18+2)*1000*Tarifa_Evitable*(1+Eff_EscT)^(S$18-1))",
+"=IF(OR(T$18<1,T$18>Horizonte),0,INDEX(E_Val,1,T$18+2)*1000*Tarifa_Evitable*(1+Eff_EscT)^(T$18-1))",
+"=IF(OR(U$18<1,U$18>Horizonte),0,INDEX(E_Val,1,U$18+2)*1000*Tarifa_Evitable*(1+Eff_EscT)^(U$18-1))",
+"=IF(OR(V$18<1,V$18>Horizonte),0,INDEX(E_Val,1,V$18+2)*1000*Tarifa_Evitable*(1+Eff_EscT)^(V$18-1))",
+"=IF(OR(W$18<1,W$18>Horizonte),0,INDEX(E_Val,1,W$18+2)*1000*Tarifa_Evitable*(1+Eff_EscT)^(W$18-1))",
+"=IF(OR(X$18<1,X$18>Horizonte),0,INDEX(E_Val,1,X$18+2)*1000*Tarifa_Evitable*(1+Eff_EscT)^(X$18-1))",
+"=IF(OR(Y$18<1,Y$18>Horizonte),0,INDEX(E_Val,1,Y$18+2)*1000*Tarifa_Evitable*(1+Eff_EscT)^(Y$18-1))",
+"=IF(OR(Z$18<1,Z$18>Horizonte),0,INDEX(E_Val,1,Z$18+2)*1000*Tarifa_Evitable*(1+Eff_EscT)^(Z$18-1))",
+"=IF(OR(AA$18<1,AA$18>Horizonte),0,INDEX(E_Val,1,AA$18+2)*1000*Tarifa_Evitable*(1+Eff_EscT)^(AA$18-1))",
+"=IF(OR(AB$18<1,AB$18>Horizonte),0,INDEX(E_Val,1,AB$18+2)*1000*Tarifa_Evitable*(1+Eff_EscT)^(AB$18-1))",
+"=IF(OR(AC$18<1,AC$18>Horizonte),0,INDEX(E_Val,1,AC$18+2)*1000*Tarifa_Evitable*(1+Eff_EscT)^(AC$18-1))",
+"=IF(OR(AD$18<1,AD$18>Horizonte),0,INDEX(E_Val,1,AD$18+2)*1000*Tarifa_Evitable*(1+Eff_EscT)^(AD$18-1))"
+]
+]
+},
+"Peaje_Row": {
+"sheet": "07_Fiscal",
+"ref": "D24:AD24",
+"value": [
+[
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+],
+"formula": [
+[
+"=IF(D$18<1,0,INDEX(E_Activa,1,D$18+2)*1000*Eff_Peaje*INDEX(Frac_Peaje,1,D$18+2)+IF(D$18<=Horizonte,Potencia_AC*Peaje_kW_mes*12*INDEX(Frac_Peaje,1,D$18+2),0))",
+"=IF(E$18<1,0,INDEX(E_Activa,1,E$18+2)*1000*Eff_Peaje*INDEX(Frac_Peaje,1,E$18+2)+IF(E$18<=Horizonte,Potencia_AC*Peaje_kW_mes*12*INDEX(Frac_Peaje,1,E$18+2),0))",
+"=IF(F$18<1,0,INDEX(E_Activa,1,F$18+2)*1000*Eff_Peaje*INDEX(Frac_Peaje,1,F$18+2)+IF(F$18<=Horizonte,Potencia_AC*Peaje_kW_mes*12*INDEX(Frac_Peaje,1,F$18+2),0))",
+"=IF(G$18<1,0,INDEX(E_Activa,1,G$18+2)*1000*Eff_Peaje*INDEX(Frac_Peaje,1,G$18+2)+IF(G$18<=Horizonte,Potencia_AC*Peaje_kW_mes*12*INDEX(Frac_Peaje,1,G$18+2),0))",
+"=IF(H$18<1,0,INDEX(E_Activa,1,H$18+2)*1000*Eff_Peaje*INDEX(Frac_Peaje,1,H$18+2)+IF(H$18<=Horizonte,Potencia_AC*Peaje_kW_mes*12*INDEX(Frac_Peaje,1,H$18+2),0))",
+"=IF(I$18<1,0,INDEX(E_Activa,1,I$18+2)*1000*Eff_Peaje*INDEX(Frac_Peaje,1,I$18+2)+IF(I$18<=Horizonte,Potencia_AC*Peaje_kW_mes*12*INDEX(Frac_Peaje,1,I$18+2),0))",
+"=IF(J$18<1,0,INDEX(E_Activa,1,J$18+2)*1000*Eff_Peaje*INDEX(Frac_Peaje,1,J$18+2)+IF(J$18<=Horizonte,Potencia_AC*Peaje_kW_mes*12*INDEX(Frac_Peaje,1,J$18+2),0))",
+"=IF(K$18<1,0,INDEX(E_Activa,1,K$18+2)*1000*Eff_Peaje*INDEX(Frac_Peaje,1,K$18+2)+IF(K$18<=Horizonte,Potencia_AC*Peaje_kW_mes*12*INDEX(Frac_Peaje,1,K$18+2),0))",
+"=IF(L$18<1,0,INDEX(E_Activa,1,L$18+2)*1000*Eff_Peaje*INDEX(Frac_Peaje,1,L$18+2)+IF(L$18<=Horizonte,Potencia_AC*Peaje_kW_mes*12*INDEX(Frac_Peaje,1,L$18+2),0))",
+"=IF(M$18<1,0,INDEX(E_Activa,1,M$18+2)*1000*Eff_Peaje*INDEX(Frac_Peaje,1,M$18+2)+IF(M$18<=Horizonte,Potencia_AC*Peaje_kW_mes*12*INDEX(Frac_Peaje,1,M$18+2),0))",
+"=IF(N$18<1,0,INDEX(E_Activa,1,N$18+2)*1000*Eff_Peaje*INDEX(Frac_Peaje,1,N$18+2)+IF(N$18<=Horizonte,Potencia_AC*Peaje_kW_mes*12*INDEX(Frac_Peaje,1,N$18+2),0))",
+"=IF(O$18<1,0,INDEX(E_Activa,1,O$18+2)*1000*Eff_Peaje*INDEX(Frac_Peaje,1,O$18+2)+IF(O$18<=Horizonte,Potencia_AC*Peaje_kW_mes*12*INDEX(Frac_Peaje,1,O$18+2),0))",
+"=IF(P$18<1,0,INDEX(E_Activa,1,P$18+2)*1000*Eff_Peaje*INDEX(Frac_Peaje,1,P$18+2)+IF(P$18<=Horizonte,Potencia_AC*Peaje_kW_mes*12*INDEX(Frac_Peaje,1,P$18+2),0))",
+"=IF(Q$18<1,0,INDEX(E_Activa,1,Q$18+2)*1000*Eff_Peaje*INDEX(Frac_Peaje,1,Q$18+2)+IF(Q$18<=Horizonte,Potencia_AC*Peaje_kW_mes*12*INDEX(Frac_Peaje,1,Q$18+2),0))",
+"=IF(R$18<1,0,INDEX(E_Activa,1,R$18+2)*1000*Eff_Peaje*INDEX(Frac_Peaje,1,R$18+2)+IF(R$18<=Horizonte,Potencia_AC*Peaje_kW_mes*12*INDEX(Frac_Peaje,1,R$18+2),0))",
+"=IF(S$18<1,0,INDEX(E_Activa,1,S$18+2)*1000*Eff_Peaje*INDEX(Frac_Peaje,1,S$18+2)+IF(S$18<=Horizonte,Potencia_AC*Peaje_kW_mes*12*INDEX(Frac_Peaje,1,S$18+2),0))",
+"=IF(T$18<1,0,INDEX(E_Activa,1,T$18+2)*1000*Eff_Peaje*INDEX(Frac_Peaje,1,T$18+2)+IF(T$18<=Horizonte,Potencia_AC*Peaje_kW_mes*12*INDEX(Frac_Peaje,1,T$18+2),0))",
+"=IF(U$18<1,0,INDEX(E_Activa,1,U$18+2)*1000*Eff_Peaje*INDEX(Frac_Peaje,1,U$18+2)+IF(U$18<=Horizonte,Potencia_AC*Peaje_kW_mes*12*INDEX(Frac_Peaje,1,U$18+2),0))",
+"=IF(V$18<1,0,INDEX(E_Activa,1,V$18+2)*1000*Eff_Peaje*INDEX(Frac_Peaje,1,V$18+2)+IF(V$18<=Horizonte,Potencia_AC*Peaje_kW_mes*12*INDEX(Frac_Peaje,1,V$18+2),0))",
+"=IF(W$18<1,0,INDEX(E_Activa,1,W$18+2)*1000*Eff_Peaje*INDEX(Frac_Peaje,1,W$18+2)+IF(W$18<=Horizonte,Potencia_AC*Peaje_kW_mes*12*INDEX(Frac_Peaje,1,W$18+2),0))",
+"=IF(X$18<1,0,INDEX(E_Activa,1,X$18+2)*1000*Eff_Peaje*INDEX(Frac_Peaje,1,X$18+2)+IF(X$18<=Horizonte,Potencia_AC*Peaje_kW_mes*12*INDEX(Frac_Peaje,1,X$18+2),0))",
+"=IF(Y$18<1,0,INDEX(E_Activa,1,Y$18+2)*1000*Eff_Peaje*INDEX(Frac_Peaje,1,Y$18+2)+IF(Y$18<=Horizonte,Potencia_AC*Peaje_kW_mes*12*INDEX(Frac_Peaje,1,Y$18+2),0))",
+"=IF(Z$18<1,0,INDEX(E_Activa,1,Z$18+2)*1000*Eff_Peaje*INDEX(Frac_Peaje,1,Z$18+2)+IF(Z$18<=Horizonte,Potencia_AC*Peaje_kW_mes*12*INDEX(Frac_Peaje,1,Z$18+2),0))",
+"=IF(AA$18<1,0,INDEX(E_Activa,1,AA$18+2)*1000*Eff_Peaje*INDEX(Frac_Peaje,1,AA$18+2)+IF(AA$18<=Horizonte,Potencia_AC*Peaje_kW_mes*12*INDEX(Frac_Peaje,1,AA$18+2),0))",
+"=IF(AB$18<1,0,INDEX(E_Activa,1,AB$18+2)*1000*Eff_Peaje*INDEX(Frac_Peaje,1,AB$18+2)+IF(AB$18<=Horizonte,Potencia_AC*Peaje_kW_mes*12*INDEX(Frac_Peaje,1,AB$18+2),0))",
+"=IF(AC$18<1,0,INDEX(E_Activa,1,AC$18+2)*1000*Eff_Peaje*INDEX(Frac_Peaje,1,AC$18+2)+IF(AC$18<=Horizonte,Potencia_AC*Peaje_kW_mes*12*INDEX(Frac_Peaje,1,AC$18+2),0))",
+"=IF(AD$18<1,0,INDEX(E_Activa,1,AD$18+2)*1000*Eff_Peaje*INDEX(Frac_Peaje,1,AD$18+2)+IF(AD$18<=Horizonte,Potencia_AC*Peaje_kW_mes*12*INDEX(Frac_Peaje,1,AD$18+2),0))"
+]
+]
+},
+"Imp_U_Row": {
+"sheet": "07_Fiscal",
+"ref": "D37:AD37",
+"value": [
+[
+0,
+0,
+8830.87157000003,
+9131.30915365042,
+9412.69101781373,
+9715.35797152628,
+9998.79475305734,
+10304.1393536877,
+10548.0456504275,
+10771.228671463,
+11016.0335538428,
+11239.9087538967,
+213267.557032706,
+213447.98469614,
+213650.442568408,
+205592.042286788,
+205704.0553423,
+205883.618846091,
+205993.817161749,
+206079.508965975,
+206187.349451003,
+206270.400003228,
+213578.051898932,
+213609.684614561,
+213614.665608909,
+221830.986464914,
+221880.920685248
+]
+],
+"formula": [
+[
+"=D31+D36",
+"=E31+E36",
+"=F31+F36",
+"=G31+G36",
+"=H31+H36",
+"=I31+I36",
+"=J31+J36",
+"=K31+K36",
+"=L31+L36",
+"=M31+M36",
+"=N31+N36",
+"=O31+O36",
+"=P31+P36",
+"=Q31+Q36",
+"=R31+R36",
+"=S31+S36",
+"=T31+T36",
+"=U31+U36",
+"=V31+V36",
+"=W31+W36",
+"=X31+X36",
+"=Y31+Y36",
+"=Z31+Z36",
+"=AA31+AA36",
+"=AB31+AB36",
+"=AC31+AC36",
+"=AD31+AD36"
+]
+]
+},
+"Imp_L_Row": {
+"sheet": "07_Fiscal",
+"ref": "D51:AD51",
+"value": [
+[
+0,
+0,
+-112751.874334175,
+-112451.436750524,
+-98333.9000557525,
+-83157.366659136,
+-66884.5234514832,
+-49390.5669427719,
+-30668.9028448452,
+-10582.1301875336,
+11016.0335538428,
+11239.9087538967,
+213267.557032706,
+213447.98469614,
+213650.442568408,
+205592.042286788,
+205704.0553423,
+205883.618846091,
+205993.817161749,
+206079.508965975,
+206187.349451003,
+206270.400003228,
+213578.051898932,
+213609.684614561,
+213614.665608909,
+221830.986464914,
+221880.920685248
+]
+],
+"formula": [
+[
+"=D47+D50",
+"=E47+E50",
+"=F47+F50",
+"=G47+G50",
+"=H47+H50",
+"=I47+I50",
+"=J47+J50",
+"=K47+K50",
+"=L47+L50",
+"=M47+M50",
+"=N47+N50",
+"=O47+O50",
+"=P47+P50",
+"=Q47+Q50",
+"=R47+R50",
+"=S47+S50",
+"=T47+T50",
+"=U47+U50",
+"=V47+V50",
+"=W47+W50",
+"=X47+X50",
+"=Y47+Y50",
+"=Z47+Z50",
+"=AA47+AA50",
+"=AB47+AB50",
+"=AC47+AC50",
+"=AD47+AD50"
+]
+]
+},
+"Sens_CAPEX": {
+"sheet": "10_Sensibilidad",
+"ref": "C6",
+"value": 0.15,
+"formula": 0.15
+},
+"Sens_Tarifa": {
+"sheet": "10_Sensibilidad",
+"ref": "J6",
+"value": 0.15,
+"formula": 0.15
+},
+"Sens_OPEX_Up": {
+"sheet": "10_Sensibilidad",
+"ref": "C7",
+"value": 0.3,
+"formula": 0.3
+},
+"Sens_OPEX_Dn": {
+"sheet": "10_Sensibilidad",
+"ref": "J7",
+"value": 0.15,
+"formula": 0.15
+},
+"Sens_Peaje": {
+"sheet": "10_Sensibilidad",
+"ref": "C8",
+"value": 0.015,
+"formula": 0.015
+},
+"Sens_EscTarifa": {
+"sheet": "10_Sensibilidad",
+"ref": "J8",
+"value": 0.02,
+"formula": 0.02
+},
+"Sens_Disponibilidad": {
+"sheet": "10_Sensibilidad",
+"ref": "C9",
+"value": 0.02,
+"formula": 0.02
+},
+"Sens_EscCAPEX": {
+"sheet": "10_Sensibilidad",
+"ref": "J9",
+"value": 0.02,
+"formula": 0.02
+},
+"Sens_Peaje_kW": {
+"sheet": "10_Sensibilidad",
+"ref": "C10",
+"value": 0.5,
+"formula": 0.5
+},
+"Sweep_AC_Fija": {
+"sheet": "10_Sensibilidad",
+"ref": "J10",
+"value": 3800,
+"formula": 3800
+},
+"Mat_CAPEX": {
+"sheet": "10_Sensibilidad",
+"ref": "C11:G11",
+"value": [
+[
+-0.15,
+-0.075,
+0,
+0.075,
+0.15
+]
+],
+"formula": [
+[
+-0.15,
+-0.075,
+0,
+0.075,
+0.15
+]
+]
+},
+"Mat_Tarifa": {
+"sheet": "10_Sensibilidad",
+"ref": "C12:G12",
+"value": [
+[
+-0.15,
+-0.075,
+0,
+0.075,
+0.15
+]
+],
+"formula": [
+[
+-0.15,
+-0.075,
+0,
+0.075,
+0.15
+]
+]
+},
+"Sens_Tasas": {
+"sheet": "10_Sensibilidad",
+"ref": "C13:G13",
+"value": [
+[
+0.075,
+0.0825,
+0.09,
+0.1,
+0.11
+]
+],
+"formula": [
+[
+0.075,
+0.0825,
+0.09,
+0.1,
+0.11
+]
+]
+},
+"Sens_Plazos": {
+"sheet": "10_Sensibilidad",
+"ref": "C14:E14",
+"value": [
+[
+8,
+10,
+12
+]
+],
+"formula": [
+[
+8,
+10,
+12
+]
+]
+},
+"Sens_Lev": {
+"sheet": "10_Sensibilidad",
+"ref": "C15:F15",
+"value": [
+[
+0.5,
+0.6,
+0.7,
+0.8
+]
+],
+"formula": [
+[
+0.5,
+0.6,
+0.7,
+0.8
+]
+]
+},
+"Sweep_P": {
+"sheet": "10_Sensibilidad",
+"ref": "C16:F16",
+"value": [
+[
+5000,
+6000,
+7000,
+8000
+]
+],
+"formula": [
+[
+5000,
+6000,
+7000,
+8000
+]
+]
+},
+"Sweep_Ratio": {
+"sheet": "10_Sensibilidad",
+"ref": "C17:G17",
+"value": [
+[
+1.1,
+1.2,
+1.32,
+1.4,
+1.5
+]
+],
+"formula": [
+[
+1.1,
+1.2,
+1.32,
+1.4,
+1.5
+]
+]
+},
+"Sweep_Lev": {
+"sheet": "10_Sensibilidad",
+"ref": "C18:G18",
+"value": [
+[
+0.4,
+0.5,
+0.6,
+0.7,
+0.8
+]
+],
+"formula": [
+[
+0.4,
+0.5,
+0.6,
+0.7,
+0.8
+]
+]
+},
+"X_E1": {
+"sheet": "10_Sensibilidad",
+"ref": "C22",
+"value": 6275.9,
+"formula": "='Motor_Sens'!$B$69"
+},
+"C_E1": {
+"sheet": "10_Sensibilidad",
+"ref": "D22",
+"value": 5603.69,
+"formula": "='Motor_Sens'!$C$69"
+},
+"B_E1": {
+"sheet": "10_Sensibilidad",
+"ref": "E22",
+"value": 6340.6,
+"formula": "='Motor_Sens'!$D$69"
+},
+"F_E1": {
+"sheet": "10_Sensibilidad",
+"ref": "F22",
+"value": 6405.3,
+"formula": "='Motor_Sens'!$E$69"
+},
+"X_Ahorro1": {
+"sheet": "10_Sensibilidad",
+"ref": "C23",
+"value": 707620.2768,
+"formula": "='Motor_Sens'!$B$65"
+},
+"C_Ahorro1": {
+"sheet": "10_Sensibilidad",
+"ref": "D23",
+"value": 631827.25488,
+"formula": "='Motor_Sens'!$C$65"
+},
+"B_Ahorro1": {
+"sheet": "10_Sensibilidad",
+"ref": "E23",
+"value": 714915.3312,
+"formula": "='Motor_Sens'!$D$65"
+},
+"F_Ahorro1": {
+"sheet": "10_Sensibilidad",
+"ref": "F23",
+"value": 722210.3856,
+"formula": "='Motor_Sens'!$E$65"
+},
+"X_TIR": {
+"sheet": "10_Sensibilidad",
+"ref": "C24",
+"value": 0.106413933073245,
+"formula": "='Motor_Sens'!$B$57"
+},
+"C_TIR": {
+"sheet": "10_Sensibilidad",
+"ref": "D24",
+"value": 0.0379105994777012,
+"formula": "='Motor_Sens'!$C$57"
+},
+"B_TIR": {
+"sheet": "10_Sensibilidad",
+"ref": "E24",
+"value": 0.0797829567159601,
+"formula": "='Motor_Sens'!$D$57"
+},
+"F_TIR": {
+"sheet": "10_Sensibilidad",
+"ref": "F24",
+"value": 0.118164028789467,
+"formula": "='Motor_Sens'!$E$57"
+},
+"X_VAN": {
+"sheet": "10_Sensibilidad",
+"ref": "C25",
+"value": 214690.31942476,
+"formula": "='Motor_Sens'!$B$58"
+},
+"C_VAN": {
+"sheet": "10_Sensibilidad",
+"ref": "D25",
+"value": -1987978.92283378,
+"formula": "='Motor_Sens'!$C$58"
+},
+"B_VAN": {
+"sheet": "10_Sensibilidad",
+"ref": "E25",
+"value": -612880.76064317,
+"formula": "='Motor_Sens'!$D$58"
+},
+"F_VAN": {
+"sheet": "10_Sensibilidad",
+"ref": "F25",
+"value": 570258.753962436,
+"formula": "='Motor_Sens'!$E$58"
+},
+"X_PB": {
+"sheet": "10_Sensibilidad",
+"ref": "C26",
+"value": 7.36500306772456,
+"formula": "='Motor_Sens'!$B$59"
+},
+"C_PB": {
+"sheet": "10_Sensibilidad",
+"ref": "D26",
+"value": 11.6351667905463,
+"formula": "='Motor_Sens'!$C$59"
+},
+"B_PB": {
+"sheet": "10_Sensibilidad",
+"ref": "E26",
+"value": 8.17471923361583,
+"formula": "='Motor_Sens'!$D$59"
+},
+"F_PB": {
+"sheet": "10_Sensibilidad",
+"ref": "F26",
+"value": 6.85087063321642,
+"formula": "='Motor_Sens'!$E$59"
+},
+"X_LCOE": {
+"sheet": "10_Sensibilidad",
+"ref": "C27",
+"value": 103.029464060439,
+"formula": "='Motor_Sens'!$B$60"
+},
+"C_LCOE": {
+"sheet": "10_Sensibilidad",
+"ref": "D27",
+"value": 155.29104933004,
+"formula": "='Motor_Sens'!$C$60"
+},
+"B_LCOE": {
+"sheet": "10_Sensibilidad",
+"ref": "E27",
+"value": 110.599697156268,
+"formula": "='Motor_Sens'!$D$60"
+},
+"F_LCOE": {
+"sheet": "10_Sensibilidad",
+"ref": "F27",
+"value": 93.8245905984853,
+"formula": "='Motor_Sens'!$E$60"
+},
+"X_TIReq": {
+"sheet": "10_Sensibilidad",
+"ref": "C28",
+"value": 0.185393622224785,
+"formula": "='Motor_Sens'!$B$61"
+},
+"C_TIReq": {
+"sheet": "10_Sensibilidad",
+"ref": "D28",
+"value": 0.0107542895876157,
+"formula": "='Motor_Sens'!$C$61"
+},
+"B_TIReq": {
+"sheet": "10_Sensibilidad",
+"ref": "E28",
+"value": 0.109365070185448,
+"formula": "='Motor_Sens'!$D$61"
+},
+"F_TIReq": {
+"sheet": "10_Sensibilidad",
+"ref": "F28",
+"value": 0.231129800036575,
+"formula": "='Motor_Sens'!$E$61"
+},
+"X_VANeq": {
+"sheet": "10_Sensibilidad",
+"ref": "C29",
+"value": 563612.477793363,
+"formula": "='Motor_Sens'!$B$62"
+},
+"C_VANeq": {
+"sheet": "10_Sensibilidad",
+"ref": "D29",
+"value": -1193715.88344738,
+"formula": "='Motor_Sens'!$C$62"
+},
+"B_VANeq": {
+"sheet": "10_Sensibilidad",
+"ref": "E29",
+"value": -86591.2980793557,
+"formula": "='Motor_Sens'!$D$62"
+},
+"F_VANeq": {
+"sheet": "10_Sensibilidad",
+"ref": "F29",
+"value": 832372.421727874,
+"formula": "='Motor_Sens'!$E$62"
+},
+"X_DSCR": {
+"sheet": "10_Sensibilidad",
+"ref": "C30",
+"value": 0.730833706123271,
+"formula": "='Motor_Sens'!$B$63"
+},
+"C_DSCR": {
+"sheet": "10_Sensibilidad",
+"ref": "D30",
+"value": 0.485265327654782,
+"formula": "='Motor_Sens'!$C$63"
+},
+"B_DSCR": {
+"sheet": "10_Sensibilidad",
+"ref": "E30",
+"value": 0.625491959536301,
+"formula": "='Motor_Sens'!$D$63"
+},
+"F_DSCR": {
+"sheet": "10_Sensibilidad",
+"ref": "F30",
+"value": 0.78854050186756,
+"formula": "='Motor_Sens'!$E$63"
+},
+"X_Aporte": {
+"sheet": "10_Sensibilidad",
+"ref": "C31",
+"value": 575080.44874,
+"formula": "='Motor_Sens'!$B$66"
+},
+"C_Aporte": {
+"sheet": "10_Sensibilidad",
+"ref": "D31",
+"value": 654238.546593984,
+"formula": "='Motor_Sens'!$C$66"
+},
+"B_Aporte": {
+"sheet": "10_Sensibilidad",
+"ref": "E31",
+"value": 591110.588809441,
+"formula": "='Motor_Sens'!$D$66"
+},
+"F_Aporte": {
+"sheet": "10_Sensibilidad",
+"ref": "F31",
+"value": 546188.993155756,
+"formula": "='Motor_Sens'!$E$66"
+},
+"X_VANX": {
+"sheet": "10_Sensibilidad",
+"ref": "C32",
+"value": 113787.35915175,
+"formula": "='Motor_Sens'!$B$67"
+},
+"C_VANX": {
+"sheet": "10_Sensibilidad",
+"ref": "D32",
+"value": 141818.287890684,
+"formula": "='Motor_Sens'!$C$67"
+},
+"B_VANX": {
+"sheet": "10_Sensibilidad",
+"ref": "E32",
+"value": 119463.843632093,
+"formula": "='Motor_Sens'!$D$67"
+},
+"F_VANX": {
+"sheet": "10_Sensibilidad",
+"ref": "F32",
+"value": 103556.512850467,
+"formula": "='Motor_Sens'!$E$67"
+},
+"X_TIRG": {
+"sheet": "10_Sensibilidad",
+"ref": "C33",
+"value": 0.110020059142792,
+"formula": "='Motor_Sens'!$B$68"
+},
+"C_TIRG": {
+"sheet": "10_Sensibilidad",
+"ref": "D33",
+"value": 0.0410733704148777,
+"formula": "='Motor_Sens'!$C$68"
+},
+"B_TIRG": {
+"sheet": "10_Sensibilidad",
+"ref": "E33",
+"value": 0.083373364756341,
+"formula": "='Motor_Sens'!$D$68"
+},
+"F_TIRG": {
+"sheet": "10_Sensibilidad",
+"ref": "F33",
+"value": 0.121911369824862,
+"formula": "='Motor_Sens'!$E$68"
+},
+"P50_TIR": {
+"sheet": "10_Sensibilidad",
+"ref": "C67",
+"value": 0.106413933073245,
+"formula": "='Motor_Sens'!$F$57"
+},
+"P90_TIR": {
+"sheet": "10_Sensibilidad",
+"ref": "D67",
+"value": 0.0926869998080187,
+"formula": "='Motor_Sens'!$G$57"
+},
+"P50_VAN": {
+"sheet": "10_Sensibilidad",
+"ref": "C68",
+"value": 214690.31942476,
+"formula": "='Motor_Sens'!$F$58"
+},
+"P90_VAN": {
+"sheet": "10_Sensibilidad",
+"ref": "D68",
+"value": -237621.68904102,
+"formula": "='Motor_Sens'!$G$58"
+},
+"P50_PB": {
+"sheet": "10_Sensibilidad",
+"ref": "C69",
+"value": 7.36500306772456,
+"formula": "='Motor_Sens'!$F$59"
+},
+"P90_PB": {
+"sheet": "10_Sensibilidad",
+"ref": "D69",
+"value": 8.025039053514,
+"formula": "='Motor_Sens'!$G$59"
+},
+"P50_LCOE": {
+"sheet": "10_Sensibilidad",
+"ref": "C70",
+"value": 103.029464060439,
+"formula": "='Motor_Sens'!$F$60"
+},
+"P90_LCOE": {
+"sheet": "10_Sensibilidad",
+"ref": "D70",
+"value": 115.374297640903,
+"formula": "='Motor_Sens'!$G$60"
+},
+"P50_TIReq": {
+"sheet": "10_Sensibilidad",
+"ref": "C71",
+"value": 0.185393622224785,
+"formula": "='Motor_Sens'!$F$61"
+},
+"P90_TIReq": {
+"sheet": "10_Sensibilidad",
+"ref": "D71",
+"value": 0.138626995289311,
+"formula": "='Motor_Sens'!$G$61"
+},
+"P50_VANeq": {
+"sheet": "10_Sensibilidad",
+"ref": "C72",
+"value": 563612.477793363,
+"formula": "='Motor_Sens'!$F$62"
+},
+"P90_VANeq": {
+"sheet": "10_Sensibilidad",
+"ref": "D72",
+"value": 173933.825568051,
+"formula": "='Motor_Sens'!$G$62"
+},
+"P50_DSCR": {
+"sheet": "10_Sensibilidad",
+"ref": "C73",
+"value": 0.730833706123271,
+"formula": "='Motor_Sens'!$F$63"
+},
+"P90_DSCR": {
+"sheet": "10_Sensibilidad",
+"ref": "D73",
+"value": 0.671950346290509,
+"formula": "='Motor_Sens'!$G$63"
+},
+"P50_Ahorro1": {
+"sheet": "10_Sensibilidad",
+"ref": "C74",
+"value": 707620.2768,
+"formula": "='Motor_Sens'!$F$65"
+},
+"P90_Ahorro1": {
+"sheet": "10_Sensibilidad",
+"ref": "D74",
+"value": 631827.25488,
+"formula": "='Motor_Sens'!$G$65"
+},
+"Deuda_Max_Plazo1": {
+"sheet": "10_Sensibilidad",
+"ref": "H288",
+"value": 0.600711790679575,
+"formula": "=IF(COUNTIF($C288:$G288,\">=\"&DSCR_Objetivo)=0,0,IF(COUNTIF($C288:$G288,\">=\"&DSCR_Objetivo)>=5,INDEX(Sweep_Lev,5),INDEX(Sweep_Lev,COUNTIF($C288:$G288,\">=\"&DSCR_Objetivo))+(INDEX(Sweep_Lev,COUNTIF($C288:$G288,\">=\"&DSCR_Objetivo)+1)-INDEX(Sweep_Lev,COUNTIF($C288:$G288,\">=\"&DSCR_Objetivo)))*(INDEX($C288:$G288,COUNTIF($C288:$G288,\">=\"&DSCR_Objetivo))-DSCR_Objetivo)/(INDEX($C288:$G288,COUNTIF($C288:$G288,\">=\"&DSCR_Objetivo))-INDEX($C288:$G288,COUNTIF($C288:$G288,\">=\"&DSCR_Objetivo)+1))))"
+},
+"Deuda_Max_Plazo2": {
+"sheet": "10_Sensibilidad",
+"ref": "H289",
+"value": 0.726880141456314,
+"formula": "=IF(COUNTIF($C289:$G289,\">=\"&DSCR_Objetivo)=0,0,IF(COUNTIF($C289:$G289,\">=\"&DSCR_Objetivo)>=5,INDEX(Sweep_Lev,5),INDEX(Sweep_Lev,COUNTIF($C289:$G289,\">=\"&DSCR_Objetivo))+(INDEX(Sweep_Lev,COUNTIF($C289:$G289,\">=\"&DSCR_Objetivo)+1)-INDEX(Sweep_Lev,COUNTIF($C289:$G289,\">=\"&DSCR_Objetivo)))*(INDEX($C289:$G289,COUNTIF($C289:$G289,\">=\"&DSCR_Objetivo))-DSCR_Objetivo)/(INDEX($C289:$G289,COUNTIF($C289:$G289,\">=\"&DSCR_Objetivo))-INDEX($C289:$G289,COUNTIF($C289:$G289,\">=\"&DSCR_Objetivo)+1))))"
+},
+"Deuda_Max_Plazo3": {
+"sheet": "10_Sensibilidad",
+"ref": "H290",
+"value": 0.555112717443688,
+"formula": "=IF(COUNTIF($C290:$G290,\">=\"&DSCR_Objetivo)=0,0,IF(COUNTIF($C290:$G290,\">=\"&DSCR_Objetivo)>=5,INDEX(Sweep_Lev,5),INDEX(Sweep_Lev,COUNTIF($C290:$G290,\">=\"&DSCR_Objetivo))+(INDEX(Sweep_Lev,COUNTIF($C290:$G290,\">=\"&DSCR_Objetivo)+1)-INDEX(Sweep_Lev,COUNTIF($C290:$G290,\">=\"&DSCR_Objetivo)))*(INDEX($C290:$G290,COUNTIF($C290:$G290,\">=\"&DSCR_Objetivo))-DSCR_Objetivo)/(INDEX($C290:$G290,COUNTIF($C290:$G290,\">=\"&DSCR_Objetivo))-INDEX($C290:$G290,COUNTIF($C290:$G290,\">=\"&DSCR_Objetivo)+1))))"
+},
+"TIR_Proyecto": {
+"sheet": "08_Flujo",
+"ref": "D7",
+"value": 0.106413933073245,
+"formula": "=IFERROR(IRR($D$57:$AD$57),\"n/a\")"
+},
+"TIR_Equity": {
+"sheet": "08_Flujo",
+"ref": "E7",
+"value": 0.185393622224785,
+"formula": "=IFERROR(IRR($D$75:$AD$75,0.02),\"n/a\")"
+},
+"VAN_Proyecto": {
+"sheet": "08_Flujo",
+"ref": "D8",
+"value": 214690.31942476,
+"formula": "=D57*(1+Tasa_Descuento)+E57+NPV(Tasa_Descuento,$F$57:$AD$57)"
+},
+"VAN_Equity": {
+"sheet": "08_Flujo",
+"ref": "E8",
+"value": 563612.477793365,
+"formula": "=D75*(1+Tasa_Descuento_Equity)+E75+NPV(Tasa_Descuento_Equity,$F$75:$AD$75)"
+},
+"VAN_Alt1": {
+"sheet": "08_Flujo",
+"ref": "D9",
+"value": 997714.936349763,
+"formula": "=D57*(1+Tasa_Desc_Alt1)+E57+NPV(Tasa_Desc_Alt1,$F$57:$AD$57)"
+},
+"VAN_Alt2": {
+"sheet": "08_Flujo",
+"ref": "D10",
+"value": -407666.194350681,
+"formula": "=D57*(1+Tasa_Desc_Alt2)+E57+NPV(Tasa_Desc_Alt2,$F$57:$AD$57)"
+},
+"Payback_Simple": {
+"sheet": "08_Flujo",
+"ref": "D11",
+"value": 7.36500306772456,
+"formula": "=IF(INDEX($D$58:$AD$58,1,COUNT($D$58:$AD$58))<0,\"no cruza\",IF(SUMPRODUCT(MAX(($D$58:$AD$58<0)*(COLUMN($D$58:$AD$58)-COLUMN($D$58)+1)))=0,-1,(SUMPRODUCT(MAX(($D$58:$AD$58<0)*(COLUMN($D$58:$AD$58)-COLUMN($D$58)+1)))-2)+(-INDEX($D$58:$AD$58,1,SUMPRODUCT(MAX(($D$58:$AD$58<0)*(COLUMN($D$58:$AD$58)-COLUMN($D$58)+1)))))/INDEX($D$57:$AD$57,1,SUMPRODUCT(MAX(($D$58:$AD$58<0)*(COLUMN($D$58:$AD$58)-COLUMN($D$58)+1)))+1)))"
+},
+"Payback_Equity": {
+"sheet": "08_Flujo",
+"ref": "E11",
+"value": 9.85126710864423,
+"formula": "=IF(INDEX($D$76:$AD$76,1,COUNT($D$76:$AD$76))<0,\"no cruza\",IF(SUMPRODUCT(MAX(($D$76:$AD$76<0)*(COLUMN($D$76:$AD$76)-COLUMN($D$76)+1)))=0,-1,(SUMPRODUCT(MAX(($D$76:$AD$76<0)*(COLUMN($D$76:$AD$76)-COLUMN($D$76)+1)))-2)+(-INDEX($D$76:$AD$76,1,SUMPRODUCT(MAX(($D$76:$AD$76<0)*(COLUMN($D$76:$AD$76)-COLUMN($D$76)+1)))))/INDEX($D$75:$AD$75,1,SUMPRODUCT(MAX(($D$76:$AD$76<0)*(COLUMN($D$76:$AD$76)-COLUMN($D$76)+1)))+1)))"
+},
+"Payback_Desc": {
+"sheet": "08_Flujo",
+"ref": "D12",
+"value": 20.5808173098384,
+"formula": "=IF(INDEX($D$61:$AD$61,1,COUNT($D$61:$AD$61))<0,\"no cruza\",IF(SUMPRODUCT(MAX(($D$61:$AD$61<0)*(COLUMN($D$61:$AD$61)-COLUMN($D$61)+1)))=0,-1,(SUMPRODUCT(MAX(($D$61:$AD$61<0)*(COLUMN($D$61:$AD$61)-COLUMN($D$61)+1)))-2)+(-INDEX($D$61:$AD$61,1,SUMPRODUCT(MAX(($D$61:$AD$61<0)*(COLUMN($D$61:$AD$61)-COLUMN($D$61)+1)))))/INDEX($D$60:$AD$60,1,SUMPRODUCT(MAX(($D$61:$AD$61<0)*(COLUMN($D$61:$AD$61)-COLUMN($D$61)+1)))+1)))"
+},
+"LCOE": {
+"sheet": "08_Flujo",
+"ref": "D13",
+"value": 103.029464060439,
+"formula": "=(CAPEX_Total+SUMPRODUCT('07_Fiscal'!$F$23:$AD$23+'07_Fiscal'!$F$24:$AD$24,$F$59:$AD$59))/SUMPRODUCT('04_Energia'!$F$95:$AD$95,$F$59:$AD$59)"
+},
+"Tarifa_MWh": {
+"sheet": "08_Flujo",
+"ref": "D14",
+"value": 112.752,
+"formula": "=Tarifa_Evitable*1000"
+},
+"Ahorro_kWh": {
+"sheet": "08_Flujo",
+"ref": "D15",
+"value": 0.0862293878561905,
+"formula": "=IF(D14>0,1-D13/D14,\"n/a\")"
+},
+"Ahorro_Anio1": {
+"sheet": "08_Flujo",
+"ref": "D16",
+"value": 707620.2768,
+"formula": "=F51"
+},
+"Ahorro_Acum": {
+"sheet": "08_Flujo",
+"ref": "D17",
+"value": 18620049.3133873,
+"formula": "=SUM($D$51:$AD$51)"
+},
+"Red_Factura": {
+"sheet": "08_Flujo",
+"ref": "D18",
+"value": 0.554581035401384,
+"formula": "=Reduccion_Factura"
+},
+"Aporte_SinDeuda": {
+"sheet": "08_Flujo",
+"ref": "D19",
+"value": 4695560.99674,
+"formula": "=-SUM(D47:E50)"
+},
+"Aporte_Equity": {
+"sheet": "08_Flujo",
+"ref": "E19",
+"value": 575080.44874,
+"formula": "=-SUM(D75:E75)"
+},
+"DSCR_Min": {
+"sheet": "08_Flujo",
+"ref": "E20",
+"value": 0.730833706123272,
+"formula": "=IF(Deuda_Monto>0,MIN($F$74:$AD$74),\"n/a\")"
+},
+"DSCR_Prom": {
+"sheet": "08_Flujo",
+"ref": "E21",
+"value": 1.07890714070922,
+"formula": "=IF(Deuda_Monto>0,AVERAGE($F$74:$AD$74),\"n/a\")"
+},
+"Deuda_KPI": {
+"sheet": "08_Flujo",
+"ref": "E22",
+"value": 4472009.04475125,
+"formula": "=Deuda_Total"
+},
+"Cuota_KPI": {
+"sheet": "08_Flujo",
+"ref": "E23",
+"value": 844316.718102858,
+"formula": "=Cuota"
+},
+"Servicio_Total": {
+"sheet": "08_Flujo",
+"ref": "E24",
+"value": 6245617.70507635,
+"formula": "=SUM($D$70:$AD$70)"
+},
+"Anio_DSCR_Min": {
+"sheet": "08_Flujo",
+"ref": "E25",
+"value": 8,
+"formula": "=IF(Deuda_Monto>0,INDEX($F$43:$AD$43,1,MATCH(DSCR_Min,$F$74:$AD$74,0)),\"—\")"
+},
+"FCF_U_Row": {
+"sheet": "08_Flujo",
+"ref": "D57:AD57",
+"value": [
+[
+-1627607.21386,
+-3067953.78288,
+913619.85397,
+592817.760980558,
+593312.604948569,
+593844.881315443,
+594343.339103653,
+594880.324435796,
+595309.263095579,
+595701.757373952,
+596132.276305034,
+596525.98786375,
+395056.73822993,
+395374.042051832,
+168457.361382059,
+404285.69192128,
+404482.680398213,
+404798.464491087,
+404992.26152897,
+405142.960908816,
+405332.611416968,
+405478.665836397,
+398330.053652981,
+398385.683601156,
+398394.443280871,
+390116.562403814,
+640204.377756816
+]
+],
+"formula": [
+[
+"=SUM(D47:D56)",
+"=SUM(E47:E56)",
+"=SUM(F47:F56)",
+"=SUM(G47:G56)",
+"=SUM(H47:H56)",
+"=SUM(I47:I56)",
+"=SUM(J47:J56)",
+"=SUM(K47:K56)",
+"=SUM(L47:L56)",
+"=SUM(M47:M56)",
+"=SUM(N47:N56)",
+"=SUM(O47:O56)",
+"=SUM(P47:P56)",
+"=SUM(Q47:Q56)",
+"=SUM(R47:R56)",
+"=SUM(S47:S56)",
+"=SUM(T47:T56)",
+"=SUM(U47:U56)",
+"=SUM(V47:V56)",
+"=SUM(W47:W56)",
+"=SUM(X47:X56)",
+"=SUM(Y47:Y56)",
+"=SUM(Z47:Z56)",
+"=SUM(AA47:AA56)",
+"=SUM(AB47:AB56)",
+"=SUM(AC47:AC56)",
+"=SUM(AD47:AD56)"
+]
+]
+},
+"Deuda_Monto": {
+"sheet": "08_Flujo",
+"ref": "D64",
+"value": 4120480.548,
+"formula": "=Pct_Apalancamiento*(CAPEX_Total+IF(Deuda_Financia_Terreno=\"Sí\",Terreno_SALELGI,0))"
+},
+"IDC": {
+"sheet": "08_Flujo",
+"ref": "J64",
+"value": 351528.49675125,
+"formula": "=Deuda_Monto*Tasa_Deuda*(Fase_m1+(1-Fase_m1)*IDC_Frac_Tramo0)*Meses_Construccion/12"
+},
+"Deuda_Total": {
+"sheet": "08_Flujo",
+"ref": "D65",
+"value": 4472009.04475125,
+"formula": "=Deuda_Monto+IDC"
+},
+"Cuota": {
+"sheet": "08_Flujo",
+"ref": "J65",
+"value": 844316.718102858,
+"formula": "=IF(Deuda_Total=0,0,IF(Plazo_Deuda>Gracia_Deuda,PMT(Tasa_Deuda,Plazo_Deuda-Gracia_Deuda,-Deuda_Total),Deuda_Total*(1+Tasa_Deuda)))"
+},
+"FCF_E_Row": {
+"sheet": "08_Flujo",
+"ref": "D75:AD75",
+"value": [
+[
+-391463.04946,
+-183617.39928,
+699801.921517831,
+-129916.211218125,
+-143257.522080722,
+-157599.112156752,
+-173090.060794664,
+-189741.687370602,
+-207790.506512005,
+-227261.601869908,
+596132.276305034,
+596525.98786375,
+395056.73822993,
+395374.042051832,
+168457.361382059,
+404285.69192128,
+404482.680398213,
+404798.464491087,
+404992.26152897,
+405142.960908816,
+405332.611416968,
+405478.665836397,
+398330.053652981,
+398385.683601156,
+398394.443280871,
+390116.562403814,
+640204.377756816
+]
+],
+"formula": [
+[
+"=D57+D66",
+"=E57+E66",
+"=F73-F70",
+"=G73-G70",
+"=H73-H70",
+"=I73-I70",
+"=J73-J70",
+"=K73-K70",
+"=L73-L70",
+"=M73-M70",
+"=N73-N70",
+"=O73-O70",
+"=P73-P70",
+"=Q73-Q70",
+"=R73-R70",
+"=S73-S70",
+"=T73-T70",
+"=U73-U70",
+"=V73-V70",
+"=W73-W70",
+"=X73-X70",
+"=Y73-Y70",
+"=Z73-Z70",
+"=AA73-AA70",
+"=AB73-AB70",
+"=AC73-AC70",
+"=AD73-AD70"
+]
+]
+},
+"VAN_Exergy": {
+"sheet": "09_Exergy",
+"ref": "D7",
+"value": 113787.35915175,
+"formula": "=D50*(1+Tasa_Descuento)+E50+NPV(Tasa_Descuento,$F$50:$AD$50)"
+},
+"TIR_Exergy": {
+"sheet": "09_Exergy",
+"ref": "D8",
+"value": "n/a",
+"formula": "=IFERROR(IRR($D$50:$AD$50),\"n/a\")"
+},
+"Nominal_Exergy": {
+"sheet": "09_Exergy",
+"ref": "D9",
+"value": 110473.164225,
+"formula": "=SUM($D$50:$AD$50)"
+},
+"VAN_Gerencia": {
+"sheet": "09_Exergy",
+"ref": "D10",
+"value": 178489.97514,
+"formula": "=SUMPRODUCT($D$39:$AD$39+$D$40:$AD$40,$D$52:$AD$52)"
+},
+"VAN_Terreno": {
+"sheet": "09_Exergy",
+"ref": "D11",
+"value": 0,
+"formula": "=SUMPRODUCT($D$41:$AD$41+$D$42:$AD$42+$D$43:$AD$43+$D$49:$AD$49,$D$52:$AD$52)"
+},
+"VAN_OM": {
+"sheet": "09_Exergy",
+"ref": "D12",
+"value": 0,
+"formula": "=SUMPRODUCT($D$44:$AD$44+$D$45:$AD$45,$D$52:$AD$52)"
+},
+"Yield_Terreno": {
+"sheet": "09_Exergy",
+"ref": "D13",
+"value": 0.1,
+"formula": "=IF(Precio_Terreno_ha>0,Renta_Terreno_ha/Precio_Terreno_ha,\"n/a\")"
+},
+"Carga_Exergy": {
+"sheet": "09_Exergy",
+"ref": "D14",
+"value": 0.113054985311862,
+"formula": "=IF(Ahorro_Anio1>0,('06_OPEX'!F18+'06_OPEX'!F20)/Ahorro_Anio1,0)"
+},
+"FCF_X_Row": {
+"sheet": "09_Exergy",
+"ref": "D50:AD50",
+"value": [
+[
+33141.9492675,
+77331.2149575,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0,
+0
+]
+],
+"formula": [
+[
+"=D47+D48+D41+D49",
+"=E47+E48+E41+E49",
+"=F47+F48+F41+F49",
+"=G47+G48+G41+G49",
+"=H47+H48+H41+H49",
+"=I47+I48+I41+I49",
+"=J47+J48+J41+J49",
+"=K47+K48+K41+K49",
+"=L47+L48+L41+L49",
+"=M47+M48+M41+M49",
+"=N47+N48+N41+N49",
+"=O47+O48+O41+O49",
+"=P47+P48+P41+P49",
+"=Q47+Q48+Q41+Q49",
+"=R47+R48+R41+R49",
+"=S47+S48+S41+S49",
+"=T47+T48+T41+T49",
+"=U47+U48+U41+U49",
+"=V47+V48+V41+V49",
+"=W47+W48+W41+W49",
+"=X47+X48+X41+X49",
+"=Y47+Y48+Y41+Y49",
+"=Z47+Z48+Z41+Z49",
+"=AA47+AA48+AA41+AA49",
+"=AB47+AB48+AB41+AB49",
+"=AC47+AC48+AC41+AC49",
+"=AD47+AD48+AD41+AD49"
+]
+]
+},
+"Ann_Esc": {
+"sheet": "09_Exergy",
+"ref": "D55",
+"value": 10.60723290157,
+"formula": "=SUM($F$55:$AD$55)"
+},
+"TIR_Grupo": {
+"sheet": "09_Exergy",
+"ref": "D72",
+"value": 0.110020059142792,
+"formula": "=IFERROR(IRR($D$71:$AD$71),\"n/a\")"
+},
+"VAN_Grupo": {
+"sheet": "09_Exergy",
+"ref": "D73",
+"value": 328477.678576509,
+"formula": "=D71*(1+Tasa_Descuento)+E71+NPV(Tasa_Descuento,$F$71:$AD$71)"
+},
+"Potencia_DC": {
+"sheet": "01_Supuestos",
+"ref": "C23",
+"value": 5000,
+"formula": 5000
+},
+"Ratio_DCAC": {
+"sheet": "01_Supuestos",
+"ref": "C24",
+"value": 1.32,
+"formula": 1.32
+},
+"Comprador_Terreno": {
+"sheet": "01_Supuestos",
+"ref": "C25",
+"value": "SALELGI",
+"formula": "SALELGI"
+},
+"Usar_Deuda": {
+"sheet": "01_Supuestos",
+"ref": "C26",
+"value": "Sí",
+"formula": "Sí"
+},
+"Tasa_Descuento": {
+"sheet": "01_Supuestos",
+"ref": "C27",
+"value": 0.1,
+"formula": 0.1
+},
+"Tasa_Descuento_Equity": {
+"sheet": "01_Supuestos",
+"ref": "C28",
+"value": 0.12,
+"formula": 0.12
+},
+"Tasa_Desc_Alt1": {
+"sheet": "01_Supuestos",
+"ref": "C29",
+"value": 0.08,
+"formula": 0.08
+},
+"Tasa_Desc_Alt2": {
+"sheet": "01_Supuestos",
+"ref": "C30",
+"value": 0.12,
+"formula": 0.12
+},
+"Horizonte": {
+"sheet": "01_Supuestos",
+"ref": "C31",
+"value": 25,
+"formula": 25
+},
+"Fecha_COD": {
+"sheet": "01_Supuestos",
+"ref": "C32",
+"value": "2028-07-01",
+"formula": "2028-07-01"
+},
+"Meses_Construccion": {
+"sheet": "01_Supuestos",
+"ref": "C33",
+"value": 21,
+"formula": "=Mes_COD_Cron"
+},
+"Fecha_Analisis": {
+"sheet": "01_Supuestos",
+"ref": "C34",
+"value": "2026-09-08",
+"formula": "2026-09-08"
+},
+"Version": {
+"sheet": "01_Supuestos",
+"ref": "C35",
+"value": "v3.1",
+"formula": "v3.1"
+},
+"Escenario_Energia": {
+"sheet": "01_Supuestos",
+"ref": "C38",
+"value": "P50",
+"formula": "P50"
+},
+"Esc_Energia": {
+"sheet": "01_Supuestos",
+"ref": "C38:F38",
+"value": [
+[
+"P50",
+"P90",
+"P50",
+"P50"
+]
+],
+"formula": [
+[
+"P50",
+"P90",
+"P50",
+"P50"
+]
+]
+},
+"Factor_CAPEX": {
+"sheet": "01_Supuestos",
+"ref": "C39",
+"value": 1,
+"formula": 1
+},
+"Esc_Factor_CAPEX": {
+"sheet": "01_Supuestos",
+"ref": "C39:F39",
+"value": [
+[
+1,
+1.15,
+1,
+1
+]
+],
+"formula": [
+[
+1,
+1.15,
+1,
+1
+]
+]
+},
+"CAPEX_Fijo_Wp": {
+"sheet": "01_Supuestos",
+"ref": "C40",
+"value": null,
+"formula": null
+},
+"Esc_CAPEX_Fijo_Wp": {
+"sheet": "01_Supuestos",
+"ref": "C40:F40",
+"value": [
+[
+null,
+null,
+null,
+0.75
+]
+],
+"formula": [
+[
+null,
+null,
+null,
+0.75
+]
+]
+},
+"Factor_OPEX": {
+"sheet": "01_Supuestos",
+"ref": "C41",
+"value": 1,
+"formula": 1
+},
+"Esc_Factor_OPEX": {
+"sheet": "01_Supuestos",
+"ref": "C41:F41",
+"value": [
+[
+1,
+1.15,
+1,
+1
+]
+],
+"formula": [
+[
+1,
+1.15,
+1,
+1
+]
+]
+},
+"Peaje_SGDA": {
+"sheet": "01_Supuestos",
+"ref": "C42",
+"value": 0,
+"formula": 0
+},
+"Esc_Peaje": {
+"sheet": "01_Supuestos",
+"ref": "C42:F42",
+"value": [
+[
+0,
+0.015,
+0.005,
+0
+]
+],
+"formula": [
+[
+0,
+0.015,
+0.005,
+0
+]
+]
+},
+"Escalacion_Tarifa": {
+"sheet": "01_Supuestos",
+"ref": "C43",
+"value": 0.02,
+"formula": 0.02
+},
+"Esc_EscTarifa": {
+"sheet": "01_Supuestos",
+"ref": "C43:F43",
+"value": [
+[
+0.02,
+0,
+0,
+0.02
+]
+],
+"formula": [
+[
+0.02,
+0,
+0,
+0.02
+]
+]
+},
+"Disponibilidad": {
+"sheet": "01_Supuestos",
+"ref": "C44",
+"value": 0.97,
+"formula": 0.97
+},
+"Esc_Disponibilidad": {
+"sheet": "01_Supuestos",
+"ref": "C44:F44",
+"value": [
+[
+0.97,
+0.97,
+0.98,
+0.99
+]
+],
+"formula": [
+[
+0.97,
+0.97,
+0.98,
+0.99
+]
+]
+},
+"Escalacion_CAPEX": {
+"sheet": "01_Supuestos",
+"ref": "C45",
+"value": 0,
+"formula": 0
+},
+"Esc_Escalacion_CAPEX": {
+"sheet": "01_Supuestos",
+"ref": "C45:F45",
+"value": [
+[
+0,
+0.05,
+0.03,
+0
+]
+],
+"formula": [
+[
+0,
+0.05,
+0.03,
+0
+]
+]
+},
+"Potencia_AC": {
+"sheet": "01_Supuestos",
+"ref": "C48",
+"value": 3787.87878787879,
+"formula": "=Potencia_DC/Ratio_DCAC"
+},
+"Potencia_Ref": {
+"sheet": "01_Supuestos",
+"ref": "C49",
+"value": 5000,
+"formula": 5000
+},
+"Ratio_Ref": {
+"sheet": "01_Supuestos",
+"ref": "C50",
+"value": 1.32,
+"formula": 1.32
+},
+"Yield_Ref": {
+"sheet": "01_Supuestos",
+"ref": "C51",
+"value": 1294,
+"formula": "=INDEX(Y_P50,1,1)"
+},
+"Densidad_MWp_ha": {
+"sheet": "01_Supuestos",
+"ref": "C52",
+"value": 1,
+"formula": 1
+},
+"Hectareas": {
+"sheet": "01_Supuestos",
+"ref": "C53",
+"value": 5,
+"formula": "=Potencia_DC/1000/Densidad_MWp_ha"
+},
+"Ha_Disponibles": {
+"sheet": "01_Supuestos",
+"ref": "C54",
+"value": 10.78,
+"formula": 10.78
+},
+"Capacidad_Alimentador_kW": {
+"sheet": "01_Supuestos",
+"ref": "C55",
+"value": 3800,
+"formula": 3800
+},
+"Tope_SGDA_kW": {
+"sheet": "01_Supuestos",
+"ref": "C56",
+"value": null,
+"formula": null
+},
+"Degradacion_Adicional": {
+"sheet": "01_Supuestos",
+"ref": "C57",
+"value": 0.01,
+"formula": 0.01
+},
+"Frac_A": {
+"sheet": "01_Supuestos",
+"ref": "C58",
+"value": 0.967,
+"formula": 0.967
+},
+"Frac_B": {
+"sheet": "01_Supuestos",
+"ref": "C59",
+"value": 0.002,
+"formula": 0.002
+},
+"Frac_C": {
+"sheet": "01_Supuestos",
+"ref": "C60",
+"value": 0.031,
+"formula": 0.031
+},
+"Tarifa_A": {
+"sheet": "01_Supuestos",
+"ref": "C61",
+"value": 0.113,
+"formula": 0.113
+},
+"Tarifa_C": {
+"sheet": "01_Supuestos",
+"ref": "C62",
+"value": 0.105,
+"formula": 0.105
+},
+"Cargo_Demanda": {
+"sheet": "01_Supuestos",
+"ref": "C63",
+"value": 4.4,
+"formula": 4.4
+},
+"Cargo_Comercializacion": {
+"sheet": "01_Supuestos",
+"ref": "C64",
+"value": 1.414,
+"formula": 1.414
+},
+"SAPG_mes": {
+"sheet": "01_Supuestos",
+"ref": "C65",
+"value": 300,
+"formula": 300
+},
+"Crecimiento_Consumo": {
+"sheet": "01_Supuestos",
+"ref": "C66",
+"value": 0,
+"formula": 0
+},
+"Fecha_Peaje": {
+"sheet": "01_Supuestos",
+"ref": "C67",
+"value": "2029-02-28",
+"formula": "2029-02-28"
+},
+"Peaje_kW_mes": {
+"sheet": "01_Supuestos",
+"ref": "C68",
+"value": 0,
+"formula": 0
+},
+"Fase_m1": {
+"sheet": "01_Supuestos",
+"ref": "C71",
+"value": 0.3,
+"formula": 0.3
+},
+"Fecha_Precios": {
+"sheet": "01_Supuestos",
+"ref": "C72",
+"value": "2026-07-22",
+"formula": "2026-07-22"
+},
+"Contingencia_Pct": {
+"sheet": "01_Supuestos",
+"ref": "C73",
+"value": 0.06,
+"formula": 0.06
+},
+"Contingencia_Frac_IVA": {
+"sheet": "01_Supuestos",
+"ref": "C74",
+"value": 0.6,
+"formula": 0.6
+},
+"Fee_Gerencia_Pct": {
+"sheet": "01_Supuestos",
+"ref": "C75",
+"value": 0.07,
+"formula": 0.07
+},
+"Asignacion_Compartida": {
+"sheet": "01_Supuestos",
+"ref": "C76",
+"value": 1,
+"formula": 1
+},
+"Exponente_Escala": {
+"sheet": "01_Supuestos",
+"ref": "C77",
+"value": 0,
+"formula": 0
+},
+"Contrato_Inversion": {
+"sheet": "01_Supuestos",
+"ref": "C78",
+"value": "No",
+"formula": "No"
+},
+"IVA_Recuperable": {
+"sheet": "01_Supuestos",
+"ref": "C79",
+"value": "Sí",
+"formula": "Sí"
+},
+"Tasa_IVA": {
+"sheet": "01_Supuestos",
+"ref": "C80",
+"value": 0.15,
+"formula": 0.15
+},
+"FODINFA_Pct": {
+"sheet": "01_Supuestos",
+"ref": "C81",
+"value": 0.005,
+"formula": 0.005
+},
+"ISD_Pct": {
+"sheet": "01_Supuestos",
+"ref": "C82",
+"value": 0.05,
+"formula": 0.05
+},
+"Reemplazo_Anio": {
+"sheet": "01_Supuestos",
+"ref": "C83",
+"value": 13,
+"formula": 13
+},
+"Reemplazo_USD_Wac": {
+"sheet": "01_Supuestos",
+"ref": "C84",
+"value": 0.06,
+"formula": 0.06
+},
+"Reemplazo_Pagador": {
+"sheet": "01_Supuestos",
+"ref": "C85",
+"value": "SALELGI",
+"formula": "SALELGI"
+},
+"Desmantelamiento_Pct": {
+"sheet": "01_Supuestos",
+"ref": "C86",
+"value": 0,
+"formula": 0
+},
+"Precio_Terreno_ha": {
+"sheet": "01_Supuestos",
+"ref": "C87",
+"value": 50000,
+"formula": 50000
+},
+"Costos_Transaccion_Terreno_Pct": {
+"sheet": "01_Supuestos",
+"ref": "C88",
+"value": 0.015,
+"formula": 0.015
+},
+"Predial_Terreno": {
+"sheet": "01_Supuestos",
+"ref": "C89",
+"value": 1000,
+"formula": 1000
+},
+"Residual_Terreno_Pct": {
+"sheet": "01_Supuestos",
+"ref": "C90",
+"value": 1,
+"formula": 1
+},
+"Apreciacion_Terreno": {
+"sheet": "01_Supuestos",
+"ref": "C91",
+"value": 0,
+"formula": 0
+},
+"Fee_OM_kWp": {
+"sheet": "01_Supuestos",
+"ref": "C94",
+"value": 16,
+"formula": 16
+},
+"Seguro_kWp": {
+"sheet": "01_Supuestos",
+"ref": "C95",
+"value": 3.5,
+"formula": 3.5
+},
+"Renta_Terreno_ha": {
+"sheet": "01_Supuestos",
+"ref": "C96",
+"value": 5000,
+"formula": 5000
+},
+"Tributos_Locales": {
+"sheet": "01_Supuestos",
+"ref": "C97",
+"value": 8000,
+"formula": 8000
+},
+"Escalacion_OPEX": {
+"sheet": "01_Supuestos",
+"ref": "C98",
+"value": 0.02,
+"formula": 0.02
+},
+"Pct_Apalancamiento": {
+"sheet": "01_Supuestos",
+"ref": "C101",
+"value": 1,
+"formula": 1
+},
+"Tasa_Deuda": {
+"sheet": "01_Supuestos",
+"ref": "C102",
+"value": 0.075,
+"formula": 0.075
+},
+"Plazo_Deuda": {
+"sheet": "01_Supuestos",
+"ref": "C103",
+"value": 8,
+"formula": 8
+},
+"Gracia_Deuda": {
+"sheet": "01_Supuestos",
+"ref": "C104",
+"value": 1,
+"formula": 1
+},
+"IDC_Frac_Tramo0": {
+"sheet": "01_Supuestos",
+"ref": "C105",
+"value": 0.5,
+"formula": 0.5
+},
+"DSCR_Objetivo": {
+"sheet": "01_Supuestos",
+"ref": "C106",
+"value": 1.2,
+"formula": 1.2
+},
+"Deuda_Financia_Terreno": {
+"sheet": "01_Supuestos",
+"ref": "C107",
+"value": "No",
+"formula": "No"
+},
+"Tasa_IR": {
+"sheet": "01_Supuestos",
+"ref": "C110",
+"value": 0.25,
+"formula": 0.25
+},
+"Tasa_Participacion": {
+"sheet": "01_Supuestos",
+"ref": "C111",
+"value": 0.15,
+"formula": 0.15
+},
+"Incluir_Participacion": {
+"sheet": "01_Supuestos",
+"ref": "C112",
+"value": "Sí",
+"formula": "Sí"
+},
+"Escudo_Negativo": {
+"sheet": "01_Supuestos",
+"ref": "C113",
+"value": "Sí",
+"formula": "Sí"
+},
+"Utilidad_Gravable_SALELGI": {
+"sheet": "01_Supuestos",
+"ref": "C114",
+"value": null,
+"formula": null
+},
+"Vida_Fiscal_Equipos": {
+"sheet": "01_Supuestos",
+"ref": "C115",
+"value": 10,
+"formula": 10
+},
+"Vida_Fiscal_Civil": {
+"sheet": "01_Supuestos",
+"ref": "C116",
+"value": 20,
+"formula": 20
+},
+"Aplica_DedAd": {
+"sheet": "01_Supuestos",
+"ref": "C117",
+"value": "Sí",
+"formula": "Sí"
+},
+"Pct_Elegible_DedAd": {
+"sheet": "01_Supuestos",
+"ref": "C118",
+"value": 0.65,
+"formula": 0.65
+},
+"Ingresos_SALELGI": {
+"sheet": "01_Supuestos",
+"ref": "C119",
+"value": 10000000,
+"formula": 10000000
+},
+"Tope_DedAd_Pct": {
+"sheet": "01_Supuestos",
+"ref": "C120",
+"value": 0.05,
+"formula": 0.05
+},
+"Meses_Recup_IVA": {
+"sheet": "01_Supuestos",
+"ref": "C121",
+"value": 6,
+"formula": 6
+},
+"Costo_Gerencia_Pct": {
+"sheet": "01_Supuestos",
+"ref": "C124",
+"value": 0.025,
+"formula": 0.025
+},
+"Costo_OM_Exergy_kWp": {
+"sheet": "01_Supuestos",
+"ref": "C125",
+"value": 16,
+"formula": 16
+},
+"Tasa_Efectiva_Exergy": {
+"sheet": "01_Supuestos",
+"ref": "C126",
+"value": 0.3625,
+"formula": 0.3625
+},
+"Umbral_Riesgo_Alto": {
+"sheet": "01_Supuestos",
+"ref": "C129",
+"value": 6,
+"formula": 6
+},
+"Umbral_Riesgo_Medio": {
+"sheet": "01_Supuestos",
+"ref": "C130",
+"value": 3,
+"formula": 3
+},
+"Tol_Costo_Tramites": {
+"sheet": "01_Supuestos",
+"ref": "C131",
+"value": 0.05,
+"formula": 0.05
+},
+"Tol_Dias_COD": {
+"sheet": "01_Supuestos",
+"ref": "C132",
+"value": 45,
+"formula": 45
+},
+"N_Custom_vs_Base": {
+"sheet": "01_Supuestos",
+"ref": "C136",
+"value": 4,
+"formula": "=SUMPRODUCT(($O$21:$O$132>0)*(($C$21:$C$132&\"\")<>($J$21:$J$132&\"\")))"
+},
+"Estado_Custom": {
+"sheet": "01_Supuestos",
+"ref": "C137",
+"value": "▲ Custom ≠ Base en 4 entrada(s)",
+"formula": "=IF(N_Custom_vs_Base=0,\"● Custom = Base\",\"▲ Custom ≠ Base en \"&N_Custom_vs_Base&\" entrada(s)\")"
+},
+"N_Fuera_Entregado": {
+"sheet": "01_Supuestos",
+"ref": "C138",
+"value": 0,
+"formula": "=SUMPRODUCT(($O$38:$O$45>0)*((($D$38:$D$45&\"\")<>($K$38:$K$45&\"\"))+(($E$38:$E$45&\"\")<>($L$38:$L$45&\"\"))+(($F$38:$F$45&\"\")<>($M$38:$M$45&\"\"))))"
+},
+"Estado_Entregado": {
+"sheet": "01_Supuestos",
+"ref": "C139",
+"value": "● C · B · F según la definición entregada",
+"formula": "=IF(N_Fuera_Entregado=0,\"● C · B · F según la definición entregada\",\"▲ \"&N_Fuera_Entregado&\" supuesto(s) de C/B/F fuera de la definición \"&Version)"
+},
+"N_Por_Confirmar": {
+"sheet": "01_Supuestos",
+"ref": "C140",
+"value": 19,
+"formula": "=COUNTIF($O$21:$O$132,2)+(COUNTA(Drv_Wp)>0)"
+},
+"N_Por_Confirmar_Esperado": {
+"sheet": "01_Supuestos",
+"ref": "C141",
+"value": 19,
+"formula": 19
+},
+"Tasa_Efectiva": {
+"sheet": "01_Supuestos",
+"ref": "C142",
+"value": 0.3625,
+"formula": "=IF(Incluir_Participacion=\"Sí\",Tasa_Participacion,0)+Tasa_IR*(1-IF(Incluir_Participacion=\"Sí\",Tasa_Participacion,0))"
+},
+"Eff_Scen": {
+"sheet": "01_Supuestos",
+"ref": "C143",
+"value": 1,
+"formula": "=IF(Escenario_Energia=\"P50\",1,2)"
+},
+"Eff_fO": {
+"sheet": "01_Supuestos",
+"ref": "C144",
+"value": 1,
+"formula": "=Factor_OPEX"
+},
+"Eff_Peaje": {
+"sheet": "01_Supuestos",
+"ref": "C145",
+"value": 0,
+"formula": "=Peaje_SGDA"
+},
+"Eff_EscT": {
+"sheet": "01_Supuestos",
+"ref": "C146",
+"value": 0.02,
+"formula": "=Escalacion_Tarifa"
+},
+"Escala_Wp": {
+"sheet": "01_Supuestos",
+"ref": "C147",
+"value": 1,
+"formula": "=(Potencia_DC/Potencia_Ref)^(1-Exponente_Escala)"
+},
+"Escala_Wac": {
+"sheet": "01_Supuestos",
+"ref": "C148",
+"value": 1,
+"formula": "=(Potencia_AC/(Potencia_Ref/Ratio_Ref))^(1-Exponente_Escala)"
+},
+"Fin_Operacion": {
+"sheet": "01_Supuestos",
+"ref": "C149",
+"value": "2053-07-01",
+"formula": "=EDATE(Fecha_COD,12*Horizonte)"
+},
+"Anios_Precios": {
+"sheet": "01_Supuestos",
+"ref": "C150",
+"value": 1.94387405886379,
+"formula": "=(Fecha_COD-Fecha_Precios)/365.25"
+},
+"N_Neutro": {
+"sheet": "01_Supuestos",
+"ref": "C151",
+"value": 5,
+"formula": "=(Disponibilidad<>1)+(Escalacion_CAPEX<>0)+(Reemplazo_Pagador<>\"No\")+(Meses_Construccion<>12)+(ABS(Tasa_Descuento_Equity-Tasa_Descuento)>0.000001)+(Desmantelamiento_Pct<>0)+(Degradacion_Adicional<>0)+(Peaje_kW_mes<>0)+ISNUMBER(Utilidad_Gravable_SALELGI)"
+},
+"Estado_Neutro": {
+"sheet": "01_Supuestos",
+"ref": "C152",
+"value": "◇ Ronda 2: 5 de 9 parámetros fuera de neutro (puente en 10 §A.3)",
+"formula": "=IF(N_Neutro=0,\"● Ronda 2 en neutro: el libro reproduce la v2.0\",\"◇ Ronda 2: \"&N_Neutro&\" de 9 parámetros fuera de neutro (puente en 10 §A.3)\")"
+},
+"Mes1_Cronograma": {
+"sheet": "03_Tramites",
+"ref": "D5",
+"value": "2026-10-01",
+"formula": "2026-10-01"
+},
+"Mes_COD_Cron": {
+"sheet": "03_Tramites",
+"ref": "F5",
+"value": 21,
+"formula": "=MAX(H8:H24)"
+},
+"Check_Cron": {
+"sheet": "03_Tramites",
+"ref": "M5",
+"value": "● coherente con Fecha_COD del modelo",
+"formula": "=IF(ABS(EDATE(Mes1_Cronograma,Mes_COD_Cron)-Fecha_COD)<=Tol_Dias_COD,\"● coherente con Fecha_COD del modelo\",\"▲ revisar Fecha_COD\")"
+},
+"Fin_RC09": {
+"sheet": "03_Tramites",
+"ref": "H18",
+"value": 8,
+"formula": "=F18+G18-1"
+},
+"Fin_RC10": {
+"sheet": "03_Tramites",
+"ref": "H19",
+"value": 12,
+"formula": "=F19+G19-1"
+},
+"Costo_Desarrollo_Cron": {
+"sheet": "03_Tramites",
+"ref": "I25",
+"value": 194500,
+"formula": "=SUM(I8:I24)"
+},
+"Check_Tramites": {
+"sheet": "03_Tramites",
+"ref": "I27",
+"value": "● cabe",
+"formula": "=IF(I25<=I26*(1+Tol_Costo_Tramites),\"● cabe\",\"▲ excede el rubro 9 — revisar\")"
+},
+"N_Controles": {
+"sheet": "13_Controles",
+"ref": "D96",
+"value": 79,
+"formula": "=COUNTIF($D$6:$D$93,\"●*\")+COUNTIF($D$6:$D$93,\"■*\")+COUNTIF($D$6:$D$93,\"▲*\")"
+},
+"N_Controles_OK": {
+"sheet": "13_Controles",
+"ref": "D97",
+"value": 78,
+"formula": "=COUNTIF($D$6:$D$93,\"●*\")"
+},
+"N_Controles_Fail": {
+"sheet": "13_Controles",
+"ref": "D98",
+"value": 0,
+"formula": "=COUNTIF($D$6:$D$93,\"■*\")"
+},
+"Estado_Controles": {
+"sheet": "13_Controles",
+"ref": "D99",
+"value": "● Controles 78/79 en orden",
+"formula": "=IF(N_Controles_Fail=0,\"● Controles \"&N_Controles_OK&\"/\"&N_Controles&\" en orden\",\"■ \"&N_Controles_Fail&\" control(es) fallan — ver 13_Controles\")"
+}
+}

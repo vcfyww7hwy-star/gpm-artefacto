@@ -1,0 +1,23 @@
+{
+  "name": "motor-sens-engine",
+  "version": "3.1.0",
+  "description": "Motor_Sens v3.1 (Modelo FV 5 MWp GPM) — TypeScript calculation engine",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "verify": "tsx test/verify.ts",
+    "crosscheck": "python3 test/crosscheck_shadow.py 400 31 && tsx test/crosscheck.ts",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^26.5.0",
+    "tsx": "^4.23.13",
+    "typescript": "^7.0.2"
+  },
+  "private": true,
+  "type": "module"
+}
