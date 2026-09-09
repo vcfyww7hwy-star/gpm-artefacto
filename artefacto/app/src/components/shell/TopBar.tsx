@@ -1,4 +1,5 @@
-import { Printer, Search, SlidersHorizontal } from "lucide-react";
+import { Check, Link2, Printer, Search, SlidersHorizontal } from "lucide-react";
+import { useState } from "react";
 
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Badge } from "@/components/ui/badge";
@@ -75,6 +76,7 @@ export function TopBar({
         <Button variant="outline" size="icon-xs" onClick={() => window.print()} title="Imprimir la vista actual (sólo el contenido)" aria-label="Imprimir la vista actual" className="text-ink-2 max-md:hidden">
           <Printer aria-hidden />
         </Button>
+        <CopyLinkButton />
 
         <Button
           variant={mandosOpen ? "secondary" : "outline"}
@@ -91,5 +93,24 @@ export function TopBar({
         <ThemeToggle />
       </div>
     </header>
+  );
+}
+
+/** B6 · copia el enlace exacto de lo que se está viendo (vista, caso, escenario y foco viajan en el hash). Texto de interfaz. */
+function CopyLinkButton() {
+  const [done, setDone] = useState(false);
+  const copy = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      setDone(true);
+      window.setTimeout(() => setDone(false), 2500);
+    } catch {
+      window.prompt("Copie el enlace:", window.location.href);
+    }
+  };
+  return (
+    <Button variant="outline" size="icon-xs" onClick={copy} title={done ? "Enlace copiado" : "Copiar enlace a esta vista, caso y escenario"} aria-label={done ? "Enlace copiado" : "Copiar enlace a esta vista"} className="text-ink-2 max-md:hidden">
+      {done ? <Check aria-hidden className="text-ok" /> : <Link2 aria-hidden />}
+    </Button>
   );
 }

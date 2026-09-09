@@ -1,0 +1,2 @@
+da5c580a633bcdf9e56a408bd48b343d90cf2cdf2eb36ed810650c71105a0921  externo.fragment.html
+d869d5cb89147e4abe96edd55b8e4345efaf5ebf0ab8054bb197502e6919a585  interno.fragment.html

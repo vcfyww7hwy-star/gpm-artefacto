@@ -13,7 +13,7 @@ export const GLYPH: Record<StatusKind, { g: string; cls: string }> = {
 };
 
 export function StatusGlyph({ kind, className }: { kind: StatusKind; className?: string }) {
-  return <span aria-hidden className={cn("text-[9px] leading-none", GLYPH[kind].cls, className)}>{GLYPH[kind].g}</span>;
+  return <span aria-hidden className={cn("text-[10px] leading-none", GLYPH[kind].cls, className)}>{GLYPH[kind].g}</span>;
 }
 
 /** Chip de estado: glifo + texto (el texto va en tinta secundaria; el color sólo en el glifo). */

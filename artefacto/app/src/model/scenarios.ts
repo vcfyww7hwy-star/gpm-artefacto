@@ -22,6 +22,8 @@ export interface Scenario {
   base: string;
   creado: string;
   actualizado: string;
+  /** G5 · borrado lógico (D-V2-5): fecha ISO en que se envió a la papelera; ausente = activo */
+  eliminado?: string | null;
   /** entradas del Motor que difieren del libro */
   patch: Partial<Inputs>;
   /** entradas informativas (extras) que difieren del libro */

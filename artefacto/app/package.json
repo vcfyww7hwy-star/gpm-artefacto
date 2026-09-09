@@ -20,7 +20,8 @@
     "check:exclusion": "node scripts/check-exclusion.mjs",
     "smoke": "node scripts/smoke.mjs interno && node scripts/smoke.mjs externo",
     "make:externo": "python3 scripts/make-externo.py",
-    "select:edition": "node scripts/select-edition.mjs"
+    "select:edition": "node scripts/select-edition.mjs",
+    "release": "bash scripts/release.sh"
   },
   "@parcel/resolver-default": {
     "packageExports": true

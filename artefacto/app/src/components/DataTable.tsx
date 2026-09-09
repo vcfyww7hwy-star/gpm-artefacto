@@ -62,7 +62,7 @@ export function DataTable<T>({ columns, rows, rowKey, emphasize, muted, rowClass
     window.setTimeout(() => setMsg(null), 4000);
   };
   return (
-    <div className={cn("group/table relative w-full overflow-x-auto", className)}>
+    <div className={cn("group/table scroll-x-shadows relative w-full overflow-x-auto", className)}>
       {exportName !== false && (
         <div className="absolute right-0 top-0 z-[1] flex items-center gap-1 print:hidden">
           {msg && <span className="text-[10.5px] text-ink-3">{msg}</span>}

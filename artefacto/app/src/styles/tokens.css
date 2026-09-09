@@ -20,7 +20,7 @@
   /* --- tinta (texto) ------------------------------------------------------- */
   --ink: #14171c;         /* texto principal, cifras */
   --ink-2: #586170;       /* texto secundario, etiquetas */
-  --ink-3: #8b94a3;       /* texto terciario, ejes, pistas */
+  --ink-3: #676e7a;       /* texto terciario, ejes, pistas · F1-02: 4,71:1 sobre --bg, 5,14:1 sobre --surface (antes #8b94a3 = 2,81:1) */
 
   /* --- acento «tinta»: editable / interactivo / caso Custom ---------------- */
   --accent: #2a5bd7;
@@ -32,7 +32,7 @@
   --warn-text: #996311;   /* advertencia como texto (contraste AA sobre --surface) */
   --warn-fill: #b7791f;   /* advertencia como relleno / trazo */
   --risk: #b23a32;
-  --info: #6f7987;
+  --info: #666f7c;        /* ◇ · F1-02: 4,66:1 sobre --bg (antes #6f7987 = 4,04:1) */
 
   /* --- casos ordinales (Conservador · Base · Favorable): grises + trazo ----- */
   --c-conservador: #2b2f36;
@@ -81,7 +81,7 @@
 
     --ink: #eef1f5;
     --ink-2: #a5aebb;
-    --ink-3: #6f7987;
+    --ink-3: #88919d;       /* F1-02: 5,89:1 sobre #0f1216, 5,07:1 sobre --surface-2 (antes #6f7987 = 4,26/3,67:1) */
 
     --accent: #6d96f0;
     --accent-soft: rgba(109, 150, 240, 0.12);
@@ -117,7 +117,7 @@
 
   --ink: #eef1f5;
   --ink-2: #a5aebb;
-  --ink-3: #6f7987;
+  --ink-3: #88919d;
 
   --accent: #6d96f0;
   --accent-soft: rgba(109, 150, 240, 0.12);

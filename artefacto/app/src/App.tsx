@@ -11,6 +11,7 @@ import { TopBar } from "@/components/shell/TopBar";
 import { ViewPlaceholder } from "@/components/shell/ViewPlaceholder";
 import { ModelProvider } from "@/model/store";
 import { Resumen } from "@/views/Resumen";
+import { ViewBoundary } from "@/components/shell/ViewErrorBoundary";
 import { Sensibilidad } from "@/views/Sensibilidad";
 import { Supuestos } from "@/views/Supuestos";
 import { Energia } from "@/views/Energia";
@@ -101,6 +102,7 @@ export default function App() {
           </div>
 
           <main className="min-h-0 min-w-0 flex-1 overflow-auto px-6 py-5">
+            <ViewBoundary view={view} caseId={caseId}>
             {view === "resumen" ? (
               <Resumen caseId={caseId} onNavigate={navigate} />
             ) : view === "sensibilidad" ? (
@@ -134,6 +136,7 @@ export default function App() {
             ) : (
               <ViewPlaceholder view={view} />
             )}
+            </ViewBoundary>
           </main>
         </div>
 

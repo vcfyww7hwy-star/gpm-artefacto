@@ -5,6 +5,14 @@ import { Button } from "@/components/ui/button";
 import { outcomeText, saveText, stamp } from "@/lib/export";
 import { fmtDate, fmtPct, fmtUSDCompact, fmtX } from "@/lib/format";
 import { useDb, errorCode, type Db } from "@/lib/capabilities";
+
+/** Texto de interfaz para errores de escritura en `db` (G5: con las reglas D-V2-5 sólo los editores del artefacto escriben). */
+function permMsg(e: unknown, accion: string): string {
+  const code = errorCode(e);
+  if (code === "quota_exceeded") return "La base del artefacto está llena: envíe escenarios antiguos a la papelera.";
+  if (code === "invalid_argument" || code === "permission_denied" || code === "not_granted") return `Sólo quienes pueden editar el artefacto pueden ${accion} escenarios (código ${code}).`;
+  return `No se pudo ${accion} (${code}).`;
+}
 import { cn } from "@/lib/utils";
 import { computeAll } from "@/engine";
 import { BASELINE_EXTRAS, BASELINE_INPUTS, useModel } from "@/model/store";
@@ -77,7 +85,7 @@ export function ScenariosPanel({ onCompare }: Props) {
       m.markScenario({ id, nombre: body.nombre });
       setName(""); setNote("");
     } catch (e) {
-      setError(errorCode(e) === "quota_exceeded" ? "La base del artefacto está llena: elimine escenarios antiguos." : `No se pudo guardar (${errorCode(e)}).`);
+      setError(permMsg(e, "guardar"));
     } finally { setBusy(false); }
   };
 
@@ -86,23 +94,34 @@ export function ScenariosPanel({ onCompare }: Props) {
     setBusy(true); setError(null);
     try {
       await db.doc(`${SCENARIOS_COLLECTION}/${m.scenario.id}`).update({ ...current(), actualizado: new Date().toISOString() } as unknown as Record<string, unknown>);
-    } catch (e) { setError(`No se pudo actualizar (${errorCode(e)}).`); } finally { setBusy(false); }
+    } catch (e) { setError(permMsg(e, "actualizar")); } finally { setBusy(false); }
   };
 
   const remove = async (id: string) => {
     if (!db) return;
     setBusy(true); setError(null);
     try {
-      await db.doc(`${SCENARIOS_COLLECTION}/${id}`).delete();
+      // G5 (D-V2-5): borrado LÓGICO — el documento queda en la papelera con la fecha; se puede restaurar. Nunca se borra físicamente desde la interfaz.
+      await db.doc(`${SCENARIOS_COLLECTION}/${id}`).update({ eliminado: new Date().toISOString() } as unknown as Record<string, unknown>);
       if (m.scenario?.id === id) m.markScenario(null);
       setSelected((s) => s.filter((x) => x !== id));
-    } catch (e) { setError(`No se pudo eliminar (${errorCode(e)}).`); } finally { setBusy(false); setConfirmDelete(null); }
+    } catch (e) { setError(permMsg(e, "eliminar")); } finally { setBusy(false); setConfirmDelete(null); }
+  };
+
+  const restore = async (id: string) => {
+    if (!db) return;
+    setBusy(true); setError(null);
+    try {
+      await db.doc(`${SCENARIOS_COLLECTION}/${id}`).update({ eliminado: null } as unknown as Record<string, unknown>);
+    } catch (e) { setError(permMsg(e, "restaurar")); } finally { setBusy(false); }
   };
 
   const toggleSelect = (id: string) => setSelected((s) => (s.includes(id) ? s.filter((x) => x !== id) : s.length >= 3 ? s : [...s, id]));
-  const all = [...presets, ...saved];
-  const activeIsSaved = m.scenario && !m.scenario.id.startsWith("preset-") && saved.some((s) => s.id === m.scenario!.id);
-  const activeSaved = activeIsSaved ? saved.find((s) => s.id === m.scenario!.id) : null;
+  const activos = saved.filter((s) => !s.eliminado);
+  const papelera = saved.filter((s) => !!s.eliminado);
+  const all = [...presets, ...activos];
+  const activeIsSaved = m.scenario && !m.scenario.id.startsWith("preset-") && activos.some((s) => s.id === m.scenario!.id);
+  const activeSaved = activeIsSaved ? activos.find((s) => s.id === m.scenario!.id) : null;
   const activeStale = activeSaved ? JSON.stringify({ p: activeSaved.patch, e: activeSaved.extras }) !== JSON.stringify({ p: current().patch, e: current().extras }) : false;
 
   return (
@@ -131,11 +150,11 @@ export function ScenariosPanel({ onCompare }: Props) {
       </section>
 
       <section className="flex flex-col gap-2">
-        <h3 className="text-[11px] font-medium uppercase tracking-[0.06em] text-ink-3">Guardados{dbState === "ready" ? ` (${saved.length})` : ""}</h3>
-        {dbState === "ready" && saved.length === 0 && <p className="text-[12px] text-ink-3">Aún no hay escenarios guardados.</p>}
+        <h3 className="text-[11px] font-medium uppercase tracking-[0.06em] text-ink-3">Guardados{dbState === "ready" ? ` (${activos.length})` : ""}</h3>
+        {dbState === "ready" && activos.length === 0 && <p className="text-[12px] text-ink-3">Aún no hay escenarios guardados.</p>}
         {dbState === "absent" && <p className="text-[12px] text-ink-3">—</p>}
         <ul className="flex flex-col gap-1.5">
-          {saved.map((s) => (
+          {activos.map((s) => (
             <Row
               key={s.id}
               s={s}
@@ -149,6 +168,19 @@ export function ScenariosPanel({ onCompare }: Props) {
             />
           ))}
         </ul>
+        {papelera.length > 0 && (
+          <details className="text-[12px]">
+            <summary className="cursor-pointer text-ink-3">Papelera ({papelera.length}) — eliminados de forma reversible</summary>
+            <ul className="mt-1 flex flex-col gap-1">
+              {papelera.map((s) => (
+                <li key={s.id} className="flex items-center justify-between gap-2 rounded-1 border border-dashed border-hairline px-2 py-1 text-ink-3">
+                  <span className="truncate">{s.nombre} <span className="text-[11px]">· eliminado {String(s.eliminado).slice(0, 10)}</span></span>
+                  <Button variant="ghost" size="xs" onClick={() => restore(s.id)} disabled={busy}>restaurar</Button>
+                </li>
+              ))}
+            </ul>
+          </details>
+        )}
       </section>
 
       {dbState === "ready" && (
@@ -225,7 +257,7 @@ function Row({ s, active, selected, onLoad, onSelect, onDelete, confirming, onCa
         {onDelete && !confirming && <Button variant="ghost" size="xs" onClick={onDelete} className="text-ink-3"><Trash2 aria-hidden /> eliminar</Button>}
         {onDelete && confirming && (
           <>
-            <span className="text-[11px] text-risk">¿Eliminar para toda la organización?</span>
+            <span className="text-[11px] text-risk">¿Enviar a la papelera (reversible)?</span>
             <Button variant="ghost" size="xs" onClick={onDelete} className="text-risk">sí, eliminar</Button>
             <Button variant="ghost" size="xs" onClick={onCancelDelete}>no</Button>
           </>

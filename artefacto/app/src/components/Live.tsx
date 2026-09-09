@@ -26,7 +26,7 @@ export function Frozen({ what }: { what?: string }) {
   const m = useModel();
   return (
     <span
-      className="ml-1 inline-block -translate-y-px rounded-[3px] border border-hairline px-1 align-middle font-mono text-[8.5px] uppercase leading-[13px] tracking-[0.06em] text-ink-3"
+      className="ml-1 inline-block -translate-y-px rounded-[3px] border border-hairline px-1 align-middle font-mono text-[10px] uppercase leading-[13px] tracking-[0.06em] text-ink-3"
       title={`${what ?? "Dato"} del libro v${m.book.meta.version.replace(/^v/, "")} (corte ${m.book.meta.fecha_analisis}); el motor no lo recalcula.`}
       aria-label="valor del libro"
     >

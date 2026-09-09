@@ -38,7 +38,7 @@ const GLYPH: Record<"ok" | "warn" | "risk" | "info", { g: string; cls: string }>
 function Status({ kind, children, mono, className }: { kind: keyof typeof GLYPH; children: ReactNode; mono?: boolean; className?: string }) {
   return (
     <span className={cn("inline-flex items-center gap-1.5 text-[12px] text-ink-2", mono && "font-mono", className)}>
-      <span aria-hidden className={cn("text-[9px] leading-none", GLYPH[kind].cls)}>{GLYPH[kind].g}</span>
+      <span aria-hidden className={cn("text-[10px] leading-none", GLYPH[kind].cls)}>{GLYPH[kind].g}</span>
       {children}
     </span>
   );

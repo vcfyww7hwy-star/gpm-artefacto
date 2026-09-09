@@ -1,0 +1,37 @@
+{
+  "edition": "interno",
+  "input": "/tmp/claude-0/-home-claude/c7ccfb8e-e83b-55e8-83d7-2f50f6730adb/scratchpad/artefacto/app/bundle.html",
+  "output": "/tmp/claude-0/-home-claude/c7ccfb8e-e83b-55e8-83d7-2f50f6730adb/scratchpad/artefacto/app/dist/fragment.html",
+  "bundleBytes": 1146968,
+  "fragmentBytes": 1147033,
+  "targetBytes": 1500000,
+  "withinTarget": true,
+  "title": "Modelo FV Montecristi → GPM",
+  "counts": {
+    "styles": 1,
+    "scripts": 1,
+    "moduleScripts": 1,
+    "fontLinks": 1,
+    "bodyElements": 1
+  },
+  "allowedHosts": [
+    "fonts.googleapis.com",
+    "fonts.gstatic.com"
+  ],
+  "cspCheck": "ok",
+  "jsMentionedHosts": [
+    "arconel.gob.ec",
+    "claude.ai",
+    "corralrosales.com",
+    "pv-magazine-usa.com",
+    "react.dev",
+    "www.cnelep.gob.ec",
+    "www.expreso.ec",
+    "www.primicias.ec",
+    "www.sri.gob.ec",
+    "www.w3.org"
+  ],
+  "warnings": [
+    "el bundle no traía <link> a Google Fonts: inyectado desde scripts/fonts.mjs"
+  ]
+}

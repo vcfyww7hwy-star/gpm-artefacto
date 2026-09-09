@@ -253,9 +253,9 @@ export function Capex({ caseId }: Props) {
         <Section title="Composición del CAPEX industrial por rubro" guide="capitalizable sin IVA del caso; en color las tres partidas mayores, el resto en gris" aside={<Trace cell="05_CAPEX!N7:N18" />}>
           <ul className="flex flex-col divide-y divide-hairline text-[12px]">
             {compos.map((x) => (
-              <li key={x.n} className="grid grid-cols-[22px_minmax(0,200px)_minmax(0,1fr)_92px_56px_64px] items-center gap-x-3 py-1.5" style={{ fontVariantNumeric: "tabular-nums" }}>
+              <li key={x.n} className="grid grid-cols-[22px_minmax(0,220px)_minmax(0,1fr)_92px_56px_64px] items-center gap-x-3 py-1.5" style={{ fontVariantNumeric: "tabular-nums" }}>
                 <span className="font-mono text-[11px] text-ink-3">{x.n}</span>
-                <span className="truncate text-ink" title={x.nombre}>{x.nombre}</span>
+                <span className="line-clamp-2 text-ink leading-snug" title={x.nombre}>{x.nombre}</span>
                 <span className="h-3 w-full overflow-hidden rounded-[2px] bg-surface-2">
                   <span className="block h-full rounded-[2px]" style={{ width: `${Math.max(0, (x.v / maxV) * 100)}%`, background: x.color, opacity: 0.85 }} />
                 </span>
@@ -266,7 +266,7 @@ export function Capex({ caseId }: Props) {
             ))}
             <li className="grid grid-cols-[22px_minmax(0,200px)_minmax(0,1fr)_92px_56px_64px] items-center gap-x-3 border-t border-ink-3/40 py-1.5 font-semibold text-ink" style={{ fontVariantNumeric: "tabular-nums" }}>
               <span />
-              <span className="col-span-2 truncate">{labels["19"]}</span>
+              <span className="col-span-2 leading-snug">{labels["19"]}</span>
               <span className="text-right">{fmtUSD(K)}</span>
               <span className="text-right">{fmtPct(1, 0)}</span>
               <span className="text-right">{fmtNum(K / P1000, 3)} $/Wp</span>

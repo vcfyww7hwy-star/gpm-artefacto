@@ -89,3 +89,22 @@
 @keyframes focus-flash { 0% { box-shadow: 0 0 0 0 var(--accent-soft), inset 0 0 0 999px var(--accent-soft); } 100% { box-shadow: none; } }
 .focus-flash { animation: focus-flash 2.4s ease-out 1; outline: 1px solid var(--accent); outline-offset: 1px; border-radius: 3px; }
 tr.focus-flash > td:first-child { box-shadow: inset 2px 0 0 var(--accent); }
+
+/* F1-10 · indicador de desplazamiento horizontal en tablas anchas (sombras que aparecen sólo cuando hay más columnas). */
+.scroll-x-shadows {
+  background:
+    linear-gradient(to right, var(--surface) 30%, rgba(255, 255, 255, 0)) left / 24px 100% no-repeat,
+    linear-gradient(to left, var(--surface) 30%, rgba(255, 255, 255, 0)) right / 24px 100% no-repeat,
+    linear-gradient(to right, color-mix(in srgb, var(--ink) 14%, transparent), rgba(0, 0, 0, 0)) left / 14px 100% no-repeat,
+    linear-gradient(to left, color-mix(in srgb, var(--ink) 14%, transparent), rgba(0, 0, 0, 0)) right / 14px 100% no-repeat;
+  background-attachment: local, local, scroll, scroll;
+}
+
+/* F4 · sin animaciones para quien lo pide (prefers-reduced-motion). */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  .focus-flash { animation: none; }
+}
+
+/* F1-02 · sobre celdas resaltadas (--accent-soft) el gris terciario baja a 3,98:1 → usar el secundario. */
+.bg-accent-soft .text-ink-3, .bg-accent-soft.text-ink-3 { color: var(--ink-2); }
