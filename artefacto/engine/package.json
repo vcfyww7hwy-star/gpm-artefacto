@@ -8,7 +8,8 @@
   "scripts": {
     "verify": "tsx test/verify.ts",
     "crosscheck": "python3 test/crosscheck_shadow.py 400 31 && tsx test/crosscheck.ts",
-    "typecheck": "tsc -p tsconfig.json"
+    "typecheck": "tsc -p tsconfig.json",
+    "test:irr": "tsx test/irr_excel.test.ts"
   },
   "keywords": [],
   "author": "",

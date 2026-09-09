@@ -12,8 +12,7 @@ import * as path from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   computeDerived, computeCase, PARAM_LABELS, PARAM_KEYS, BLOCK_NAMES, T_AXIS, edate, parseISODate, formatISODate,
-  type Inputs, type Derived, type CaseParams, type OutputValue,
-} from "../src/engine";
+  type Inputs, type Derived, type CaseParams, type OutputValue, irrNewtonRaw } from "../src/engine";
 import { buildCases } from "../src/caseDefinitions";
 import { inputsFromWorkbookJson, type NamesJson, type SheetsJson } from "../src/inputs";
 
@@ -162,6 +161,7 @@ const secE = new Section("(e) blocks (28 × 27 × 111)");
 const perBlock = new Map<string, { maxAbs: number; maxRel: number; n: number }>();
 for (const b of BLOCK_NAMES) perBlock.set(b, { maxAbs: 0, maxRel: 0, n: 0 });
 const perOutput = new Map<string, { maxAbs: number; maxRel: number }>();
+const explainedIrr: string[] = [];
 
 cases.forEach((c, j) => {
   const mc = motor.cases[j];
@@ -172,6 +172,14 @@ cases.forEach((c, j) => {
   for (const lab of motor.labels.scalars) secC.cmp(`${mc.name} · ${lab}`, mc.scalars[lab], (res.scalars as Record<string, number>)[lab]);
   for (const lab of motor.labels.outputs) {
     const exp = mc.outputs[lab], got = (res.outputs as Record<string, OutputValue>)[lab];
+    // D-V2-9: el oráculo LibreOffice muestra «n/a» (guardia R3-5) cuando su Newton converge a una raíz espuria (≤ −100 %) o
+    // no converge; Excel y el motor devuelven la raíz real en dominio. Se acepta como divergencia EXPLICADA si la fase 1
+    // (Newton puro) sobre la misma serie efectivamente sale del dominio o no converge.
+    const series = lab === "TIR equity" ? res.blocks.EQ : lab === "TIR proyecto" ? res.blocks.FCF_u : lab === "TIR grupo" ? res.blocks.Gx : null;
+    if (series && (exp === "n/a" || (typeof exp === "number" && exp <= -1)) && typeof got === "number" && Number.isFinite(got) && got > -1) {   // r3: «n/a» (R3-5) · r2: la raíz espuria tal cual
+      const raw = irrNewtonRaw(series as number[], lab === "TIR equity" ? 0.02 : 0.1);
+      if (raw === null || raw <= -1) { explainedIrr.push(`${mc.name} · ${lab}: LibreOffice ${raw === null ? "no converge" : (raw * 100).toFixed(2) + " % (espuria)"} → libro ${exp === "n/a" ? "n/a" : (exp as number * 100).toFixed(2) + " %"} · motor/Excel ${(got * 100).toFixed(4)} %`); secD.n++; continue; }
+    }
     secD.cmp(`${mc.name} · ${lab}`, exp, got);
     if (typeof exp === "number" && typeof got === "number") {
       const cur = perOutput.get(lab) ?? { maxAbs: 0, maxRel: 0 };
@@ -205,7 +213,8 @@ for (const [o, v] of perOutput) console.log(`  ${o.padEnd(32)} |Δ|=${v.maxAbs.t
 const totalFail = sections.reduce((s, x) => s + x.nFail, 0);
 const totalN = sections.reduce((s, x) => s + x.n, 0);
 const status = totalFail === 0 ? "PASS" : "FAIL";
-console.log(`\n==== ${status}: ${totalN} cells compared, ${totalFail} outside tolerance (abs 1e-6 | rel 1e-9; params 1e-12) ====`);
+if (explainedIrr.length) { console.log(`\n--- TIR: ${explainedIrr.length} divergencia(s) explicada(s) por D-V2-9 (oráculo LibreOffice) ---`); for (const e of explainedIrr) console.log("  " + e); }
+console.log(`\n==== ${status}: ${totalN} cells compared, ${totalFail} outside tolerance (abs 1e-6 | rel 1e-9; params 1e-12)${explainedIrr.length ? ` · ${explainedIrr.length} TIR explicadas (D-V2-9)` : ""} ====`);
 
 const report = {
   status, totalCompared: totalN, totalFailed: totalFail, tolerance: { abs: ABS_TOL, rel: REL_TOL, params: 1e-12 },

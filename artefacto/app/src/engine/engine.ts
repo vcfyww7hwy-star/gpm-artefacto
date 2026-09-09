@@ -492,7 +492,7 @@ function irrRelResidual(cfs: readonly number[], r: number): number {
 }
 
 /** Fallback bracket window (absolute rates) for `irr` when Newton from the seed does not converge. */
-export const IRR_FALLBACK_WINDOW: readonly [number, number] = [-0.5, 1.0];
+export const IRR_FALLBACK_WINDOW: readonly [number, number] = [-0.99, 10.0];   // D-V2-9: antes [−0,5, 1,0]
 /** true = comportamiento estricto de Excel (sin convergencia → «n/a»); false = raíz más cercana a la semilla dentro de la ventana. */
 export const IRR_STRICT_EXCEL = true;
 
@@ -509,6 +509,20 @@ export const IRR_EXCEL_EPS = 1e-7;
 export const IRR_GUARD_BELOW_MINUS1 = true;
 
 /**
+ * D-V2-9 (09-sep-2026, prueba A2 en Excel/Mac 16.110 sobre la serie s19/M41): Excel devuelve −5,4876 % con cualquier
+ * semilla (0,02 · 0,10 · −0,05 · −0,5) — la única raíz real en el dominio 1+r > 0 — mientras LibreOffice (Newton puro desde
+ * 0,02) salta a r = −2,04 y converge a la raíz espuria −303,36 %. Contrato observado de Excel, que el motor replica:
+ *   (1) si Newton desde la semilla converge a una raíz EN dominio, ésa es la TIR (conserva 1,0754 % del Conservador y los
+ *       casos multi-raíz ya contrastados con Excel en F2/F4);
+ *   (2) si Newton converge FUERA del dominio (x ≤ −1, espuria) o no converge, Excel devuelve la raíz real SÓLO cuando es
+ *       única en el dominio útil (un cambio de signo en IRR_FALLBACK_WINDOW; bisección); con varias raíces devuelve #NUM!
+ *       desde la semilla del libro (Conservador de s19: −30,5 % y −19,3 % → #NUM!) → el motor devuelve null («n/a»);
+ *   (3) sin raíz en dominio → null («n/a»).
+ * Con `false` se recupera el contrato anterior (F2, 08-sep): no convergencia → «n/a»; espuria → «n/a» por R3-5.
+ */
+export const IRR_EXCEL_ROBUST_ROOT = true;
+
+/**
  * Excel/LibreOffice IRR semantics.
  *  Phase 1 — Newton–Raphson from `guess` (Excel default 0.1; the Motor uses 0.02 for the equity IRR) exactly as
  *            LibreOffice ScIrr: x ← x − f(x)/f'(x), converged when a step is < 1e-7 within 20 iterations, WITHOUT a
@@ -523,6 +537,27 @@ export const IRR_GUARD_BELOW_MINUS1 = true;
  *            "n/a". Roots outside that window are NOT returned (Excel: "n/a"; engine: null → "n/a").
  *  Returns null when no root is found (→ "n/a" in the Motor).
  */
+/**
+ * Sólo la fase 1 (Newton de LibreOffice ScIrr, sin corte de dominio): devuelve la raíz a la que converge — también si es
+ * espuria (x ≤ −1) — o null si no converge. Lo usa `verify.ts` para explicar divergencias «oráculo LibreOffice n/a vs motor
+ * finito» (D-V2-9): si LibreOffice converge fuera del dominio, el libro r3 muestra «n/a» (R3-5) mientras Excel y el motor
+ * muestran la raíz real.
+ */
+export function irrNewtonRaw(cfs: readonly number[], guess = 0.1): number | null {
+  let x = guess;
+  for (let it = 0; it < IRR_EXCEL_MAX_ITER; it++) {
+    const fv = irrF(cfs, x);
+    const d = irrDF(cfs, x);
+    if (!Number.isFinite(fv) || !Number.isFinite(d) || d === 0) return null;
+    const nx = x - fv / d;
+    if (!Number.isFinite(nx)) return null;
+    const step = Math.abs(nx - x);
+    x = nx;
+    if (step < IRR_EXCEL_EPS) return x;
+  }
+  return null;
+}
+
 export function irr(cfs: readonly number[], guess = 0.1): number | null {
   const n = cfs.length;
   if (n < 2) return null;
@@ -556,17 +591,23 @@ export function irr(cfs: readonly number[], guess = 0.1): number | null {
       x = nx;
       if (step <= tolStep * Math.max(1, Math.abs(x))) break;
     }
-    if (!okRoot(x)) return null;
-    if (x <= -1 && IRR_GUARD_BELOW_MINUS1) return null;         // R3-5: raíz espuria (TIR ≤ −100 %) → «n/a»
-    return x;
+    if (okRoot(x) && x > -1) return x;                          // raíz en dominio alcanzada por Newton → Excel ≡ LibreOffice
+    if (!IRR_EXCEL_ROBUST_ROOT) {
+      if (!okRoot(x)) return null;
+      if (x <= -1 && IRR_GUARD_BELOW_MINUS1) return null;       // R3-5 (contrato F2): raíz espuria → «n/a»
+      return x;
+    }
+    // D-V2-9: raíz espuria (x ≤ −1) → Excel devuelve la raíz real en dominio → fase 2
+  } else if (!IRR_EXCEL_ROBUST_ROOT && IRR_STRICT_EXCEL) {
+    return null;                                                 // contrato F2: sin convergencia → «n/a»
   }
 
-  // --- Strict Excel semantics (decisión F2, 08-sep-2026): si Newton no converge en 20 iteraciones Excel devuelve #NUM! → «n/a».
-  //     El motor reproduce ESE comportamiento («Motor ≡ Excel» también en los casos patológicos). La fase 2 (raíz más cercana a la
-  //     semilla dentro de IRR_FALLBACK_WINDOW) queda disponible sólo con IRR_STRICT_EXCEL = false.
-  if (IRR_STRICT_EXCEL) return null;
-
-  // --- Phase 2: nearest sign change to the seed inside the fallback window, then bisection
+  // --- Phase 2 (D-V2-9, contrato observado en Excel/Mac 16.110 sobre 4 series, 09-sep-2026):
+  //     · exactamente UN cambio de signo de f en IRR_FALLBACK_WINDOW → Excel devuelve esa raíz con cualquier semilla
+  //       (PISO −7,2805 %, M41 −5,4876 %, M51 −6,4815 %: idénticas al motor con Δ ≤ 5e-13);
+  //     · VARIOS cambios de signo y Newton sin converger → Excel devuelve #NUM! desde la semilla del libro («n/a»)
+  //       (Conservador de s19: raíces −30,5 % y −19,3 %; Excel #NUM! desde 0,02 y 0,10; −30,5 % sólo desde −0,5);
+  //     · ninguno → «n/a».
   const [lo0, hi0] = IRR_FALLBACK_WINDOW;
   const fAt = (r: number) => irrF(cfs, r);
   const bisect = (a: number, b: number): number | null => {
@@ -584,25 +625,17 @@ export function irr(cfs: readonly number[], guess = 0.1): number | null {
     const r = 0.5 * (a + b);
     return okRoot(r) ? r : null;
   };
-  const g = Math.min(Math.max(guess, lo0), hi0);
   const step = 0.0025;
-  let aL = g, aR = g;
-  let fL = fAt(g), fR = fL;
-  while (aL > lo0 || aR < hi0) {
-    if (aR < hi0) {                                              // right side
-      const nr = Math.min(hi0, aR + step);
-      const fn = fAt(nr);
-      if (Number.isFinite(fn) && Number.isFinite(fR) && (fn > 0) !== (fR > 0)) { const r = bisect(aR, nr); if (r !== null) return r; }
-      aR = nr; fR = fn;
-    }
-    if (aL > lo0) {                                              // left side
-      const nl = Math.max(lo0, aL - step);
-      const fn = fAt(nl);
-      if (Number.isFinite(fn) && Number.isFinite(fL) && (fn > 0) !== (fL > 0)) { const r = bisect(nl, aL); if (r !== null) return r; }
-      aL = nl; fL = fn;
-    }
+  const brackets: Array<[number, number]> = [];
+  let a = lo0, fa = fAt(a);
+  while (a < hi0) {
+    const b = Math.min(hi0, a + step);
+    const fb = fAt(b);
+    if (Number.isFinite(fa) && Number.isFinite(fb) && (fa > 0) !== (fb > 0)) brackets.push([a, b]);
+    a = b; fa = fb;
   }
-  return null;
+  if (brackets.length !== 1) return null;                      // 0 raíces, o varias (Excel: #NUM!) → «n/a»
+  return bisect(brackets[0][0], brackets[0][1]);
 }
 
 /**
