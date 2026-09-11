@@ -1,0 +1,2 @@
+868751165d6621a3aae9065137b5a196f22c2d9a8afca027aee0690c9309fdc7  externo.fragment.html
+89698736b0a24c54f6ca05b081f427a358cdfeffdd17ac315e5bc23624bfe37d  interno.fragment.html

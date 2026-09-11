@@ -1,5 +1,7 @@
 import { Check, Link2, Printer, Search, SlidersHorizontal } from "lucide-react";
 import { useState } from "react";
+import { inEmbeddedViewer, publicArtifactUrl } from "@/lib/viewer";
+import { NAV_GROUPS, CASES } from "@/lib/views";
 
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { Badge } from "@/components/ui/badge";
@@ -99,13 +101,22 @@ export function TopBar({
 /** B6 · copia el enlace exacto de lo que se está viendo (vista, caso, escenario y foco viajan en el hash). Texto de interfaz. */
 function CopyLinkButton() {
   const [done, setDone] = useState(false);
+  const linkText = (): string => {
+    // A1: en el visor de claude.ai el marco no recibe el «#…» de la URL pública → se copia la URL pública + el estado en texto.
+    if (!inEmbeddedViewer()) return window.location.href;
+    const p = new URLSearchParams(window.location.hash.replace(/^#/, ""));
+    const v = p.get("v"), c = p.get("c"), s = p.get("s");
+    const vista = NAV_GROUPS.flatMap((g) => g.views).find((i) => i.id === v)?.label ?? v ?? "Resumen";
+    const caso = CASES.find((x) => x.id === c)?.label ?? c ?? "Base";
+    return `${publicArtifactUrl()}\n→ vista ${vista} · caso ${caso}${s ? ` · escenario ${s} (Mandos → Escenarios)` : ""} · estado interno ${window.location.hash || "#"}`;
+  };
   const copy = async () => {
     try {
-      await navigator.clipboard.writeText(window.location.href);
+      await navigator.clipboard.writeText(linkText());
       setDone(true);
       window.setTimeout(() => setDone(false), 2500);
     } catch {
-      window.prompt("Copie el enlace:", window.location.href);
+      window.prompt("Copie el enlace:", linkText());
     }
   };
   return (

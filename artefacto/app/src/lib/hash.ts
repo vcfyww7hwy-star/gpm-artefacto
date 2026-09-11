@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { readLast, rememberLast } from "@/lib/viewer";
 import {
   DEFAULT_CASE,
   DEFAULT_VIEW,
@@ -37,12 +38,16 @@ export function writeHashParams(params: URLSearchParams): boolean {
 
 export function viewFromHash(params: URLSearchParams = readHashParams()): ViewId {
   const raw = params.get(HASH_VIEW_KEY);
-  return isViewId(raw) ? raw : DEFAULT_VIEW;
+  if (isViewId(raw)) return raw;
+  const last = readLast()?.view;                                   // A1: sin hash (visor) → última vista recordada
+  return isViewId(last) ? last : DEFAULT_VIEW;
 }
 
 export function caseFromHash(params: URLSearchParams = readHashParams()): CaseId {
   const raw = params.get(HASH_CASE_KEY);
-  return isCaseId(raw) ? raw : DEFAULT_CASE;
+  if (isCaseId(raw)) return raw;
+  const last = readLast()?.caseId;
+  return isCaseId(last) ? last : DEFAULT_CASE;
 }
 
 export function hrefForView(id: ViewId): string {
@@ -85,6 +90,8 @@ export function useHashNav(): HashNav {
     params.set(HASH_CASE_KEY, next);
     writeHashParams(params);
   }, []);
+
+  useEffect(() => { rememberLast(view, caseId); }, [view, caseId]);   // A1: recordar para el próximo arranque sin hash
 
   return { view, caseId, navigate, setCase };
 }

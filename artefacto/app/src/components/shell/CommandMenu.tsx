@@ -1,5 +1,6 @@
-import { useEffect, useMemo } from "react";
-import { BookOpen, CornerDownLeft, Printer, RotateCcw, ScrollText, ShieldAlert, SlidersHorizontal, Waypoints } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { BookOpen, CornerDownLeft, Info, Printer, RotateCcw, ScrollText, ShieldAlert, SlidersHorizontal, Waypoints } from "lucide-react";
+import { AboutPanel } from "@/components/shell/AboutPanel";
 
 import {
   CommandDialog,
@@ -53,8 +54,11 @@ export function CommandMenu({ open, onOpenChange, onNavigate }: Props) {
   const tramites = useMemo(() => m.book.tramites.rows.map((t) => ({ id: t.id, tramite: m.live(t.tramite) })), [m.book, m]);
   const riesgos = useMemo(() => m.book.riesgos.rows.map((r, k) => ({ id: String(k + 1), categoria: m.live(r.categoria), riesgo: m.live(r.riesgo) })), [m.book, m]);
   const controles = useMemo(() => m.book.controles.rows.map((c) => ({ id: c.id, desc: c.desc })), [m.book]);
+  const [aboutOpen, setAboutOpen] = useState(false);   // A1 (F-A1-03): «Acerca de» accesible también cuando el chip está oculto (< md)
 
   return (
+    <>
+    <AboutPanel open={aboutOpen} onOpenChange={setAboutOpen} />
     <CommandDialog open={open} onOpenChange={onOpenChange} title="Buscar en el modelo">
       <CommandInput placeholder="Vista, entrada de 01 (nombre Excel o etiqueta), término, norma, trámite, riesgo, control…" />
       <CommandList className="max-h-[60vh]">
@@ -75,6 +79,9 @@ export function CommandMenu({ open, onOpenChange, onNavigate }: Props) {
         <CommandGroup heading="Acciones">
           <CommandItem value="accion imprimir vista" onSelect={() => { onOpenChange(false); window.setTimeout(() => window.print(), 150); }}>
             <Printer className="size-3.5 text-ink-3" aria-hidden /> <span>Imprimir la vista actual</span>
+          </CommandItem>
+          <CommandItem value="accion acerca de esta version libro sha edicion" onSelect={() => { onOpenChange(false); window.setTimeout(() => setAboutOpen(true), 120); }}>
+            <Info className="size-3.5 text-ink-3" aria-hidden /> <span>Acerca de esta versión (libro, SHA, edición, convención)</span>
           </CommandItem>
           <CommandItem value="accion volver al libro restaurar entradas" onSelect={() => { m.reset(); onOpenChange(false); }} disabled={m.dirty === 0}>
             <RotateCcw className="size-3.5 text-ink-3" aria-hidden /> <span>Volver al libro (restaurar las entradas v{m.book.meta.version.replace(/^v/, "")})</span>
@@ -154,5 +161,6 @@ export function CommandMenu({ open, onOpenChange, onNavigate }: Props) {
         )}
       </CommandList>
     </CommandDialog>
+    </>
   );
 }

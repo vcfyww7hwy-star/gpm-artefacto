@@ -8,12 +8,13 @@ import { BASELINE_EXTRAS, BASELINE_INPUTS } from "@/model/store";
  * A9/G4 (doc 25): panel «Acerca de esta versión». Todo lo que aquí se muestra son METADATOS del artefacto y de la extracción
  * del libro (book.meta, oráculo, edición, entradas modificadas) — textos de interfaz, no contenido del modelo.
  */
-export const ARTEFACTO_VERSION = "v2 · ola 1 · r2 (09-sep-2026)";
+export const ARTEFACTO_VERSION = "v2 · ola 1 · r3 (11-sep-2026)";
 
 /** Historial de publicaciones (se actualiza en cada promoción; G4). */
 export const CHANGELOG: ReadonlyArray<{ version: string; fecha: string; nota: string }> = [
   { version: "F5 r2 · hotfix F1-01", fecha: "09-sep-2026", nota: "Resumen: el criterio de los candados 4 y 5 se evalúa en vivo (antes se mostraba la fórmula sin evaluar)." },
-  { version: "v2 · ola 1 · r2", fecha: "09-sep-2026", nota: "TIR ≡ Excel (D-V2-9) · contraste AA en ambos temas · tamaños mínimos · límite de error por vista · panel «Acerca de» · indicador de desplazamiento en tablas." },
+  { version: "v2 · ola 1 · r3", fecha: "11-sep-2026", nota: "Prueba en el visor real (A1): recuerda la última vista y caso; «Copiar enlace» copia la URL pública; «Acerca de» también desde ⌘K; reglas de escritura en escenarios verificadas." },
+  { version: "v2 · ola 1 · r2", fecha: "09-sep-2026", nota: "TIR ≡ Excel (D-V2-9) · contraste AA en ambos temas · tamaños mínimos · límite de error por vista · panel «Acerca de» · indicador de desplazamiento en tablas · borrado lógico con papelera." },
   { version: "F5 r1", fecha: "08-sep-2026", nota: "Escenarios (db), exportar CSV/JSON, impresión, ⌘K, edición externa." },
 ];
 
@@ -32,6 +33,7 @@ export function AboutPanel({ open, onOpenChange }: Props) {
     ["Motor ≡ Excel", `${passed}/${m.selfCheck.compared} salidas de ${ORACLE.cases.length} casos coinciden con el libro (tolerancia 1e-9)`],
     ["Convención numérica", "es-EC: punto de miles y coma decimal (1.234,56 · 10,64 %). Excel en un Mac configurado en en-EC muestra 1,234.56 · 10.64% — mismos valores, distinta escritura."],
     ["TIR", "Newton desde la semilla del libro; si no converge o sale del dominio, raíz única en (−99 %, +1.000 %); varias raíces → «n/a» (igual que Excel; D-V2-9)."],
+    ["Enlaces", "El visor de claude.ai abre el artefacto siempre en la última vista que usó en este navegador; los enlaces internos (#v= · #c= · #s= · #f=) funcionan dentro del artefacto. «Copiar enlace» copia la URL pública y describe la vista, el caso y el escenario."],
   ];
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
