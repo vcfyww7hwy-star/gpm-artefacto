@@ -1,0 +1,806 @@
+{
+ "00_Portada": {
+  "filas": [
+   122,
+   122
+  ],
+  "formulas": [
+   418,
+   418
+  ],
+  "textos_nuevos": [],
+  "textos_quitados": [],
+  "r3pre_delta": [],
+  "r3pre_quita": []
+ },
+ "00b_Guía": {
+  "filas": [
+   80,
+   92
+  ],
+  "formulas": [
+   38,
+   40
+  ],
+  "textos_nuevos": [
+   "§A los cuatro casos · §A.3 puente v2.0 → v3.0 (por qué cambió el Base) · §B tornado de 15 palancas · §C matriz CAPEX × tarifa · §D/§H deuda y deuda máxima · §E piso · §F potencia y ratio · §G terreno y reemplazo. ◆ o borde ciruela = Custom.",
+   "Tm = mayor cargo horario que valora el remanente (27.3); FGD = factor de gestión de demanda del cargo por potencia.",
+   "Requisito previo a la deducción adicional del art. 10.7 LRTI (RLRTI 28.6.g); procedimiento no publicado.",
+   "Título del SGDA que emite CNEL EP (005/24 art. 14) tras la Factibilidad de Conexión (vigencia 6 meses).",
+   "Zonas grises legales numeradas por el Atlas Regulatorio v2.0 (P-01…P-14); no son entradas del modelo.",
+   "Permiso ambiental de FV > 1 ≤ 10 MW ante ARCONEL — Unidad Técnica Ambiental, vía SUIA (03 RC-04).",
+   "Obligación de autogenerar de los clientes AV1/AV2 en 18 meses desde el 18-jun-2025 → 18-dic-2026.",
+   "Ley de Sectores Estratégicos (02-mar-2026): vigente-no-operativa; 14 demandas, 1 admitida.",
+   "Base: meses 3–8, USD 180 + expediente; la Licencia (> 10 MW) es contingencia (+3 meses).",
+   "¿Qué pasa si SALELGI no obtiene la certificación ambiental para la deducción adicional?",
+   "Se listan en 02 (zonas grises) y 12 §A; las tres que mueven la tesis: P-01, P-06, P-08.",
+   "GPM es AV1: el proyecto se acredita como «en curso» en los reportes mensuales (02, 11).",
+   "Remoto (2a): la demanda de GPM no cambia → el FGD no aplica; sin excedentes mensuales.",
+   "Una palanca a la vez (15 barras) · CAPEX × tarifa · tasa × plazo · piso (10).",
+   "38 términos en 5 grupos · cada fila enlaza (→) a la celda donde se calcula",
+   "El encaje SALELGI–Exergy no depende de ella (005/24 + LOCE 2024).",
+   "RC-09 meses 7–8 → RC-10 mes 12: control F12 vigila los 6 meses.",
+   "7 preguntas · cada respuesta señala la hoja donde se ve el dato",
+   "Certificación ambiental (deducción)",
+   "E · Marco legal y permisos (v3.1)",
+   "Registro Ambiental (ARCONEL)",
+   "Certificado de Habilitación",
+   "Pendientes P-xx del Atlas",
+   "Ley 2026 · litigio",
+   "D.E. 32 · DT 14.ª",
+   "Tm · FGD"
+  ],
+  "textos_quitados": [
+   "§A los cuatro casos · §A.3 puente v2.0 → v3.0 (por qué cambió el Base) · §B tornado de 14 palancas · §C matriz CAPEX × tarifa · §D/§H deuda y deuda máxima · §E piso · §F potencia y ratio · §G terreno y reemplazo. ◆ o borde ciruela = Custom.",
+   "Una palanca a la vez (14 barras) · CAPEX × tarifa · tasa × plazo · piso (10).",
+   "31 términos en 4 grupos · cada fila enlaza (→) a la celda donde se calcula",
+   "6 preguntas · cada respuesta señala la hoja donde se ve el dato"
+  ],
+  "r3pre_delta": [
+   "La planta de Montecristi (SGDA remoto, 005/24) abastece la cuenta de GPM: SALELGI es dueña y paga CAPEX, OPEX, peaje e impuestos incrementales; Exergy gerencia, opera y arrienda el terreno. Cadena: 04 energía → 05 CAPEX → 06 OPEX → 07 fiscal → 08 flujo sin y con deuda → 09 Exergy; el Motor repite esa lógica para 111 casos.",
+   "El libro en cinco minutos, convenciones de color, siete preguntas frecuentes y un glosario de 38 términos con su cifra viva (fórmulas que cambian con 01_Supuestos); cada término enlaza (→) a su celda.",
+   "FCF + desembolsos (t ≤ 0), CFADS − servicio (t ≥ 1); VAN a tasa del accionista. «n/a»: sin deuda o sin solución (TIR ≤ −100 %).",
+   "111 casos, uno por columna, con la lógica de 04–09; alimenta 05, 08–10, 13 y 00."
+  ],
+  "r3pre_quita": [
+   "La planta de Montecristi (SGDA remoto, 005/24) abastece la cuenta de GPM: SALELGI es dueña y paga CAPEX, OPEX, peaje e impuestos incrementales; Exergy gerencia, opera y arrienda el terreno. Cadena: 04 energía → 05 CAPEX → 06 OPEX → 07 fiscal → 08 flujo sin y con deuda → 09 Exergy; el Motor repite esa lógica para 110 casos.",
+   "El libro en cinco minutos, convenciones de color, seis preguntas frecuentes y un glosario de treinta términos con su cifra viva (fórmulas que cambian con 01_Supuestos); cada término enlaza (→) a su celda.",
+   "110 casos, uno por columna, con la lógica de 04–09; alimenta 05, 08–10, 13 y 00.",
+   "FCF + desembolsos (t ≤ 0), CFADS − servicio (t ≥ 1); VAN a tasa del accionista."
+  ]
+ },
+ "01_Supuestos": {
+  "filas": [
+   152,
+   153
+  ],
+  "formulas": [
+   51,
+   51
+  ],
+  "textos_nuevos": [
+   "Deducción adicional aplicable (certificación) · por confirmar",
+   "Corte 08-sep-2026 · Atlas Regulatorio v2.0 (08-sep-2026)",
+   "No publicado (DT Cuarta 005/24) · 0 / 1,5 / 0,5 / 0 ¢",
+   "Certificación ambiental previa (RLRTI 28.6.g) · P-01",
+   "v3.1: 100 % (Jorge 04-sep) · máx. sostenible 10 §H",
+   "v3.1: 7,5 % (Jorge) · BCE corp. 6,79 % (ago-2026)",
+   "DT Cuarta 005/24 · 28-feb-2029 (D.E. 176: 23-feb)",
+   "v3.1: SALELGI compra (Jorge 04-sep) · alt. Exergy",
+   "v3.1: 1 %/año (Jorge 04-sep) · canónico ≈ 0,55 %",
+   "Estimación · 1,5 ‰ activos + patente + predial",
+   "v3.1: 2 %/año (Jorge 04-sep) · estudio 1–2 %",
+   "97 / 97 / 98 / 99 % · garantía O&M pendiente",
+   "Custom +2 % (Jorge) · C/B plana · F +2 %",
+   "v3.1: 16 $/kWp (Jorge 04-sep) · deck 20",
+   "LRTI art. 65 · 15 % · sin cambio 2026",
+   "0 / 5 / 3 / 0 %/año desde jul-2026",
+   "10 §B sin deducción adicional",
+   "Aplica_DedAd",
+   "v3.1"
+  ],
+  "textos_quitados": [
+   "No publicado (Disp. Trans. 005/24) · 0,5 / 1,5 / 0,5 / 0 ¢",
+   "Corte del análisis · fuentes verificadas 02-sep-2026",
+   "Plana (P6) · Favorable +2 %: déficit tarifario 2026",
+   "98 / 97 / 98 / 99 % · garantía O&M pendiente",
+   "0 · 0,2 %/año en tornado · canónico ≈ 0,55 %",
+   "P4 · BCE corporativo máx. 9,33 % (mar-2026)",
+   "P5: Exergy compra y arrienda · alt. SALELGI",
+   "Decisión Jorge · canon deck 20 $/kWp",
+   "5 años desde el RLOCE (28-feb-2024)",
+   "P4: 70 % · máx. sostenible en 10 §H",
+   "3 / 5 / 3 / 0 %/año desde jul-2026",
+   "Estimación · confirmar con GAD",
+   "Estudio CAPEX/OPEX: 1–2 %",
+   "D.E. 198 · vigente 2026",
+   "Exergy",
+   "v3.0"
+  ],
+  "r3pre_delta": [],
+  "r3pre_quita": []
+ },
+ "02_Legal": {
+  "filas": [
+   56,
+   68
+  ],
+  "formulas": [
+   8,
+   21
+  ],
+  "textos_nuevos": [
+   "El consumidor puede ser propietario (declaración juramentada) aunque un tercero financie; puede contratar a terceros «para el financiamiento, gestión, operación, vigilancia, instalación, mantenimiento y desmantelamiento». LOSPEE (Ley 2026, art. 23): «Los consumidores regulados y no regulados podrán instalar sistemas de generación exclusivamente para su autoabastecimiento, conectados a la red de distribución o transmisión…» — mantiene la propiedad de terceros, la tercerización y el principio de exclusividad de comercialización. «El instrumento legal… no podrá establecer la actividad de comercialización (compra o venta) de la energía… esto deberá ser verificado por la Distribuidora.»",
+   "ISD 5 % sobre pagos al exterior (sin crédito tributario); tarifas diferenciadas 2026 sin partidas FV. Módulos 8541.43: 0 %; inversores 8504.40 ≈ 5 %; estructuras 7308.90.90: 20 %; trafos 8504.22 ≈ 11,25 %; FODINFA 0,5 %. Exención de ISD en bienes de capital sólo con Contrato de Inversión con anexo de subpartidas (RAISD 17.1); techo de gasto tributario 2026 desconocido (2025: USD 60 MM «por única ocasión», P-02). Arancel 2026 no cotejado (P-03); COMEX 002-2025 (0 % temporal) vencida el 31-dic-2025 sin prórroga localizada.",
+   "Factibilidad de Conexión (17-22 días; vigencia 6 meses en Cat. 2; carta a la máxima autoridad de la U.N. con proyectista registrado en el portal CNEL) → pago USD 4/kW con tope USD 10.000 (> 2 MW) → Certificado de Habilitación (≈ 18 días; vigencia = vida útil, FV 25 años) → obra según cronograma → pruebas (5 días) → medidor MT (≤ 30 días) → Contrato de Conexión (Anexo C) + Contrato de Suministro (inicia el reloj de 24 meses del SEA). > 1 MW: estudios de estabilidad. Sin garantía/póliza.",
+   "Autoridad Ambiental Competente del sector eléctrico = ARCONEL (Unidad Técnica Ambiental) desde may-2025, vía SUIA. FV > 1 y ≤ 10 MW → Registro Ambiental: automático en la norma, USD 180 (+ USD 80), sin consultor calificado, 5–6 meses observados en otros sectores. Licencia Ambiental (75 + 15 + 15 días, EIA, participación ciudadana, póliza 100 % del PMA; 1 ‰ del proyecto, mín. USD 500/1.000) sólo > 10 MW o interés nacional / SNAP (MAATE). Umbrales del CCAN en SUIA por confirmar (P-06).",
+   "«…sistemas de generación distribuida para autoabastecimiento a base de energías renovables no convencionales… se deducirán con el 100 % adicional… Este gasto adicional no podrá superar un valor equivalente al 5 % de los ingresos totales.» Requisito: certificación de la Autoridad Ambiental Competente ANTES de la primera declaración que la aplique (RLRTI 28.6.g); procedimiento no publicado (Atlas P-01). La adquisición no debe ser exigida por la autoridad ambiental como condición.",
+   "Vigente pero no operativa: sin reglamento, sin cupo anual (art. 25.1) ni regulación del DAE. Refuerza la propiedad y los servicios de terceros en autoabastecimiento (art. 23: texto nuevo del art. innumerado tras el 44 LOSPEE); excluye de la reversión los bienes del usuario final (art. 33); despacho preferente para ERNC ≤ 10 MW (art. 48). Litigio constitucional: 14 demandas, 1 admitida, sin medidas cautelares ni sentencia (El Universo, 06-jun-2026).",
+   "Clientes con tarifa AV1 (167) y AV2 (4) deben instalar generación para abastecer su demanda en 18 meses desde la vigencia del decreto → 18-dic-2026 (la prensa dice 15-dic); CENACE puede ordenar su desconexión en períodos de déficit. Seguimiento: oficio MAE-VEER-2026-0255-OF (7-jul-2026); reportes mensuales de las distribuidoras al Viceministerio desde jul-2026 (Expreso, 23-jul-2026).",
+   "Balance mensual: si generación > consumo → Crédito de Energía (kWh) acumulado en SEA/SEEA y debitado en meses deficitarios; «cada 24 meses el SEEA se reiniciará a cero, sin que la Distribuidora deba otorgar una compensación económica». El remanente se valora a Tm (mayor cargo) sólo en tarifa horaria (27.3); en residencial/general, a la tarifa correspondiente (27.1–27.2).",
+   "El modelo NO asume ahorro en demanda (remoto), comercialización ni alumbrado. Tarifa evitable = 0,113 (bloques A/B) y 0,105 (bloque C) ponderados por la inyección horaria ≈ 0,1127 $/kWh. Efecto FGD (Auditoría D-11): un SGDA en sitio puede bajar la demanda media y encarecer el cargo por demanda; en la modalidad remota 2a la demanda medida de GPM no cambia → no aplica.",
+   "RLOCE: los SGDA «pagarán cargos por el uso o disponibilidad de la red de distribución, según la regulación» de ARCONEL; peaje de distribución = «valores por potencia y energía» (005/24 art. 5.17). 005/24 DT Cuarta: los SGDA pagan peajes «desde el 28 de febrero de 2029». D.E. 176 DT 16.ª: 5 años desde su expedición (23-feb-2029); prevalece la fecha regulatoria.",
+   "SALELGI dueña (art. 8a); Exergy = gerencia + O&M (+ arriendo del terreno si es la propietaria) a renta fija; jamás precio por kWh (revocatoria). La Ley 2026 está en litigio constitucional (14 demandas, 1 admitida, sin sentencia a jun-2026): si cayera vuelve el texto LOCE 2024, que ya habilitaba a terceros → el encaje NO depende de la Ley 2026.",
+   "«Encontrarse ubicado dentro de la misma Área de Servicio de la Distribuidora en la que se encuentran sus consumidores» — nota 1: «O entre unidades de negocio de CNEL EP.» La nota 1 ya existía en la versión original (Resol. 008/2024); la codificación (Resol. 010/2024) eliminó el lit. d) que exigía la misma unidad de negocio.",
+   "Marco normativo de la GD para autoabastecimiento de consumidores regulados. Cadena 003/18 → 001/21 → 008/23 → 005/24: deroga la ARCERNNR-008/23 (techo 2 MW); la 002/21 (empresas generadoras en GD) fue derogada por la ARCONEL-006/24 (Resol. 011/2024, 27-oct-2024). Sin reformas hasta la Resol. ARCONEL-008/26 (02-sep-2026).",
+   "Carta a la máxima autoridad de la U.N. con proyectista registrado en el portal CNEL; Cat. 2, > 1 MW: estudios de estabilidad; factibilidad 17–22 días (vigencia 6 meses); rubro USD 4/kW ≤ 10.000; certificado ≈ 18 días; medidor bidireccional MT; el Contrato de Suministro inicia el reloj de 24 meses del SEA.",
+   "IVA 15 % general (art. 65); 0 % para «paneles solares… y accesorios para la generación solar fotovoltaica» — código Ecuapass 0719 (boletín SENAE 15-ene-2024); el alcance de «accesorios» es indefinido (inversores, estructuras, cables, transformadores). Crédito tributario si hay ventas gravadas (art. 66).",
+   "GPM consume cada mes 755–990 MWh vs 457–612 MWh generados → nunca hay excedente mensual: toda la energía se netea el mismo mes y la bolsa de 24 meses no se usa (04_Energia). SALELGI es tarifa horaria: el excedente de bloque A en meses de bajo consumo se netea como energía equivalente (conserva valor).",
+   "Lo que habilita, lo que limita y cómo se estructura; investigación de decisión, no opinión legal. Conciliado con el Atlas Regulatorio FV Ecuador v2.0 (sello 08-sep-2026). Sustenta los supuestos regulatorios de 01, los candados de 13 y los riesgos de 11 (fuentes en 12 §D).",
+   "La línea 13,8 kV al punto de conexión requiere franja y, si cruza vías, permisos de Prefectura/MTOP/GAD (RC-15, «por confirmar»). ¿Resolución ministerial para la servidumbre de una línea privada de SGDA o basta el diseño aprobado por CNEL? ❓",
+   "Base = Registro Ambiental (RC-04, meses 3–8; decisión D-L1). La «unidad de proyecto» de las 10,78 ha (2 × 5 MWp = 10,0 MWp DC / 7,6 MWac) queda como riesgo documentado (11) y contingencia: Licencia = +3 meses y ≈ +70 k (memo de 03).",
+   "Trámite eléctrico rápido (3-6 meses reales); incumplir el cronograma sin justificación = revocatoria (art. 16). La factibilidad vence a los 6 meses: preparar el expediente de habilitación durante la factibilidad (03, control F12).",
+   "Los contratos Exergy–SALELGI se redactan como servicios/arriendo con renta fija indexable (no a kWh). Blindaje: arriendo en escritura separada; O&M por kWp-año o disponibilidad; gerencia por hitos; consulta DG 17.ª ante duda.",
+   "Si el predio es agrícola, el GAD solicita al MAG el informe técnico de no aptitud agropecuaria (90 días) para declararlo zona industrial / de infraestructura; la compatibilidad de uso la certifica el GAD (línea de fábrica).",
+   "Montecristi (U.N. Manabí) → Machala (U.N. El Oro) PERMITIDO: ambas son CNEL EP. Duda operativa abierta (sin fuente): qué U.N. tramita y cómo se liquida el crédito → consulta escrita a CNEL EP antes de la factibilidad.",
+   "SALELGI retiene a Exergy en cada factura (gerencia y O&M 5 %; arriendo 10 % si Exergy es la dueña del terreno): anticipos del IR de Exergy (no costo), pero adelantan caja. No afecta el flujo de SALELGI (interno).",
+   "Declara la inconstitucionalidad del num. 1 del art. 25 LOSPEE (texto 2021) con efectos a futuro; no paraliza proyectos; valida la figura del autogenerador. Superada por la sustitución del art. 25 en la Ley 2026.",
+   "IR 25 %. Participación laboral 15 % sobre utilidades. Sin exoneración de IR aplicable a un SGDA de autoabastecimiento: la LOCE (2024) no la creó (Atlas I-05); el estado 2026 del art. 9.1 LRTI está por verificar.",
+   "Obligación cierta, valor no publicado. Con COD 2028-H2 el peaje llega en el año 1-2 de operación → sensibilidad 0,5/1,0/1,5 ¢/kWh y 0,5–1,0 $/kW-mes (10_Sensibilidad). Cláusula de reapertura en contratos.",
+   "«Los casos especiales… serán resueltos por la Administración de la ARCONEL»: vía para obtener certeza sobre el esquema de terceros (arriendo + gerencia + O&M) y la agregación inter-U.N. antes de firmar.",
+   "Certificación ambiental previa para la deducción adicional (RLRTI 28.6.g): procedimiento y autoridad no publicados; ¿el exceso sobre el tope del 5 % se pierde o se difiere?",
+   "Contexto favorable pero no necesario: el encaje SALELGI–Exergy se sostiene en la 005/24 y en el texto LOCE 2024 si la Ley cayera. Monitorear reglamento y sentencia (P-13).",
+   "¿SGDA de autoconsumo califica como «inversión productiva» (Contrato de Inversión)? Techo de gasto tributario 2026 y cupo renovables (2025: USD 60 MM «por única ocasión»)",
+   "COA + RCOA · Resol. MAATE-2025-0002-R (22-abr-2025) · Resol. ARCONEL-005/25 (RO Supl. 67, 25-jun-2025): arts. 19–22 (Registro) y 23–35 (Licencia) · A.M. 083-B (tasas)",
+   "Clasificación catastral/PDOT del predio POR CONFIRMAR (P-07): si es agrícola, +4 meses (RC-08b) antes del permiso de construcción. Verificar antes de comprar (RC-01).",
+   "Confirmar la U.N. competente para el trámite remoto inter-U.N.; preparar el expediente de habilitación durante la factibilidad (vigencia 6 meses; control F12).",
+   "Regulador: ARCONEL — además Autoridad Ambiental Competente del sector eléctrico (UTA). Rector: Ministerio de Ambiente y Energía. Ventanilla del SGDA: CNEL EP.",
+   "Porcentajes de retención: construcción/obra 2 % · servicios prestados por sociedades 5 % · arrendamiento de inmuebles 10 % · transferencia de bienes 2 %.",
+   "Franja de servidumbre de 6 m para líneas de V ≤ 13,8 kV. Aeronáutica: consulta de altura caso por caso ante la DGAC; no exige estudio de deslumbramiento.",
+   "Sin margen EPC integrado; riesgo de integración lo gestiona Exergy. IVA: bienes FV 0 % (código 0719) y servicios 15 %, desglosados en la facturación.",
+   "Ley Reformatoria para la Equidad Tributaria art. 159 · RAISD art. 17.1 · Arancel del Ecuador (COMEX; D.E. 272 y Acuerdo MPCEI-2026-0003-A) · COPCI",
+   "Servidumbre de la línea privada del SGDA: ¿resolución ministerial o basta el diseño aprobado por CNEL? (ARCONEL-001/18: franja 6 m a ≤ 13,8 kV)",
+   "Disp. Transitoria Cuarta 005/24 · RLOCE (D.E. 176, RO 28-feb-2024) art. 18 y DT 16.ª (arts. 5 y 24: definición de peajes — verificar en el PDF)",
+   "Litigio constitucional de la Ley 2026 (14 demandas, 1 admitida, sin sentencia a jun-2026): efecto en cascada sobre arts. 25/25.1, DAE y art. 3",
+   "Textos ilegibles: Resol. ARCONEL-005/26 (codificación del Código de Conexión) publicada sin capa de texto; reglamento de la Ley 2026 pendiente",
+   "Figura inscribible del derecho de SALELGI sobre el terreno de Exergy (arriendo / usufructo / superficie), oponible por plazo ≥ al del crédito",
+   "Pre-consulta de capacidad + Factibilidad de Conexión + Certificado de Habilitación + Contrato de Conexión (Anexo C) + Contrato de Suministro",
+   "Estructura de arriendo y O&M a renta fija (anti-recaracterización): sin precedentes públicos; la Ley 2026 legaliza expresamente a terceros",
+   "D.E. 32: ¿SALELGI fue notificada como cliente AV1 obligado? ¿Cómo se acredita cumplimiento parcial y un proyecto en curso al 18-dic-2026?",
+   "Capacidad real del alimentador 13,8 kV Montecristi (flujo inverso ≤ 60 %); Manta entre las subestaciones al límite (CENACE, 30-jun-2026)",
+   "D.E. 256 (ARCONEL) · D.E. 94 (Ministerio de Ambiente y Energía) · D.E. 376 (ministro J.C. Blum, 7-may-2026) · Resol. MAATE-2025-0002-R",
+   "Arrendamiento/posesión notariado = documento del Certificado de Habilitación (005/24 art. 15 lit. a.2). Retención 10 % (arriendo).",
+   "Clasificación catastral/PDOT del predio: si es agrícola → cambio de uso de suelo rural (LOTRTA art. 6: informe MAG 90 días + GAD)",
+   "Art. 25 y 28 · Anexo F · Regulación ARCONEL-008/24 (Resol. 015/2024, 15-nov-2024; sucede a la 001/20) · calidad: ARCONEL-009/24",
+   "«Unidad de proyecto» ambiental por las 10,78 ha (2 × 5 MWp): Registro (≤ 10 MW) o Licencia (> 10 MW); umbrales del CCAN en SUIA",
+   "Vías y derecho de vía de la línea 13,8 kV: clasificación de la vía (Prefectura de Manabí / MTOP / GAD) y permisos de cruce",
+   "Renta fija: no indexar a kWh producidos (recaracterización). Cláusula de reemplazo de inversores: quién paga (10 §G.2).",
+   "Ley Orgánica para el Fortalecimiento de los Sectores Estratégicos de Minería y Energía (RO 5.º Supl. 234, 02-mar-2026)",
+   "Regulación ARCONEL-005/24 codificada (Resol. ARCONEL-010/2024, 27-oct-2024; RO 689, 22-nov-2024 ⚠ fuente secundaria)",
+   "Art. 8 lit. a) y b) 005/24 · art. innumerado tras el art. 44 LOSPEE (texto de la Ley 2026, art. 23; antes LOCE 2024)",
+   "Fecha exacta del plazo del D.E. 32: 18-dic-2026 (18 meses desde el RO Supl. 62, 18-jun-2025; la prensa dice 15-dic)",
+   "Zonas grises vivas (con dueño y urgencia) — dudas del Informe Maestro y pendientes P-xx del Atlas Regulatorio v2.0",
+   "Partes relacionadas: documentar comparables. Retención 5 % (servicios) como anticipo del IR de Exergy; IVA 15 %.",
+   "Ver 08_Flujo bloque B y 10 §D/§H. Líneas verdes: BanEcuador 11,86 % (PYME), Produbanco hasta 84 meses (Atlas J).",
+   "CNEL El Oro / Viceministerio de Electricidad (oficio MAE-VEER-2026-0255-OF; reportes mensuales desde jul-2026)",
+   "Sin efecto directo sobre un SGDA de consumidor regulado; contexto del marco y del litigio de la Ley 2026.",
+   "Sin precedentes públicos de recaracterización (P-11); la consulta reduce el riesgo contractual (11).",
+   "LRTI art. 10 num. 7 (LOCE, RO 2S 475, 11-ene-2024) · RLRTI art. 28 num. 6 lit. g (D.E. 176 art. 78)",
+   "Pre-consulta escrita de capacidad a CNEL EP U.N. Manabí (RC-00) + Factibilidad de Conexión (RC-09)",
+   "LOTRTA art. 6 y art. 32 lit. l · Reglamento LOTRTA art. 3 · COOTAD / LOOTUGS (PUGS Montecristi)",
+   "Exergy cobra servicios y arriendo a renta fija — nunca $/kWh (exclusividad de comercialización)",
+   "Citar sólo entidades vigentes; el trámite ambiental no va al Ministerio sino a ARCONEL (SUIA).",
+   "Decreto Ejecutivo 32 (15-jun-2025; RO Supl. 62, 18-jun-2025) — reforma RGLOSPEE, DT 14.ª",
+   "Vigente · tope confirmado (Atlas I-02; errata v1.1 Informe F3) · certificación ❓ (P-01)",
+   "Bancabilidad y documento de posesión (005/24 art. 15 a.2); no aplica si SALELGI compra",
+   "Abogado eléctrico + revisión previa de la Distribuidora (art. 8b) + consulta DG 17.ª",
+   "LRTI art. 65 (15 %) · art. 55 num. 19 (0 % FV, LOCE) · art. 66 (crédito tributario)",
+   "Regulación ARCONEL-001/18 (franjas de servidumbre) · RDAC 154 Enmienda 3 (jun-2024)",
+   "SGDA 005/24 codificada · modalidad 2a remota entre unidades de negocio de CNEL EP",
+   "Capital de trabajo (recuperable): −0,01 pp de TIR si los inversores fueran 15 %",
+   "Binario para inyectar 3,8 MWac; refuerzos de 6–18 meses (Expreso, 20-ago-2026)",
+   "Consulta a ARCONEL (autoridad ambiental del sector) + consulta vinculante SRI",
+   "Resol. SRI NAC-DGERCGC26-00000009 (27-feb-2026; vigente desde 01-mar-2026)",
+   "Operativa de facturación (el encaje legal está confirmado: art. 6 nota 1)",
+   "Certificado de uso de suelo del GAD Montecristi antes de comprar (RC-01)",
+   "Consulta a la Administración de ARCONEL (Disp. General 17.ª) — opcional",
+   "Resolución anticipada de clasificación arancelaria SENAE (código 0719)",
+   "Consulta a ARCONEL — Unidad Técnica Ambiental (SUIA), no al Ministerio",
+   "Vigente · plazo: RO Supl. 62 (Atlas N12 · A) · seguimiento: prensa (M)",
+   "Vigente · arts. 25/28 verbatim (Auditoría D-14) · Atlas N17/N18 (M)",
+   "3 · Comercial (art. 8 / Décima / LOSPEE art. innumerado tras el 44)",
+   "Vigente · verbatim (S2/S5) · Atlas corrección v1.1 · 08-sep-2026",
+   "Vigente · Atlas F1/I-12/P-04 (texto del art. 65 no cotejado: M)",
+   "Abogado inmobiliario + Registro de la Propiedad Montecristi",
+   "Vigente · fecha Alta (Auditoría D-07) · monto no publicado",
+   "Contexto: el encaje del esquema no depende de la Ley 2026",
+   "Vigente · Atlas I-15/I-16/I-19/I-20 · ADV pendiente SENAE",
+   "Requisitos técnicos de conexión y régimen de excedentes",
+   "Consulta a Prefectura/MTOP/GAD con el trazado de RC-14",
+   "CNEL EP U.N. Manabí / Ministerio de Ambiente y Energía",
+   "Vigente · verbatim (S5) · evidencia de red: prensa (M)",
+   "Monitoreo de la Corte Constitucional y del reglamento",
+   "Vigente · Auditoría D-09 · Atlas N1/N3b · 08-sep-2026",
+   "Vigente · verbatim (Auditoría Fases 1–2, 07-sep-2026)",
+   "+4 meses antes del permiso de construcción (RC-08b)",
+   "Vigente · Atlas N7bis/N6 · verificada 08-sep-2026",
+   "Vigente · verificado · cifras en fórmula (v3.1)",
+   "Vigente · Atlas N22 (A) · plazos observados (M)",
+   "Vigente-no-operativa · Atlas N3b · 08-sep-2026",
+   "Vigente · Auditoría D-05 · Atlas · 08-sep-2026",
+   "Monitoreo ARCONEL / RO; pedir versión editable",
+   "±3–6 meses de cronograma y ≈ 70 k (memo de 03)",
+   "Vigente · Atlas hitos 7/11/14/15 · 08-sep-2026",
+   "Vigente · verbatim (Auditoría) · 08-sep-2026",
+   "Vigente · Atlas instituciones · 08-sep-2026",
+   "Ejecutoriada · Atlas N19 · 08-sep-2026",
+   "Retenciones en la fuente 2026 (Exergy)",
+   "Costo y plazo de RC-15 «por confirmar»",
+   "Registro Oficial Supl. 62 (Atlas N12)",
+   "Alta / Media (regulación de medición)",
+   "Sentencia 112-21-IN/25 (11-dic-2025)",
+   "Vigente · Atlas F1/I-05 · art. 9.1 ❓",
+   "Sentencia de la Corte Constitucional",
+   "Vigente · Atlas N23/K2 · 08-sep-2026",
+   "5 · Económico (Disp. Trans. Cuarta)",
+   "Alta (tope) / Media (certificación)",
+   "Vigente · verificado · 08-sep-2026",
+   "Ley de Sectores Estratégicos 2026",
+   "Vigente · Atlas F2 · 08-sep-2026",
+   "Vigente · Atlas K1 · 08-sep-2026",
+   "Servidumbre de la línea y altura",
+   "Alta (plazo) / Baja (mecánica)",
+   "Uso de suelo rural del predio",
+   "Trámite adicional potencial",
+   "Alta (ruta) / Media (plazo)",
+   "SALELGI / Exergy → ARCONEL",
+   "Alta (norma) / ❓ (predio)",
+   "Alta / ❓ (línea privada)",
+   "Vigente · 08-sep-2026",
+   "Alta / ❓ (art. 9.1)",
+   "Alta / Media (red)",
+   "#17 → P-01 / P-14",
+   "Nueva · P-13",
+   "Nueva · P-09",
+   "Nueva · P-07",
+   "Nueva · P-12",
+   "#18 → P-04",
+   "#23 → P-11",
+   "#19 → P-02",
+   "#9 · P-08",
+   "#8 · P-06",
+   "Resuelta"
+  ],
+  "textos_quitados": [
+   "El consumidor puede ser propietario (declaración juramentada) aunque un tercero financie; puede contratar a terceros «para el financiamiento, gestión, operación, vigilancia, instalación, mantenimiento y desmantelamiento». «El instrumento legal… no podrá establecer la actividad de comercialización (compra o venta) de la energía… esto deberá ser verificado por la Distribuidora.»",
+   "Clientes con tarifa AV1 (167) y AV2 (4) deben instalar generación para abastecer su demanda en 18 meses; CENACE puede ordenar su desconexión en períodos de déficit. Seguimiento: oficio MAE-VEER-2026-0255-OF (7-jul-2026), reportes mensuales vía distribuidoras. Plazo 15-dic-2026 (prensa jul/ago-2026; informe interno decía 18-dic → confirmar en RO).",
+   "Factibilidad de Conexión (17-22 días; vigencia 6 meses en Cat. 2) → pago USD 4/kW con tope USD 10.000 (> 2 MW) → Certificado de Habilitación (18 días; vigencia = vida útil, FV 25 años) → obra según cronograma → pruebas → medidor → Contrato de Conexión (Anexo C) + suministro. > 1 MW: estudios de estabilidad. Sin garantía/póliza.",
+   "Balance mensual: si generación > consumo → Crédito de Energía (kWh) acumulado en SEA/SEEA y debitado en meses deficitarios; «cada 24 meses el SEEA se reiniciará a cero, sin que la Distribuidora deba otorgar una compensación económica». Tarifas horarias: neteo por energía equivalente aplicando el mayor cargo (Tm).",
+   "«…sistemas de generación distribuida para autoabastecimiento a base de energías renovables no convencionales… se deducirán con el 100 % adicional… Este gasto adicional no podrá superar un valor equivalente al 5 % de los ingresos totales.» Requiere autorización de la autoridad ambiental.",
+   "GPM consume cada mes 755–990 MWh vs 457–612 MWh generados → nunca hay excedente mensual: toda la energía se netea el mismo mes y la bolsa de 24 meses no se usa (04_Energia). El excedente de bloque A en meses de bajo consumo se netea como energía equivalente (conserva valor).",
+   "GPM es AV1 → muy probablemente obligado (confirmar notificación de CNEL El Oro). El proyecto (COD 2028) NO llega al plazo: su valor es acreditar un proyecto en curso. 5 MWp cubren ≈ 62 % de la demanda; la regla de cumplimiento (total/parcial) la debe definir ARCONEL.",
+   "ISD 5 % sobre pagos al exterior (sin crédito tributario). Módulos 8541.43: 0 %; inversores 8504.40 ≈ 5 %; estructuras 7308.90.90: 20 %; trafos 8504.22 ≈ 11,25 %; FODINFA 0,5 %. Contrato de Inversión (CEPAI): exención de ISD y arancel sobre bienes de capital.",
+   "«Encontrarse ubicado dentro de la misma Área de Servicio de la Distribuidora en la que se encuentran sus consumidores» — nota 1: «O entre unidades de negocio de CNEL EP.» El antiguo 6(d) «misma unidad de negocio» fue eliminado por la Res. 010/2024.",
+   "Montecristi (U.N. Manabí) → Machala (U.N. El Oro) PERMITIDO: ambas son CNEL EP. Zona gris G1 del Informe Maestro resuelta a favor. Duda operativa: qué U.N. tramita y cómo coordinan medición/facturación (consultar CNEL antes de la factibilidad).",
+   "RLOCE: los SGDA «pagarán cargos por el uso o disponibilidad de la red de distribución, según la regulación» de ARCONEL; peaje de distribución = «valores por potencia y energía». 005/24: los SGDA pagan peajes «desde el 28 de febrero de 2029».",
+   "≈ 224 k$ de arancel + ISD en el caso base (05_CAPEX). Toggle Contrato_Inversion. La reducción de −5 pts de IR NO aplica a SALELGI (no es sociedad nueva). Duda #19: ¿autoconsumo = inversión productiva?",
+   "Lo que habilita, lo que limita y cómo se estructura; investigación de decisión, no opinión legal. Sustenta los supuestos regulatorios de 01, los candados de 13 y los riesgos de 11 (fuentes en 12 §D).",
+   "El modelo NO asume ahorro en demanda (remoto), comercialización ni alumbrado. Tarifa evitable = 0,113 (bloques A/B) y 0,105 (bloque C) ponderados por la inyección horaria ≈ 0,1127 $/kWh.",
+   "Obligación cierta, valor no publicado. Con COD 2028-H2 el peaje llega en el año 1-2 de operación → sensibilidad 0,5/1,0/1,5 ¢/kWh (10_Sensibilidad). Cláusula de reapertura en contratos.",
+   "SALELGI factura arriendos gravados → el IVA del CAPEX (≈ 0,46 M) es crédito recuperable (capital de trabajo), no costo. Inversores a 0 % (defendible); estructura/BOS a 15 %.",
+   "IVA 15 % general; 0 % para «paneles solares… y accesorios para la generación solar fotovoltaica» (alcance del BOS indefinido). Crédito tributario si hay ventas gravadas.",
+   "Renta fija 5.000 $/ha-año indexada (1,5 %), plazo ≥ 25 años (vida útil del certificado), inscribible (usufructo o derecho de superficie recomendado para bancabilidad).",
+   "3,8 MWac inyectados en 13,8 kV: la capacidad del alimentador de Montecristi (flujo inverso ≤ 60 % nominal, manual CNEL) es el riesgo binario → factibilidad temprana.",
+   "Aplica a SALELGI (art. 10.7 nombra a los SGDA). Con ingresos ≈ 10 M el tope (500 k) no muerde; con < ≈ 5,4 M sí. Consulta vinculante SRI recomendada (duda #17).",
+   "FV > 1 y ≤ 10 MW = Categoría II (registro); criterio de «unidad de proyecto» por las 10,76 ha (2×5 MWp) puede exigir licencia con participación ciudadana.",
+   "Fee 7 % del valor del proyecto (hitos 30/70). Alcance: ingeniería de dueño, permisos, procura multi-contrato, supervisión, puesta en marcha.",
+   "IR 25 %. Participación laboral 15 % sobre utilidades. No existe exoneración de IR por inversión ERNC (art. 9.1 LRTI derogado nov-2021).",
+   "D.E. 32: ¿SALELGI fue notificada como cliente AV1 obligado? ¿Cómo se acredita cumplimiento parcial (62 %) y un proyecto en curso?",
+   "Factibilidad de Conexión + Certificado de Habilitación + Contrato de Conexión (Anexo C) + modificación del Contrato de Suministro",
+   "Fee fijo 20 $/kWp-año indexado; SLA de disponibilidad; incluye limpieza, seguridad, monitoreo, repuestos y reserva de inversores.",
+   "Ruta crítica (03_Tramites). Presupuestar licencia (conservador). Duda #8: consulta formal al Ministerio de Ambiente y Energía.",
+   "SALELGI dueña (art. 8a); Exergy = gerencia + O&M + arriendo del terreno a renta fija. Jamás precio por kWh (revocatoria).",
+   "Marco normativo de la GD para autoabastecimiento de consumidores regulados. Deroga ARCERNNR-008/23 (techo 2 MW) y 002/21.",
+   "EPC/gerencia (≈ 4 M) y O&M/arriendo Exergy–SALELGI: documentar comparables (fee 7 %, arriendo 5.000 $/ha, O&M 20 $/kWp).",
+   "Trámite eléctrico rápido (3-6 meses reales); incumplir el cronograma sin justificación = revocatoria (art. 16).",
+   "D.E. 256 (ARCONEL) · D.E. 94 (Ministerio de Ambiente y Energía) · D.E. 376 (ministro J.C. Blum, 7-may-2026)",
+   "Los contratos Exergy–SALELGI se redactan como servicios/arriendo con renta fija indexable (no a kWh).",
+   "6.470 MWh ≤ 10.417 MWh proyectados (62 %) — margen amplio; potencia máxima teórica ≈ 8 MWp.",
+   "Regulador: ARCONEL. Rector: Ministerio de Ambiente y Energía. Ventanilla del SGDA: CNEL EP.",
+   "Cat. 2, > 1 MW: estudios de estabilidad; rubro ≤ USD 10.000; medidor bidireccional MT.",
+   "¿SGDA de autoconsumo califica como «inversión productiva» (Contrato de Inversión)?",
+   "Zonas grises vivas (con dueño y urgencia) — registro de dudas del Informe Maestro",
+   "Regulación ARCONEL-005/24 codificada (Res. ARCONEL-010/2024, RO 689, 22-nov-2024)",
+   "Decreto Ejecutivo 32 (15-jun-2025; RO Supl. 62, 18-jun-2025) — reforma RGLOSPEE",
+   "«Unidad de proyecto» ambiental por las 10,76 ha (2×5 MWp): registro o licencia",
+   "CNEL El Oro / Viceministerio de Electricidad (oficio MAE-VEER-2026-0255-OF)",
+   "Capacidad real del alimentador 13,8 kV Montecristi (flujo inverso ≤ 60 %)",
+   "Disp. Transitoria 005/24 · RLOCE (D.E. 176, RO 28-feb-2024) art. 5 y 24",
+   "SGDA 005/24 · modalidad 2a remota entre unidades de negocio de CNEL EP",
+   "Ley Equidad Tributaria art. 159 · Arancel del Ecuador (COMEX) · COPCI",
+   "Vigente · lista oficial ARCONEL 23-abr-2026 · verificada 01-sep-2026",
+   "Sin margen EPC integrado; riesgo de integración lo gestiona Exergy.",
+   "Estructura de arriendo y O&M a renta fija (anti-recaracterización)",
+   "Tope 5 % de ingresos de la deducción adicional aplicado a SALELGI",
+   "Art. 8 lit. a) y b) + art. innumerado tras art. 44 LOSPEE (LOCE)",
+   "Capital de trabajo (recuperable) — impacto menor si hay crédito",
+   "Factibilidad temprana CNEL + Mapa de Capacidad (MAE, ene-2026)",
+   "Exergy cobra servicios y arriendo a renta fija — nunca $/kWh",
+   "Renta fija: no indexar a kWh producidos (recaracterización).",
+   "Confirmar U.N. competente para el trámite remoto inter-U.N.",
+   "Consulta formal al Ministerio de Ambiente y Energía (SUIA)",
+   "Vigente · fuentes secundarias concordantes · 01-sep-2026",
+   "Abogado eléctrico + revisión previa de la Distribuidora",
+   "Fecha exacta del plazo del D.E. 32 (15 vs 18-dic-2026)",
+   "Vigente · PDF oficial + CorralRosales · 01-sep-2026",
+   "Contrato de arriendo / usufructo del terreno (5 ha)",
+   "Vigente · verificado verbatim (S2/S5) y 01-sep-2026",
+   "LRTI art. 10 num. 7 (LOCE, RO 2S 475, 11-ene-2024)",
+   "Documento de posesión exigido por CNEL (Anexo A).",
+   "LRTI art. 55 num. 19 (LOCE) · art. 66 · D.E. 198",
+   "Vigente · verificado verbatim S5 (21-jul-2026)",
+   "Partes relacionadas: documentar comparables.",
+   "Vigente · verificado verbatim 01-sep-2026",
+   "COA + RCOA + CCAN (22.1.1.1.5) · D.E. 754",
+   "Vigente · fecha Alta · monto no publicado",
+   "Registro Oficial Supl. 62 (18-jun-2025)",
+   "Art. 25 y 28 · Anexo F · ARCONEL-001/20",
+   "Vigente · S4 (sin pase adversarial)",
+   "Vigente · S4 · ADV pendiente SENAE",
+   "3 · Comercial (art. 8 / Décima)",
+   "Binario para inyectar 3,8 MWac",
+   "Ver 08_Flujo bloque B y 10 §D.",
+   "Citar solo entidades vigentes.",
+   "Vigente · verificado verbatim",
+   "5 · Económico (Disp. Trans.)",
+   "Media-Alta / Baja (mecánica)",
+   "≈ 0,1 M/año de escudo fiscal",
+   "Vigente · verificado (S3/S5)",
+   "±6–12 meses de cronograma",
+   "≈ 224 k$ de arancel + ISD",
+   "Operativa de facturación",
+   "Consulta vinculante SRI",
+   "Vigente · verificado",
+   "Vigente · SRI (S4)",
+   "Vigente · S5",
+   "Vigente · S3",
+   "Vigente · S4",
+   "Media-Alta",
+   "Vigente",
+   "#18",
+   "#23",
+   "#19",
+   "#17",
+   "#9",
+   "#8"
+  ],
+  "r3pre_delta": [],
+  "r3pre_quita": []
+ },
+ "03_Tramites": {
+  "filas": [
+   27,
+   36
+  ],
+  "formulas": [
+   502,
+   564
+  ],
+  "textos_nuevos": [
+   "• Retraso por red (refuerzos del alimentador, 6–18 meses según prensa; Manta al límite, CENACE 30-jun-2026): COD +12 meses (33 meses de construcción). Efecto (Custom): TIR del proyecto sin cambio (peaje 0 y escalación del CAPEX 0), TIR del accionista 18,5 % → 16,5 % (IDC), DSCR mínimo 0,731 → 0,701; Base (peaje 0,5 ¢ y +3 %/año): TIR 7,98 % → 7,69 %, accionista 10,9 % → 8,5 %. No incluye el costo de oportunidad del ahorro no percibido durante el retraso (≈ el ahorro del año 1 por cada 12 meses) ni el riesgo del D.E. 32. En el artefacto interactivo este escenario es un preset vivo.",
+   "• Hitos binarios y plazos legales: la Factibilidad de Conexión vence a los 6 meses (005/24 art. 13) → el Certificado de Habilitación (RC-10) debe caer dentro de esa vigencia (control F12 de 13); por eso RC-09 se pide en los meses 7–8 con los estudios de RC-14 y tras la pre-consulta escrita de capacidad de RC-00. Decreto Ejecutivo 32: el plazo (18-dic-2026, RO Supl. 62) cae en el mes 3 → el proyecto se acredita ante CNEL/Viceministerio como «en curso» en los reportes mensuales.",
+   "• Caso Conservador ambiental (Licencia en vez de Registro): RC-04′ Licencia Ambiental meses 3–11 (9 meses, ≈ USD 60.000: EIA + consultor + tasa 1 ‰ + póliza 100 % del PMA) y RC-05 participación ciudadana meses 6–8 (≈ USD 10.000) → COD +3 meses (24). Efecto (Custom): TIR del proyecto sin cambio (el VAN se refiere al COD), TIR del accionista 18,5 % → 18,0 %, DSCR mínimo 0,731 → 0,723; Base: TIR 7,98 % → 7,90 %, accionista 10,9 % → 10,3 %.",
+   "Ruta crítica a COD y costos de desarrollo (Base: Registro Ambiental ante ARCONEL; pre-consulta de capacidad; factibilidad en los meses 7–8 para no agotar su vigencia de 6 meses). Edite inicio y duración (tinta); Mes_COD_Cron fija los meses de construcción de 08. Plazos del Atlas Regulatorio v2.0 (08-sep-2026).",
+   "• Nota: RC-05 (participación ciudadana) no existe en el caso Base porque el Registro Ambiental no la exige (por confirmar, Atlas N22); los IDs de los hitos se conservan para trazabilidad con las versiones anteriores.",
+   "Hitos binarios: RC-09 (capacidad del alimentador; pre-consulta escrita en RC-00) y RC-04 (Registro Ambiental ante ARCONEL; la Licencia es contingencia). Escenarios de cronograma y D.E. 32 en la página siguiente.",
+   "Escenarios de cronograma — memo estático (sombra Python ≡ Motor, 08-sep-2026; recalcular si cambian las entradas)",
+   "Consultas previas y pre-consulta escrita de capacidad a CNEL EP U.N. Manabí (SRI, CEPAI, arancel)",
+   "Control del predio: compra de 5 ha, uso de suelo (PDOT/PUGS), figura inscribible a SALELGI",
+   "Registro Ambiental (FV > 1 ≤ 10 MW) ante ARCONEL — UTA, vía SUIA (PMA del expediente)",
+   "Certificado de Habilitación (USD 4/kW ≤ 10.000); posesión notariada del predio",
+   "Servidumbre y derecho de vía de la línea 13,8 kV (franja 6 m); cruces de vías",
+   "Ingeniería de detalle y owner's engineer (transversal); estudios para RC-09",
+   "Cambio de uso de suelo rural (sólo si agrícola): informe MAG 90 días + GAD",
+   "Factibilidad de Conexión (Cat. 2; estudios de flujos y estabilidad > 1 MW)",
+   "Pruebas, medidor MT, Contrato de Conexión (Anexo C) y de Suministro → COD",
+   "Sin ficha pública en Montecristi (referencia Manta); costo por confirmar.",
+   "Posesión para CNEL (art. 15 a.2); si es agrícola → RC-08b; figura P-12.",
+   "Arancel 2026 por confirmar (P-03); resolución anticipada SENAE (P-04).",
+   "17-22 días; vigencia 6 meses → RC-10 en plazo (control F12); duda #9.",
+   "5 + ≤ 30 días; el Contrato de Suministro inicia los 24 meses del SEA.",
+   "Tasa 180 + expediente (estim.); 5–6 meses observados; Licencia: memo.",
+   "Automático en SUIA; probablemente gratuito ❓ (500 como holgura).",
+   "Anticipa refuerzos de red (Manta al límite, CENACE 30-jun-2026).",
+   "Duración y costo por confirmar; ¿resolución ministerial? (02).",
+   "≈ 18 días; expediente listo en la factibilidad (art. 16).",
+   "Certificado de intersección (SNAP / bosques protectores)",
+   "Costo por confirmar (tablas no públicas); holgura 1 mes.",
+   "Certificado de altura DGAC (aeropuerto de Manta ~6 km)",
+   "Compatibilidad de uso de suelo y línea de fábrica",
+   "Permiso de construcción + visto bueno de Bomberos",
+   "La RDAC 154 no exige estudio de deslumbramiento.",
+   "Condicional (P-07); costo por confirmar.",
+   "005/24 arts. 12-16 · Código de Conexión",
+   "CNEL · Prefectura · MTOP · GAD",
+   "CNEL EP · SRI · MPCEI · SENAE",
+   "LOTRTA art. 6 · Regl. art. 3",
+   "Código Civil · LOTRTA art. 6",
+   "GAD Montecristi · Bomberos",
+   "ARCONEL-005/25 arts. 19–22",
+   "RDAC 154 Enm. 3 (jun-2024)",
+   "Notaría · Registro · GAD",
+   "005/24 · ARCONEL-008/24",
+   "GAD Montecristi · MAG",
+   "005/24 · LRTI · COPCI",
+   "ARCONEL-001/18 · vial",
+   "RC-08c, RC-10, RC-11",
+   "ARCONEL — UTA (SUIA)",
+   "COOTAD · ordenanzas",
+   "005/24 arts. 14-15",
+   "RC-08a, RC-08b",
+   "RC-00, RC-14",
+   "RC-00, RC-04",
+   "RC-01, RC-14",
+   "RC-09, RC-01",
+   "COA · RCOA",
+   "RC-08c",
+   "RC-08b",
+   "RC-08a",
+   "RC-15"
+  ],
+  "textos_quitados": [
+   "Hitos binarios: RC-09 (capacidad del alimentador) y RC-04 (registro vs licencia). Si RC-04 deriva a licencia con consulta, el cronograma se ancla a 28–32 meses; si el alimentador no tiene capacidad → refuerzo de red a costo propio o redimensionar. Decreto Ejecutivo 32: el plazo (15-dic-2026) cae en el mes 3 → el proyecto se acredita ante CNEL/MAE como «en planificación/construcción» en los reportes mensuales.",
+   "Ruta crítica a COD y costos de desarrollo: plazos normativos con holguras, dominada por lo ambiental y el alimentador. Edite inicio y duración (tinta); Mes_COD_Cron fija los meses de construcción de 08.",
+   "Consultas previas: SRI (art. 10.7 y 55.19), CEPAI (contrato de inversión), CNEL (trámite remoto inter-U.N.)",
+   "Pruebas, medidor bidireccional MT, Contrato de Conexión (Anexo C), suministro y energización (COD)",
+   "Factibilidad de Conexión para autoabastecimiento (Cat. 2; estudios de flujos y estabilidad > 1 MW)",
+   "Control del predio: compra de 5 ha por Exergy + usufructo/arriendo inscribible a SALELGI",
+   "Aranceles/ISD/IVA en 05_CAPEX. Resolución anticipada de clasificación recomendable.",
+   "Tasa 1‰ del costo + póliza PMA 100 % + consultor. Duda #8 (unidad de proyecto).",
+   "17-22 días normativos; vigencia 6 meses. Resuelve la duda #9 (capacidad).",
+   "18 días normativos. Obra según cronograma avalado (revocatoria art. 16).",
+   "Registro o licencia ambiental (Cat. II; conservador: licencia con EIA)",
+   "Dentro de RC-04. Verificar comunas/territorios colectivos (duda #15).",
+   "Terreno 250 k$ en flujo Exergy (09). Documento de posesión para CNEL.",
+   "Certificado de Habilitación (rubro USD 4/kW, tope 10.000)",
+   "Uso de suelo, línea de fábrica y permiso de construcción",
+   "Ingeniería de detalle y owner's engineer (transversal)",
+   "Definen el caso fiscal y la operativa del crédito.",
+   "Clasificación PUGS del predio rural por confirmar.",
+   "Certificado de altura (aeropuerto de Manta ~6 km)",
+   "Sin norma expresa de deslumbramiento (duda #13).",
+   "Notaría · Registro de la Propiedad Montecristi",
+   "005/24 arts. 12-16 · Código de Conexión 001/24",
+   "Certificado de intersección (SNAP/bosques)",
+   "5 + hasta 30 días normativos (medidor MV).",
+   "Ministerio de Ambiente y Energía (SUIA)",
+   "Participación ciudadana (si licencia)",
+   "Ministerio de Ambiente y Energía",
+   "D.E. 754 (RO 323, 02-jun-2023)",
+   "COA + RCOA + CCAN 22.1.1.1.5",
+   "SRI · MPCEI · CNEL EP",
+   "LRTI · COPCI · 005/24",
+   "Automático en SUIA.",
+   "005/24 · 001/20",
+   "005/24 art. 14",
+   "Código Civil",
+   "RC-10, RC-11",
+   "COA / SUIA",
+   "RDAC 154",
+   "RC-05",
+   "RC-08"
+  ],
+  "r3pre_delta": [],
+  "r3pre_quita": []
+ },
+ "04_Energia": {
+  "filas": [
+   101,
+   101
+  ],
+  "formulas": [
+   548,
+   548
+  ],
+  "textos_nuevos": [],
+  "textos_quitados": [],
+  "r3pre_delta": [],
+  "r3pre_quita": []
+ },
+ "05_CAPEX": {
+  "filas": [
+   88,
+   88
+  ],
+  "formulas": [
+   385,
+   385
+  ],
+  "textos_nuevos": [
+   "(9) Desarrollo, permisos e ingeniería. Registro Ambiental ante ARCONEL (tasa USD 180 + expediente; licencia como contingencia: 1 ‰ + póliza PMA + consultor), DGAC, GAD, INPC, servidumbres, legal, ingeniería de detalle, owner's engineer, geotecnia, topografía, seguro CAR. 0,03–0,07 $/Wp (estudio CAPEX). 50 % compartible (un solo trámite ambiental por las 10,78 ha). IVA 12 % efectivo = 15 % sobre ≈ 80 % de servicios gravados (tasas y permisos exentos). Decisión D-L4 (08-sep-2026): se mantiene 250 k como prudencia aunque el cronograma valorado de 03 con Registro baje a ≈ 195 k. Drivers de escala: 40% Wp · 0% Wac · 60% fijo.",
+   "(2) Inversores string. ≈330 kVA clase C5; número según Potencia_AC (12 × 330 kVA a 1,32). ≈0,045 US$/Wdc FOB (estudio CAPEX). Partida 8504.40.90 ≈5 % — arancel 2026 no cotejado (Atlas I-19/P-03; COMEX 002-2025 vencida el 31-dic-2025) · por confirmar. IVA 0 % como «accesorio para la generación solar FV» (art. 55.19): ZONA GRIS (Atlas P-04) — resolver con resolución anticipada de clasificación SENAE (código 0719); decisión D-L5 (08-sep-2026): se mantiene 0 % (efecto de capital de trabajo: −0,01 pp de TIR si fuera 15 %). Drivers de escala: 0% Wp · 100% Wac · 0% fijo.",
+   "(1) Módulos FV. TOPCon bifacial vidrio-vidrio ~620 Wp · CIF Guayaquil/Manta (FOB ≈0,11 $/W + flete y seguro ≈0,008 $/W). OPIS CMM TOPCon 0,108 US$/W FOB (28-ago-2026, +2,9 % s/s; forward Q1-27 0,107) → base 0,11 con margen. Flete China–Guayaquil 1.400–1.950 US$/40' (estudio CAPEX). Partida 8541.43: arancel 0 % (permanente); IVA 0 % (LRTI art. 55 num. 19; código Ecuapass 0719, boletín SENAE 15-ene-2024). Drivers de escala: 100% Wp · 0% Wac · 0% fijo.",
+   "(4) Centros de transformación y MT. Transformadores 0,8/13,8 kV según kVA + celdas MT + SCADA + medición. 15–30 US$/kVA + celdas (estudio CAPEX). Trafos 8504.22.90 ≈11,25 %, celdas ≈5 % → 10 % promedio sobre el 60 % importado (Media; arancel 2026 no cotejado, Atlas P-03 · por confirmar). Celdas MT 30 % compartibles con la 2ª planta. Drivers de escala: 0% Wp · 85% Wac · 15% fijo.",
+   "(3) Estructura fija. Acero Zn-Al-Mg (ZM275+), hincado directo, 10° N, clase C4 · hardware. 0,09 $/Wp hardware (pvrack/PVH/Schletter, estudio CAPEX). Partida 7308.90.90: 20 % (COMEX 009-2021; arancel 2026 no cotejado, Atlas P-03 · por confirmar). IVA 15 % (no es «accesorio FV» inequívoco; zona gris P-04). Drivers de escala: 100% Wp · 0% Wac · 0% fijo."
+  ],
+  "textos_quitados": [
+   "(1) Módulos FV. TOPCon bifacial vidrio-vidrio ~620 Wp · CIF Guayaquil/Manta (FOB ≈0,11 $/W + flete y seguro ≈0,008 $/W). OPIS CMM TOPCon 0,108 US$/W FOB (28-ago-2026, +2,9 % s/s; forward Q1-27 0,107) → base 0,11 con margen. Flete China–Guayaquil 1.400–1.950 US$/40' (estudio CAPEX). Partida 8541.43: arancel 0 % (permanente); IVA 0 % (LRTI art. 55.19). Drivers de escala: 100% Wp · 0% Wac · 0% fijo.",
+   "(9) Desarrollo, permisos e ingeniería. Registro/licencia ambiental (tasa 1‰ + póliza PMA + consultor), DGAC, GAD, INPC, legal, ingeniería de detalle, owner's engineer, geotecnia, topografía, seguro CAR. 0,03–0,07 $/Wp (estudio CAPEX). 50 % compartible (una sola licencia por las 10,76 ha). IVA 12 % efectivo (≈80 % servicios gravados). Drivers de escala: 40% Wp · 0% Wac · 60% fijo.",
+   "(2) Inversores string. ≈330 kVA clase C5; número según Potencia_AC (12 × 330 kVA a 1,32). ≈0,045 US$/Wdc FOB (estudio CAPEX). Partida 8504.40.90 ≈5 % (S4, Media — verificar SENAE). IVA 0 % como «accesorio para la generación solar FV» (art. 55.19 ampliado por la LOCE) — alcance pendiente de consulta SRI (duda #18). Drivers de escala: 0% Wp · 100% Wac · 0% fijo.",
+   "(4) Centros de transformación y MT. Transformadores 0,8/13,8 kV según kVA + celdas MT + SCADA + medición. 15–30 US$/kVA + celdas (estudio CAPEX). Trafos 8504.22.90 ≈11,25 %, celdas ≈5 % → 10 % promedio sobre el 60 % importado (Media). Celdas MT 30 % compartibles con la 2ª planta. Drivers de escala: 0% Wp · 85% Wac · 15% fijo.",
+   "(3) Estructura fija. Acero Zn-Al-Mg (ZM275+), hincado directo, 10° N, clase C4 · hardware. 0,09 $/Wp hardware (pvrack/PVH/Schletter, estudio CAPEX). Partida 7308.90.90: 20 % (COMEX 009-2021; S4). IVA 15 % (no es «accesorio FV» inequívoco). Drivers de escala: 100% Wp · 0% Wac · 0% fijo."
+  ],
+  "r3pre_delta": [],
+  "r3pre_quita": []
+ },
+ "06_OPEX": {
+  "filas": [
+   28,
+   28
+  ],
+  "formulas": [
+   316,
+   316
+  ],
+  "textos_nuevos": [],
+  "textos_quitados": [],
+  "r3pre_delta": [
+   "Referencia: estudio CAPEX/OPEX (jul-2026), 20 $/kWp-año «todo incluido» a suelo (desglose en 12 §D). SALELGI paga fee 16 + seguros 3,5 + arriendo o predial + tributos ≈ 21,3 $/kWp-año (año 1, 5 MWp); el IVA de estos servicios es crédito y no se modela."
+  ],
+  "r3pre_quita": [
+   "Referencia: estudio CAPEX/OPEX (jul-2026), 20 $/kWp-año «todo incluido» a suelo (desglose en 12 §D). SALELGI paga fee 20 + seguros 3,5 + arriendo o predial + tributos ≈ 30 $/kWp-año; el IVA de estos servicios es crédito y no se modela."
+  ]
+ },
+ "07_Fiscal": {
+  "filas": [
+   52,
+   52
+  ],
+  "formulas": [
+   821,
+   821
+  ],
+  "textos_nuevos": [
+   "Deducción adicional anual (años 1–10, topada; 0 si Aplica_DedAd = No)"
+  ],
+  "textos_quitados": [
+   "Deducción adicional anual (años 1–10, topada)"
+  ],
+  "r3pre_delta": [],
+  "r3pre_quita": []
+ },
+ "08_Flujo": {
+  "filas": [
+   78,
+   78
+  ],
+  "formulas": [
+   813,
+   813
+  ],
+  "textos_nuevos": [],
+  "textos_quitados": [],
+  "r3pre_delta": [
+   "Apalancamiento positivo si la TIR del accionista supera la del proyecto. «n/a»: sin deuda o sin solución (TIR ≤ −100 %: el accionista cubre el servicio con flujos negativos casi todo el horizonte)."
+  ],
+  "r3pre_quita": [
+   "Apalancamiento positivo si la TIR del accionista supera la del proyecto."
+  ]
+ },
+ "09_Exergy": {
+  "filas": [
+   74,
+   74
+  ],
+  "formulas": [
+   595,
+   595
+  ],
+  "textos_nuevos": [],
+  "textos_quitados": [],
+  "r3pre_delta": [],
+  "r3pre_quita": []
+ },
+ "10_Sensibilidad": {
+  "filas": [
+   331,
+   333
+  ],
+  "formulas": [
+   928,
+   943
+  ],
+  "textos_nuevos": [
+   "el gráfico ordena las 15 barras por amplitud; la nota (n) explica cada una",
+   "(15)"
+  ],
+  "textos_quitados": [
+   "el gráfico ordena las 14 barras por amplitud; la nota (n) explica cada una"
+  ],
+  "r3pre_delta": [
+   "Qué mueve el resultado y cuánto instalar, en vivo desde el Motor (111 casos): cuatro casos y puente (§A), tornado (§B), matrices (§C), deuda (§D, §H), piso (§E), potencia (§F), terreno y reemplazo (§G). ◆ = Custom."
+  ],
+  "r3pre_quita": [
+   "Qué mueve el resultado y cuánto instalar, en vivo desde el Motor (110 casos): cuatro casos y puente (§A), tornado (§B), matrices (§C), deuda (§D, §H), piso (§E), potencia (§F), terreno y reemplazo (§G). ◆ = Custom."
+  ]
+ },
+ "11_Riesgos": {
+  "filas": [
+   16,
+   20
+  ],
+  "formulas": [
+   24,
+   33
+  ],
+  "textos_nuevos": [
+   "Probabilidad × impacto (1–3 en cada eje; umbrales en 01 §I), mitigación, dueño y alerta temprana. Peaje, red y fiscal (certificación de la deducción) dominan la decisión; los de mercado, fiscal y financiero se cuantifican en 10. Conciliada con el Atlas Regulatorio v2.0 (08-sep-2026).",
+   "Pre-consulta escrita de capacidad (RC-00) y factibilidad temprana (RC-09); alimentadores con margen; contingencia para refuerzos; producción ≤ demanda. Retraso de 12 meses: TIR del accionista 18,5 % → 16,5 % (Custom; memo estático de 03).",
+   "Plazo 10 años (alineado con la depreciación fiscal; a 12 años el DSCR cae tras el año 10) o apalancamiento 50–60 %; período de gracia; cuenta de reserva; líneas verdes (BanEcuador 11,86 %; Produbanco hasta 84 meses).",
+   "Expediente de habilitación preparado durante la factibilidad (vigencia 6 meses, control F12); resolución anticipada de clasificación; agente afianzado; drenaje antes de la temporada; holguras en RC-08c y RC-15.",
+   "Renta fija indexada, nunca por kWh; arriendo en escritura separada; revisión previa de la Distribuidora (art. 8b); consulta DG 17.ª; abogado eléctrico. Probabilidad 2 por prudencia hasta la consulta (D-L8).",
+   "Retrasos: Registro Ambiental «meses en la práctica» (5–6), permisos municipales sin fichas públicas, cambio de uso de suelo rural (90 días MAG), importación/aduana (INEN, clasificación), lluvias ene–abr",
+   "Deducción adicional no aplicable: certificación ambiental previa (RLRTI 28.6.g) no obtenible o tardía (procedimiento no publicado, P-01); IVA 0 % «accesorios» más restrictivo (P-04)",
+   "Notificar a CNEL/Viceministerio el proyecto en curso (reportes mensuales desde jul-2026); evaluar respaldo transitorio; documentar avance (pre-consulta, factibilidad, permisos).",
+   "IVA de Exergy no recuperable por proporcionalidad (art. 66) si mezcla ventas gravadas y 0 %; precios de transferencia con SALELGI; retenciones 2026 (2 / 5 / 10 %) como anticipo",
+   "Facturar bienes 0 % y servicios 15 % por separado; estudio de comparables (fee, O&M, arriendo); planificar la caja de las retenciones. Interno: no afecta el flujo de SALELGI.",
+   "Consulta de categorización a ARCONEL-UTA (SUIA); umbrales del CCAN (P-06); separar predios/plazos si conviene; Base = Registro (decisión D-L1); contingencia en el memo de 03.",
+   "Alimentador 13,8 kV sin capacidad para 3,8 MWac: Manta entre las subestaciones al límite (CENACE vía Expreso, 30-jun-2026); refuerzos de 6–18 meses (Expreso, 20-ago-2026)",
+   "Recaracterización del arriendo/O&M como venta encubierta de energía → revocatoria del certificado (sin precedentes públicos, P-11; la Ley 2026 legaliza a terceros)",
+   "Sensibilidad 0–1,5 ¢/kWh y 0,5–1,0 $/kW-mes (10 §B); cláusula de reapertura en contratos; monitoreo de borradores ARCONEL; el alza tarifaria compensa parcialmente.",
+   "La Disp. Transitoria Única de la 005/24 protege lo otorgado; obtener el Certificado de Habilitación cuanto antes; monitoreo trimestral de ARCONEL (Atlas).",
+   "3 cotizaciones (EPC llave en mano vs multi-contrato); fijar precio de módulos con ventana; contingencia 6 %; caso Conservador +15 % y +5 %/año.",
+   "CAPEX real > base (módulos +30 % desde dic-2025; estructura ZM con arancel 20 %; trafos con lead time largo; arancel 2026 no cotejado, P-03)",
+   "El modelo no depende de excedentes (art. 9: producción ≤ demanda) ni de la Ley 2026 (encaje en la 005/24 + LOCE 2024); monitoreo (P-13).",
+   "Inestabilidad institucional: dos ministros en 20 meses, fusión Ambiente-Energía, ARCONEL con director encargado y nuevo rol ambiental",
+   "Trámites por escrito y con acuse; expedientes completos; no depender de criterios verbales; consulta DG 17.ª para casos especiales.",
+   "Vacío reglamentario y litigio constitucional de la Ley 2026 (14 demandas, 1 admitida): régimen de excedentes remitido al reglamento",
+   "Cambio regulatorio antes de operar: más de seis hitos legales entre 2021 y 2026; el patrón amplía la participación privada",
+   "«Unidad de proyecto» (10,78 ha; 2 × 5 MWp) → Licencia Ambiental en vez de Registro ante ARCONEL (+3 meses, ≈ +70 k)",
+   "D.E. 32: SALELGI (AV1) sin autogeneración al 18-dic-2026 → desconexión en déficit / pérdida de tarifa preferente",
+   "Peaje de red para SGDA desde 28-feb-2029 (valor no publicado; por potencia y energía) erosiona el ahorro",
+   "Respuesta de la pre-consulta / factibilidad",
+   "Cambios de autoridades / reorganizaciones",
+   "Sentencia CC / reglamento de la Ley 2026",
+   "SALELGI (tributario) + Exergy (permisos)",
+   "Pronunciamiento de ARCONEL-UTA en SUIA",
+   "Certificación ARCONEL / absolución SRI",
+   "Borradores ARCONEL / Registro Oficial",
+   "Hitos RC-04 / RC-08 / RC-11 / RC-12",
+   "Declaraciones de IVA / Anexo OPR",
+   "Exergy (tributario)",
+   "Fiscal (Exergy)",
+   "Institucional"
+  ],
+  "textos_quitados": [
+   "Probabilidad × impacto (1–3 en cada eje; umbrales en 01 §J), mitigación, dueño y alerta temprana. Los tres primeros riesgos dominan la decisión; los de mercado y financiero se cuantifican en 10.",
+   "Plazo 10 años (alineado con la depreciación fiscal; a 12 años el DSCR cae tras el año 10) o apalancamiento 50–60 %; período de gracia; cuenta de reserva; línea verde multilateral.",
+   "Sensibilidad 0–1,5 ¢/kWh (10); cláusula de reapertura en contratos; monitoreo de borradores ARCONEL; el alza tarifaria compensa parcialmente.",
+   "Notificar a CNEL/MAE el proyecto en curso (reportes mensuales); evaluar respaldo transitorio; documentar avance (factibilidad, permisos).",
+   "3 cotizaciones (EPC llave en mano vs multi-contrato); fijar precio de módulos con ventana; contingencia 6 %; caso Conservador +15 %.",
+   "Resolución anticipada de clasificación; agente afianzado; drenaje antes de la temporada; cronograma con holgura.",
+   "D.E. 32: SALELGI (AV1) sin autogeneración al 15-dic-2026 → desconexión en déficit / pérdida de tarifa preferente",
+   "Factibilidad temprana CNEL (RC-09) y Mapa de Capacidad; plan B: refuerzo de red a costo propio o menor potencia.",
+   "CAPEX real > base (módulos +30 % desde dic-2025; estructura ZM con arancel 20 %; trafos con lead time largo)",
+   "Renta fija indexada, nunca por kWh; revisión previa de la Distribuidora (art. 8b); abogado eléctrico.",
+   "Consulta formal de categorización; presupuesto ya asume licencia; separar predios/plazos si conviene.",
+   "Recaracterización del arriendo/O&M como venta encubierta de energía → revocatoria del certificado",
+   "Consultas vinculantes SRI (#17, #18); el modelo ya usa el tope y IVA 15 % en BOS/estructura.",
+   "Criterio «unidad de proyecto» (10,76 ha) → licencia + participación ciudadana (+6–12 meses)",
+   "Tope 5 % de la deducción adicional o IVA 0 % «accesorios» más restrictivos que lo modelado",
+   "Retrasos de importación/aduana (INEN, clasificación) y lluvias ene–abr en obra civil",
+   "Peaje de red para SGDA desde 28-feb-2029 (valor no publicado) erosiona el ahorro",
+   "Alimentador 13,8 kV sin capacidad para 3,8 MWac (flujo inverso ≤ 60 %)",
+   "Respuesta de factibilidad",
+   "SALELGI (tributario)",
+   "Pronunciamiento SUIA",
+   "Hitos RC-11/RC-12",
+   "Absolución SRI"
+  ],
+  "r3pre_delta": [],
+  "r3pre_quita": []
+ },
+ "12_Fuentes": {
+  "filas": [
+   69,
+   81
+  ],
+  "formulas": [
+   5,
+   5
+  ],
+  "textos_nuevos": [
+   "• Historial: v1.0 (01-sep-2026) modelo completo · v1.1 (01-sep-2026) rediseño visual «minimalismo tierra» · v1.2 (02-sep-2026) auditoría integral (65 tie-outs, sombra a 10⁻¹³), dimensionamiento por MWp y ratio DC/AC, CAPEX por drivers, comprador del terreno, IDC, 13_Controles · v1.3 (03-sep-2026) portada de dos páginas, guía 00b, panel de mandos, series a escala fija, impresión verificada en Excel/Mac; motor intacto · v2.0 (04-sep-2026) arquitectura de casos: Custom que gobierna el libro y Conservador · Base · Favorable definidos en el bloque B y calculados en el Motor (99 casos); CAPEX fijo $/Wp; potencia como lista 5–8 MWp; controles G1–G6 · v3.0 (sep-2026) ronda 2 de motor: escalación del CAPEX hasta la compra, disponibilidad y degradación adicional, peaje por potencia, reemplazo de inversores y desmantelamiento, pool de pérdidas (art. 11 LRTI), IDC × meses de construcción de 03, tasa del accionista, payback robusto; bloque B de 8 filas; 110 casos (tornado de 14 barras, puente en 10 §A.3); controles H1–H13 e I1–I3; Base realista moderado (98 % · 3 %/año · reemplazo SALELGI en t = 13 · 21 meses · tasa del accionista 12 %) con la definición v2.0 reproducible en neutro · v3.1 (08-sep-2026) actualización legal conciliada con el Atlas Regulatorio FV Ecuador v2.0 (doc 18): 02 con 25 normas (Ley 2026, Sentencia CC, retenciones 2026, suelo rural, servidumbres; ARCONEL como autoridad ambiental; D.E. 32 al 18-dic-2026; medición 008/24; cifras en fórmula) y 15 zonas grises con los pendientes P-xx; 03 con Registro Ambiental, pre-consulta de capacidad, factibilidad en los meses 7–8 (vigencia 6 meses, control F12), RC-08a/b/c, RC-15 y memo estático de escenarios; 11 con 15 riesgos (red ↑, certificación de la deducción); 12 con las fuentes del Atlas y BCE ago-2026; Motor con el parámetro «deducción adicional aplicable» (caso 111 «Sin deducción adicional», barra 15 del tornado, control H14); Custom con los diez valores fijados por Jorge el 04-sep-2026 (SALELGI compra el terreno, peaje 0, tarifa +2 %/año, disponibilidad 97 %, escalación del CAPEX 0, degradación 1 %/año, fee O&M 16, OPEX +2 %/año, deuda 100 % al 7,5 %); Meses_Construccion vuelve a leer Mes_COD_Cron. Elaborado por Claude (Anthropic) para Exergy EXG S.A.S. bajo las decisiones de Jorge A. Baquerizo (01-sep a la fecha de corte). Documento de trabajo interno; no constituye oferta ni opinión legal.",
+   "• v3.1 · Deducción adicional condicionada: Aplica_DedAd (Sí/No) multiplica la deducción en 07 (DedAd_Anual) y en el Motor (fila «Deducción adicional aplicable»); el tornado incluye el caso alterno (barra 15). Permiso ambiental: 03 y el rubro 9 asumen Registro Ambiental ante ARCONEL; la Licencia y el retraso por red se documentan como memo estático en 03 (calculado con la sombra, no con el motor: Fecha_COD y Meses_Construccion son globales) y como riesgos en 11. El IVA del rubro 9 (12 %) es 15 % sobre ≈ 80 % de servicios gravados.",
+   "• Pendientes legales del Atlas Regulatorio v2.0 (no son entradas del modelo y no cuentan en N_Por_Confirmar; detalle en 02 zonas grises): P-01 certificación ambiental de la deducción · P-02 techo de gasto tributario 2026 · P-03 arancel 2026 · P-04 alcance del IVA 0 % · P-06 umbrales del CCAN en SUIA · P-07 uso de suelo del predio · P-08 capacidad remanente del alimentador · P-09 textos ilegibles · P-11 precedentes de recaracterización · P-12 figura inscribible · P-13 litigio de la Ley 2026 · P-14 exceso sobre el tope.",
+   "• BCE — tasas referenciales ago-2026 (Atlas J): corporativo 6,79 % · empresarial 8,62 % · PYME 9,18 %; máximas mar-2026 (VerifacturaEC): corporativo 9,33 %, empresarial 10,21 %, PYMES 11,83 %; Primicias (05-ago-2026): efectiva promedio corporativo 6,74 % (jun-2026). Financiamiento verde: BanEcuador 11,86 % (PYME, ≤ USD 3 MM, 60 meses, 6 de gracia), Produbanco Líneas Verdes hasta 84 meses; riesgo país 386 pb (12-jun-2026); S&P B (14-ago-2026).",
+   "• Resol. ARCONEL-005/25 — Procedimiento para la regularización, prevención, control y seguimiento ambiental de actividades eléctricas (RO Supl. 67, 25-jun-2025): arts. 19–22 Registro Ambiental (FV > 1 ≤ 10 MW), 23–35 Licencia; Resol. MAATE-2025-0002-R (22-abr-2025): ARCONEL como Autoridad Ambiental Competente del sector eléctrico; A.M. 083-B (tasa USD 180).",
+   "• SENAE — boletín 15-ene-2024: código Ecuapass 0719 para bienes con IVA 0 % «paneles solares y accesorios para la generación solar FV»; COMEX 002-2025 (0 % temporal) vencida el 31-dic-2025 sin prórroga localizada; ISD 2026: D.E. 272 y Acuerdo MPCEI-2026-0003-A (tarifas diferenciadas sin partidas FV); RAISD art. 17.1 (exención con contrato de inversión).",
+   "• Atlas Regulatorio FV Ecuador v2.0 — Exergy (Proyecto «Marco Legal FV Ecuador», claude.ai; sello 08-sep-2026 con pasada adversarial): 32 normas con vigencia y cadena, 16 hitos de permisos, 24 conceptos fiscales, 24 pendientes (P-01…P-14, D-01…D-11), 18 correcciones, 45 fuentes primarias. Base de la conciliación legal v3.1 (doc 18, 08-sep-2026).",
+   "• Resol. SRI NAC-DGERCGC26-00000009 (27-feb-2026; vigente 01-mar-2026) — porcentajes de retención en la fuente 2026 (obra 2 % · servicios de sociedades 5 % · arriendo 10 % · bienes 2 %). LRTI art. 65 (IVA 15 %), art. 55 num. 19 (0 % FV), art. 10 num. 7 (deducción adicional, tope 5 %), art. 11 (arrastre de pérdidas).",
+   "• Ley Orgánica para el Fortalecimiento de los Sectores Estratégicos de Minería y Energía (RO 5.º Supl. 234, 02-mar-2026): arts. 23 (art. innumerado tras el 44 LOSPEE), 33 y 48; vigente-no-operativa; litigio constitucional 14 demandas / 1 admitida (El Universo, 06-jun-2026). Sentencia CC 112-21-IN/25 (11-dic-2025).",
+   "• LOTRTA art. 6 y 32 lit. l; Reglamento art. 3 — cambio de uso de suelo rural (informe MAG en 90 días, lo solicita el GAD). Regulación ARCONEL-001/18 — franjas de servidumbre (6 m a ≤ 13,8 kV). RDAC 154 Enmienda 3 (jun-2024) — consulta de altura DGAC, sin estudio de deslumbramiento.",
+   "• Prensa verificada por el Atlas: Expreso 30-jun-2026 (CENACE: subestaciones al límite, Manta; 643 MW privados contenidos) · Expreso 20-ago-2026 (refuerzos de red 6–18 meses) · Expreso 23-jul-2026 (seguimiento mensual del D.E. 32) · El Universo 06-jun-2026 (litigio de la Ley 2026).",
+   "• Decreto Ejecutivo 32 (15-jun-2025; RO Supl. 62, 18-jun-2025; DT 14.ª: 18 meses → 18-dic-2026): PBP Law; El Universo (jun-2025); Expreso (22/23-jul y 20-ago-2026: seguimiento mensual del Viceministerio); El Oriente (24-jul-2026); DMEGC Solar LATAM (01-sep-2026).",
+   "• Informe Fase 3 v1.1 — Fiscal, financiamiento, permisos y riesgos (07/08-sep-2026; errata: el tope del 5 % subsiste) e Informe de Auditoría Fases 1–2 (92 filas verificadas contra fuentes primarias, 07-sep-2026), Proyecto «Marco Legal FV Ecuador — Exergy».",
+   "• Regulación ARCONEL-008/24 (Resol. 015/2024, 15-nov-2024) — prestación del servicio de distribución y comercialización (sucede a la 001/20: medición) y ARCONEL-009/24 (calidad, codificada); ARCONEL-006/24 (Resol. 011/2024, 27-oct-2024) deroga la 002/21.",
+   "• Regulación ARCONEL-005/24 codificada (Res. ARCONEL-010/2024), PDF oficial — arts. 5.17, 6, 7, 8, 9, 10, 12–16, 25, 27, 28, Disp. Gral. Décima y 17.ª, Disp. Trans. Cuarta (leído 01-sep-2026; verbatim cotejados por la Auditoría Fases 1–2, 07-sep-2026).",
+   "• Reglamento LOCE — D.E. 176 (RO 28-feb-2024): art. 18 y DT 16.ª (peajes SGDA; arts. 5 y 24 por verificar), art. 78 → RLRTI art. 28 num. 6 lit. g (certificación ambiental previa para la deducción adicional) — PDF SRI (01-sep-2026; Atlas N20).",
+   "• Además (no contados): aranceles 2026 de inversores 5 % / estructura 20 % / trafos 10 % — no cotejados en 2026 (Atlas P-03; COMEX 002-2025 vencida el 31-dic-2025); demanda promedio 2.200 kW y FGD 0,956 (sólo para la factura de referencia).",
+   "• Aplica_DedAd = Sí — certificación ambiental previa exigida por el RLRTI art. 28 num. 6 lit. g (procedimiento no publicado, Atlas P-01); Sí en el Base; el tornado (10 §B) muestra el caso sin deducción.",
+   "• Peaje_SGDA (bloque B: Custom 0 · C 0,015 · B 0,005 · F 0 $/kWh inyectado) — valor no publicado por ARCONEL — bloque B: Base y Custom 0,5 ¢, Conservador 1,5 ¢, Favorable 0; 10 §B y §E lo barren.",
+   "• Escalacion_CAPEX (bloque B: Custom 0 % · C 5 % · B 3 % · F 0 %/año) — índice de precios de módulos e inversores hasta la compra (2027–28); bloque B 3 / 5 / 3 / 0 %/año desde el 22-jul-2026.",
+   "• Disponibilidad (bloque B: Custom 97 % · C 97 % · B 98 % · F 99 %) — garantía de disponibilidad del contrato de O&M de Exergy (típica 98–99 %); bloque B 98 / 97 / 98 / 99 %."
+  ],
+  "textos_quitados": [
+   "• Historial: v1.0 (01-sep-2026) modelo completo · v1.1 (01-sep-2026) rediseño visual «minimalismo tierra» · v1.2 (02-sep-2026) auditoría integral (65 tie-outs, sombra a 10⁻¹³), dimensionamiento por MWp y ratio DC/AC, CAPEX por drivers, comprador del terreno, IDC, 13_Controles · v1.3 (03-sep-2026) portada de dos páginas, guía 00b, panel de mandos, series a escala fija, impresión verificada en Excel/Mac; motor intacto · v2.0 (04-sep-2026) arquitectura de casos: Custom que gobierna el libro y Conservador · Base · Favorable definidos en el bloque B y calculados en el Motor (99 casos); CAPEX fijo $/Wp; potencia como lista 5–8 MWp; controles G1–G6 · v3.0 (sep-2026) ronda 2 de motor: escalación del CAPEX hasta la compra, disponibilidad y degradación adicional, peaje por potencia, reemplazo de inversores y desmantelamiento, pool de pérdidas (art. 11 LRTI), IDC × meses de construcción de 03, tasa del accionista, payback robusto; bloque B de 8 filas; 110 casos (tornado de 14 barras, puente en 10 §A.3); controles H1–H13 e I1–I3; Base realista moderado (98 % · 3 %/año · reemplazo SALELGI en t = 13 · 21 meses · tasa del accionista 12 %) con la definición v2.0 reproducible en neutro. Elaborado por Claude (Anthropic) para Exergy EXG S.A.S. bajo las decisiones de Jorge A. Baquerizo (01-sep a la fecha de corte). Documento de trabajo interno; no constituye oferta ni opinión legal.",
+   "• Peaje_SGDA (bloque B: Custom 0,005 · C 0,015 · B 0,005 · F 0 $/kWh inyectado) — valor no publicado por ARCONEL — bloque B: Base y Custom 0,5 ¢, Conservador 1,5 ¢, Favorable 0; 10 §B y §E lo barren.",
+   "• Escalacion_CAPEX (bloque B: Custom 3 % · C 5 % · B 3 % · F 0 %/año) — índice de precios de módulos e inversores hasta la compra (2027–28); bloque B 3 / 5 / 3 / 0 %/año desde el 22-jul-2026.",
+   "• Además (no contados): aranceles inversores 5 % / trafos 10 % — verificar en el arancel en vivo SENAE (Ecuapass); demanda promedio 2.200 kW y FGD 0,956 (sólo para la factura de referencia).",
+   "• Decreto Ejecutivo 32 (15-jun-2025; RO Supl. 62, 18-jun-2025): PBP Law; El Universo (jun-2025); Expreso (22-jul y 20-ago-2026); El Oriente (24-jul-2026); DMEGC Solar LATAM (01-sep-2026).",
+   "• BCE — tasas máximas mar-2026 (VerifacturaEC): Corporativo 9,33 %, Empresarial 10,21 %, PYMES 11,83 %; Primicias (05-ago-2026): efectiva promedio corporativo 6,74 % (jun-2026).",
+   "• Disponibilidad (bloque B: Custom 98 % · C 97 % · B 98 % · F 99 %) — garantía de disponibilidad del contrato de O&M de Exergy (típica 98–99 %); bloque B 98 / 97 / 98 / 99 %.",
+   "• Reglamento LOCE — D.E. 176 (RO 28-feb-2024), arts. 5 y 24 (peaje de distribución; cargos por uso o disponibilidad de la red) — PDF SRI (01-sep-2026).",
+   "• Regulación ARCONEL-005/24 codificada (Res. ARCONEL-010/2024), PDF oficial — arts. 6, 8, 9, 10, 25, 27, 28, Disp. Gral. Décima (leído 01-sep-2026)."
+  ],
+  "r3pre_delta": [
+   "• Escalacion_CAPEX (bloque B: Custom 0 % · C 5 % · B 3 % · F 0 %/año) — índice de precios de módulos e inversores hasta la compra (2027–28) desde el 22-jul-2026 (Fecha_Precios); cada caso lleva el suyo en el bloque B.",
+   "• Disponibilidad (bloque B: Custom 97 % · C 97 % · B 98 % · F 99 %) — garantía de disponibilidad del contrato de O&M de Exergy (típica 98–99 %); cada caso lleva la suya en el bloque B.",
+   "• Peaje_SGDA (bloque B: Custom 0 · C 0,015 · B 0,005 · F 0 $/kWh inyectado) — valor no publicado por ARCONEL (los cuatro casos llevan su valor en el bloque B); 10 §B y §E lo barren."
+  ],
+  "r3pre_quita": [
+   "• Peaje_SGDA (bloque B: Custom 0 · C 0,015 · B 0,005 · F 0 $/kWh inyectado) — valor no publicado por ARCONEL — bloque B: Base y Custom 0,5 ¢, Conservador 1,5 ¢, Favorable 0; 10 §B y §E lo barren.",
+   "• Escalacion_CAPEX (bloque B: Custom 0 % · C 5 % · B 3 % · F 0 %/año) — índice de precios de módulos e inversores hasta la compra (2027–28); bloque B 3 / 5 / 3 / 0 %/año desde el 22-jul-2026.",
+   "• Disponibilidad (bloque B: Custom 97 % · C 97 % · B 98 % · F 99 %) — garantía de disponibilidad del contrato de O&M de Exergy (típica 98–99 %); bloque B 98 / 97 / 98 / 99 %."
+  ]
+ },
+ "13_Controles": {
+  "filas": [
+   97,
+   99
+  ],
+  "formulas": [
+   82,
+   84
+  ],
+  "textos_nuevos": [
+   "Único control de calidad: identidades contables, candados regulatorios y de rango (A–F, incl. F12 vigencia de la factibilidad), casos (G), ronda 2 y v3.1 (H) y libro (I). Todo debe estar en ●; ■ = inconsistencia o entrada fuera de rango; la portada lee el contador.",
+   "Deducción adicional aplicable (v3.1): Motor DedAd (Custom) ≡ 07 DedAd_Anual; el caso «Sin deducción adicional» tiene DedAd = 0 si Aplica_DedAd = Sí (y la deducción completa si es No)",
+   "Vigencia de la Factibilidad de Conexión (6 meses, 005/24 art. 13): el Certificado de Habilitación (RC-10) termina ≤ 6 meses después de la factibilidad (RC-09)",
+   "H14",
+   "F12"
+  ],
+  "textos_quitados": [
+   "Único control de calidad: identidades contables, candados regulatorios y de rango (A–F), casos (G), ronda 2 (H) y libro (I). Todo debe estar en ●; ■ = inconsistencia o entrada fuera de rango; la portada lee el contador."
+  ],
+  "r3pre_delta": [],
+  "r3pre_quita": []
+ },
+ "Motor_Sens": {
+  "filas": [
+   857,
+   858
+  ],
+  "formulas": [
+   90531,
+   91465
+  ],
+  "textos_nuevos": [
+   "Deducción adicional aplicable (1/0)",
+   "Sin deducción adicional"
+  ],
+  "textos_quitados": [],
+  "r3pre_delta": [],
+  "r3pre_quita": []
+ }
+}
