@@ -2,7 +2,7 @@
 
 **Proyecto:** Modelo FV 5,0 MWp Montecristi → Gran Piazza Machala (SALELGI S.A. · gerencia Exergy)
 **Fecha:** 11-sep-2026 (cierre 12-sep 00:00 UTC) · **Autor:** Claude (Anthropic) para Exergy EXG S.A.S.
-**Régimen:** G-L2 aprobado (Jorge, 11-sep: «aprobado G-L2 (doc 28) · Ratificar D-V2-9 listo · Procede con todo y tus recomendaciones»). Quedan **dos palabras** suyas: la **sustitución** del raíz v3.0 por r3 y **«promover»** el artefacto r4.
+**Régimen:** G-L2 aprobado (Jorge, 11-sep: «aprobado G-L2 (doc 28) · Ratificar D-V2-9 listo · Procede con todo y tus recomendaciones»). Las dos palabras («sustituir y promover») llegaron el 12-sep y están ejecutadas (§5).
 **Antecedentes:** doc 28 (pre-revisión r2 y cola r3), doc 27 (ola 1 r2), doc 26 (plan), doc 23 (mandato v2).
 
 ## 1. Qué cambió en el libro (r2 → r3)
@@ -45,7 +45,7 @@ Excel se abrió en su Mac con aviso previo (22:09 UTC), sólo sobre copias `_pru
 | Acerca de | `v2 · ola 1 · r4 (11-sep-2026) · libro v3.1 r3`, entrada de changelog |
 | Release | `release.sh "v2 ola 1 r4 libro v3.1 r3"`: verify 91.546/0 · irr 13/13 · live PASS · format 73/73 · tsc · build + check:exclusion · smoke 22/22 × 2 · `publicados/2026-09-11_v2_ola_1_r4_libro_v3.1_r3/` |
 
-Fragmentos definitivos: interno `635a90db…` (1.150.924 B) · externo `cd8fa243…` (1.110.723 B). Candidatos = mismos fragmentos con `<title>` «Candidato · …» (etiqueta «Candidato · ola 1 r4 · libro v3.1 r3 (final)», Version 6 en ambos). Las URL oficiales siguen en **ola 1 · r3 ≡ libro r2** hasta su «promover».
+Fragmentos definitivos: interno `635a90db…` (1.150.924 B) · externo `cd8fa243…` (1.110.723 B). Candidatos = mismos fragmentos con `<title>` «Candidato · …» (etiqueta «Candidato · ola 1 r4 · libro v3.1 r3 (final)», Version 6 en ambos). Promovidos a las URL oficiales el 12-sep (§5).
 
 ## 4. Entrega en OneDrive (`…/Modelo GPM 5MWp/`)
 
@@ -56,16 +56,17 @@ Fragmentos definitivos: interno `635a90db…` (1.150.924 B) · externo `cd8fa243
 | `_borrador_v3.1/pruebas/` | copias `_r3_prueba` (SHA = entregables) · `excel_r3_motor_2026-09-11.txt` y `excel_r3_resumen_motor_2026-09-11.txt` (valores leídos de Excel/Mac) |
 | `_borrador_v3.1/Fuentes técnicas v3.1/` | `scripts_v3.1_r3.tar.gz` (generador HEAD) · `referencias_regresion_v3.1_r3.zip` (raw/calc r3, Resumen calc, sombra, logs, cruce, evidencia Excel, SHA256SUMS) |
 | `_borrador_v3.1/superadas/r2/` | libros r2, renders r2, copias `_prueba` r2, `scripts_v3.1.tar.gz` y `referencias_regresion_v3.1.zip` de r2 (nada borrado) |
-| Raíz | **sin tocar**: `Modelo_FV_5MWp_GPM_v3.0.xlsx`, `…Resumen_Directorio_v3.0.xlsx`, `Renders PDF/`, `Fuentes técnicas/` |
+| Raíz (12-sep) | `Modelo_FV_5MWp_GPM_v3.1.xlsx` · `…Resumen_Directorio_v3.1.xlsx` · `Renders PDF/*v3.1*` · `Fuentes técnicas/{scripts_v3.1.tar.gz, referencias_regresion_v3.1.zip}` (ver §5) |
 
 Repo `gpm-artefacto`: commit `101716b` (main). Bundle del día en `Fuentes técnicas v3.1/` y push a GitHub desde su Mac (vía `gh`) al cierre del bloque.
 
-## 5. Lo que necesito de usted (una palabra cada una)
+## 5. Ejecutado el 12-sep-2026 tras «sustituir y promover» (Jorge)
 
-1. **«sustituir»** → ejecuto la sustitución del raíz: `Modelo_FV_5MWp_GPM_v3.0.xlsx`, `…Resumen_Directorio_v3.0.xlsx`, `Renders PDF/*v3.0*` y `Fuentes técnicas/{scripts_v3.0.tar.gz, referencias_regresion_v3.0.zip}` → `_borrador_v3.0/superadas/` (o `superadas/v3.0/` bajo el raíz); r3 pasa al raíz como **`Modelo_FV_5MWp_GPM_v3.1.xlsx`** y **`…Resumen_Directorio_v3.1.xlsx`** (nombres sin sufijo de revisión, como la v3.0), renders a `Renders PDF/`, fuentes r3 a `Fuentes técnicas/`; reescribo `07 Nota de traspaso` para v3.1. Nada se borra. Antes de mover compruebo que ningún libro esté abierto en Excel.
-2. **«promover»** → las dos URL oficiales reciben ola 1 · r4 (≡ libro r3), con `label` y conservando `db` en la interna.
-
-Si prefiere revisar antes: el PDF del render r3 (66 págs.) es la lectura más rápida; los cambios están en las págs. 1 (portada: tornado), 7 (00b), 48–49 (tornado y nota (3)) y en la cabecera del Resumen.
+| Acción | Resultado |
+|---|---|
+| **Promover** | Oficial interno → «v2 · ola 1 · r4 ≡ libro v3.1 r3 (promovido 12-sep)» (Version 8, reglas `db` conservadas) · oficial externo → ídem (Version 5). Antes de publicar se leyó la versión viva de cada URL y se comprobó que era exactamente la ola 1 · r3 publicada por esta sesión (fragmento `89698736…` / `86875116…` íntegro, sin contenido ajeno). |
+| **Sustituir** | Excel sin libros abiertos (0). Raíz `Modelo_FV_5MWp_GPM_v3.0.xlsx` (tal como estaba, SHA `2f36c34cd0952e2d…`, con las exploraciones del 04/08-sep) y `…Resumen_Directorio_v3.0.xlsx` → `_borrador_v3.1/superadas/raiz_v3.0/`; renders y fuentes v3.0 → `Fuentes técnicas/referencia_v3.0/` (junto a los libros entregados el 04-sep). r3 al raíz como **`Modelo_FV_5MWp_GPM_v3.1.xlsx`** (SHA `3d85da4d3fa8e387…`) y **`Modelo_FV_5MWp_Resumen_Directorio_v3.1.xlsx`** (`35ea3d1f0ade187b…`); renders a `Renders PDF/…_v3.1 (render Excel).pdf`; `Fuentes técnicas/{scripts_v3.1.tar.gz, referencias_regresion_v3.1.zip}`. Nada borrado. |
+| Nota de traspaso | `Documentación/07 Nota de traspaso (2026-09-12).md` reescrita para v3.1 + artefacto; la del 04-sep → `superadas/raiz_v3.0/`. |
 
 ## 6. Pendiente de la ola 1 (sin cambios respecto al doc 27 §4)
 
