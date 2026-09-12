@@ -2,8 +2,8 @@
 "meta": {
 "version": "v3.1",
 "fecha_analisis": "2026-09-08",
-"calc_sha256": "7318bbdcb7f11dd44aa58ea9d60a7ebfe98b844cb9aed5eeaf3872aaf1ea21eb",
-"extracted": "2026-09-08T22:29:47Z",
+"calc_sha256": "6d80e87c4312efed595f13dfcd4504d82b1fbec31d08261c1c89f74d7040c331",
+"extracted": "2026-09-11T22:21:43Z",
 "generator": "build30 (extract_book.py)"
 },
 "inputs": {
@@ -2166,7 +2166,7 @@ null
 "F": 0.02
 },
 "confirm": false,
-"note": "Base y Conservador: PLANA 0 % (P6, ácido). Favorable: +2 %/año (déficit tarifario 2026 = USD 621,9 M, Res. 029/25 → presión al alza). Custom v3.1: +2 %/año (fijado por Jorge, 04-sep-2026). Sensibilidad 1/2/3 % en 10 §B.",
+"note": "Base y Conservador: PLANA 0 % (P6, ácido). Favorable: +2 %/año (déficit tarifario 2026 = USD 621,9 M, Res. 029/25 → presión al alza). Custom v3.1: +2 %/año (fijado por Jorge, 04-sep-2026). Sensibilidad: tornado 10 §B (+1 pp sobre el Custom; r3).",
 "sens": [
 "10 §A (Favorable) · §B escalación",
 "A"
@@ -3965,7 +3965,7 @@ null
 "D": 80000,
 "E": 16,
 "F": 0.751173708920188,
-"H": "Referencia: estudio CAPEX/OPEX (jul-2026), 20 $/kWp-año «todo incluido» a suelo (desglose en 12 §D). SALELGI paga fee 20 + seguros 3,5 + arriendo o predial + tributos ≈ 30 $/kWp-año; el IVA de estos servicios es crédito y no se modela."
+"H": "Referencia: estudio CAPEX/OPEX (jul-2026), 20 $/kWp-año «todo incluido» a suelo (desglose en 12 §D). SALELGI paga fee 16 + seguros 3,5 + arriendo o predial + tributos ≈ 21,3 $/kWp-año (año 1, 5 MWp); el IVA de estos servicios es crédito y no se modela."
 },
 "f": {
 "D": "=F18",
@@ -7104,7 +7104,7 @@ null
 {
 "row": 21,
 "v": {
-"B": "• Peaje_SGDA (bloque B: Custom 0 · C 0,015 · B 0,005 · F 0 $/kWh inyectado) — valor no publicado por ARCONEL — bloque B: Base y Custom 0,5 ¢, Conservador 1,5 ¢, Favorable 0; 10 §B y §E lo barren.",
+"B": "• Peaje_SGDA (bloque B: Custom 0 · C 0,015 · B 0,005 · F 0 $/kWh inyectado) — valor no publicado por ARCONEL (los cuatro casos llevan su valor en el bloque B); 10 §B y §E lo barren.",
 "C": null,
 "D": null,
 "E": null,
@@ -7116,7 +7116,7 @@ null
 {
 "row": 22,
 "v": {
-"B": "• Disponibilidad (bloque B: Custom 97 % · C 97 % · B 98 % · F 99 %) — garantía de disponibilidad del contrato de O&M de Exergy (típica 98–99 %); bloque B 98 / 97 / 98 / 99 %.",
+"B": "• Disponibilidad (bloque B: Custom 97 % · C 97 % · B 98 % · F 99 %) — garantía de disponibilidad del contrato de O&M de Exergy (típica 98–99 %); cada caso lleva la suya en el bloque B.",
 "C": null,
 "D": null,
 "E": null,
@@ -7128,7 +7128,7 @@ null
 {
 "row": 23,
 "v": {
-"B": "• Escalacion_CAPEX (bloque B: Custom 0 % · C 5 % · B 3 % · F 0 %/año) — índice de precios de módulos e inversores hasta la compra (2027–28); bloque B 3 / 5 / 3 / 0 %/año desde el 22-jul-2026.",
+"B": "• Escalacion_CAPEX (bloque B: Custom 0 % · C 5 % · B 3 % · F 0 %/año) — índice de precios de módulos e inversores hasta la compra (2027–28) desde el 22-jul-2026 (Fecha_Precios); cada caso lleva el suyo en el bloque B.",
 "C": null,
 "D": null,
 "E": null,
@@ -8794,7 +8794,7 @@ null
 }
 },
 "guia": {
-"intro": "El libro en cinco minutos, convenciones de color, seis preguntas frecuentes y un glosario de treinta términos con su cifra viva (fórmulas que cambian con 01_Supuestos); cada término enlaza (→) a su celda.",
+"intro": "El libro en cinco minutos, convenciones de color, siete preguntas frecuentes y un glosario de 38 términos con su cifra viva (fórmulas que cambian con 01_Supuestos); cada término enlaza (→) a su celda.",
 "pasos": [
 {
 "title": "1 · Qué calcula",
@@ -10103,7 +10103,7 @@ null
 },
 {
 "term": "TIR y VAN del accionista",
-"def": "FCF + desembolsos (t ≤ 0), CFADS − servicio (t ≥ 1); VAN a tasa del accionista. «n/a»: sin deuda o sin solución (TIR ≤ −100 %).",
+"def": "FCF + desembolsos (t ≤ 0), CFADS − servicio (t ≥ 1); VAN a tasa del accionista. Excel y el artefacto muestran la TIR real del accionista; si el flujo no tiene TIR única en dominio (o no hay deuda), «n/a».",
 "live": [
 "tpl",
 [
@@ -11247,22 +11247,30 @@ null
 "TEXT",
 [
 [
+"bin",
+"*",
+[
 "name",
 "Sens_EscTarifa"
 ],
 [
+"num",
+100
+]
+],
+[
 "str",
-"0.0%"
+"0"
 ]
 ]
 ]
 ],
 [
 "str",
-"/año"
+" pp/año"
 ]
 ],
-"=\"Escalación tarifa +\"&TEXT(Sens_EscTarifa,\"0.0%\")&\"/año\""
+"=\"Escalación tarifa +\"&TEXT(Sens_EscTarifa*100,\"0\")&\" pp/año\""
 ],
 "lo": 14,
 "hi": null,
@@ -11275,8 +11283,68 @@ null
 "bin",
 "&",
 [
+"bin",
+"&",
+[
+"bin",
+"&",
+[
+"bin",
+"&",
+[
+"bin",
+"&",
+[
 "str",
-"(3) Cada 1 % de escalación real de la tarifa añade ≈ "
+"(3) Escalación del Custom "
+],
+[
+"call",
+"TEXT",
+[
+[
+"name",
+"Escalacion_Tarifa"
+],
+[
+"str",
+"0%"
+]
+]
+]
+],
+[
+"str",
+" → "
+]
+],
+[
+"call",
+"TEXT",
+[
+[
+"bin",
+"+",
+[
+"name",
+"Escalacion_Tarifa"
+],
+[
+"name",
+"Sens_EscTarifa"
+]
+],
+[
+"str",
+"0%"
+]
+]
+]
+],
+[
+"str",
+"/año: cada punto adicional de escalación real de la tarifa añade ≈ "
+]
 ],
 [
 "call",
@@ -11339,10 +11407,10 @@ null
 ],
 [
 "str",
-" pp de TIR (caso Custom)."
+" pp de TIR."
 ]
 ],
-"=\"(3) Cada 1 % de escalación real de la tarifa añade ≈ \"&IFERROR(TEXT(('Motor_Sens'!$P$57-'Motor_Sens'!$B$57)/(Sens_EscTarifa*100)*100,\"+0.0;-0.0\"),\"n/a\")&\" pp de TIR (caso Custom).\""
+"=\"(3) Escalación del Custom \"&TEXT(Escalacion_Tarifa,\"0%\")&\" → \"&TEXT(Escalacion_Tarifa+Sens_EscTarifa,\"0%\")&\"/año: cada punto adicional de escalación real de la tarifa añade ≈ \"&IFERROR(TEXT(('Motor_Sens'!$P$57-'Motor_Sens'!$B$57)/(Sens_EscTarifa*100)*100,\"+0.0;-0.0\"),\"n/a\")&\" pp de TIR.\""
 ]
 },
 {
@@ -12897,29 +12965,37 @@ null
 "&",
 [
 "str",
-"Escalación +"
+"Escalación tarifa +"
 ],
 [
 "call",
 "TEXT",
 [
 [
+"bin",
+"*",
+[
 "name",
 "Sens_EscTarifa"
 ],
 [
+"num",
+100
+]
+],
+[
 "str",
-"0.0%"
+"0"
 ]
 ]
 ]
 ],
 [
 "str",
-"/año"
+" pp/año"
 ]
 ],
-"=\"Escalación +\"&TEXT(Sens_EscTarifa,\"0.0%\")&\"/año\""
+"=\"Escalación tarifa +\"&TEXT(Sens_EscTarifa*100,\"0\")&\" pp/año\""
 ],
 [
 "f",
@@ -13328,7 +13404,7 @@ null
 1.0,
 1.4
 ],
-"intro": "Qué mueve el resultado y cuánto instalar, en vivo desde el Motor (110 casos): cuatro casos y puente (§A), tornado (§B), matrices (§C), deuda (§D, §H), piso (§E), potencia (§F), terreno y reemplazo (§G). ◆ = Custom."
+"intro": "Qué mueve el resultado y cuánto instalar, en vivo desde el Motor (111 casos): cuatro casos y puente (§A), tornado (§B), matrices (§C), deuda (§D, §H), piso (§E), potencia (§F), terreno y reemplazo (§G). ◆ = Custom."
 },
 "sheets": {
 "00_Portada": {
@@ -13451,13 +13527,13 @@ null
 }
 },
 "00b_Guía": {
-"intro": "El libro en cinco minutos, convenciones de color, seis preguntas frecuentes y un glosario de treinta términos con su cifra viva (fórmulas que cambian con 01_Supuestos); cada término enlaza (→) a su celda.",
+"intro": "El libro en cinco minutos, convenciones de color, siete preguntas frecuentes y un glosario de 38 términos con su cifra viva (fórmulas que cambian con 01_Supuestos); cada término enlaza (→) a su celda.",
 "title": "Guía de lectura",
 "labels": {
 "1": "Guía de lectura",
-"2": "El libro en cinco minutos, convenciones de color, seis preguntas frecuentes y un glosario de treinta términos con su cifra viva (fórmulas que cambian con 01_Supuestos); cada término enlaza (→) a su celda.",
+"2": "El libro en cinco minutos, convenciones de color, siete preguntas frecuentes y un glosario de 38 términos con su cifra viva (fórmulas que cambian con 01_Supuestos); cada término enlaza (→) a su celda.",
 "5": "1 · El libro en cinco minutos",
-"6": "La planta de Montecristi (SGDA remoto, 005/24) abastece la cuenta de GPM: SALELGI es dueña y paga CAPEX, OPEX, peaje e impuestos incrementales; Exergy gerencia, opera y arrienda el terreno. Cadena: 04 energía → 05 CAPEX → 06 OPEX → 07 fiscal → 08 flujo sin y con deuda → 09 Exergy; el Motor repite esa lógica para 110 casos.",
+"6": "La planta de Montecristi (SGDA remoto, 005/24) abastece la cuenta de GPM: SALELGI es dueña y paga CAPEX, OPEX, peaje e impuestos incrementales; Exergy gerencia, opera y arrienda el terreno. Cadena: 04 energía → 05 CAPEX → 06 OPEX → 07 fiscal → 08 flujo sin y con deuda → 09 Exergy; el Motor repite esa lógica para 111 casos.",
 "7": "2 · Lee la portada",
 "8": "El bloque B define los cuatro casos (energía, CAPEX, OPEX, peaje, escalación de tarifa, disponibilidad, escalación del CAPEX): la columna Custom es la suya; C · B · F son fijos (G4 avisa si los toca). Lo demás es capa de diseño compartida. «Sensibilizado en» enlaza a la sección de 10 que barre cada parámetro; el panel de mandos resume los maestros.",
 "9": "§A los cuatro casos · §A.3 puente v2.0 → v3.0 (por qué cambió el Base) · §B tornado de 15 palancas · §C matriz CAPEX × tarifa · §D/§H deuda y deuda máxima · §E piso · §F potencia y ratio · §G terreno y reemplazo. ◆ o borde ciruela = Custom.",
@@ -13487,7 +13563,7 @@ null
 "45": "BR0–BR5 del Motor: del Base en neutro al Base actual, un parámetro por escalón.",
 "46": "Supuesto sin fuente firme (arcilla, punteado); lista en 12 §A; control I2.",
 "47": "Identidades y candados con dos caminos de cálculo (tol. 1 USD o 10⁻⁶); A–I.",
-"48": "110 casos, uno por columna, con la lógica de 04–09; alimenta 05, 08–10, 13 y 00.",
+"48": "111 casos, uno por columna, con la lógica de 04–09; alimenta 05, 08–10, 13 y 00.",
 "50": "B · Energía y tarifa",
 "51": "Qué es y dónde vive",
 "52": "Potencia_DC (lista 5–8 MWp); AC = DC / Ratio_DCAC, la que ve la red (art. 7.a).",
@@ -13513,7 +13589,7 @@ null
 "74": "(CAPEX + VP(OPEX + peaje)) ÷ VP(energía), sin impuestos (08).",
 "75": "Préstamo corporativo (% del CAPEX), cuota francesa tras gracia; IDC × meses/12.",
 "76": "EBITDA − impuestos + IVA recuperado + residual − reemplazo, ÷ servicio (08 §B).",
-"77": "FCF + desembolsos (t ≤ 0), CFADS − servicio (t ≥ 1); VAN a tasa del accionista.",
+"77": "FCF + desembolsos (t ≤ 0), CFADS − servicio (t ≥ 1); VAN a tasa del accionista. Excel y el artefacto muestran la TIR real del accionista; si el flujo no tiene TIR única en dominio (o no hay deuda), «n/a».",
 "78": "Fee de gerencia − costo, margen O&M, terreno; impuestos 36,25 % si hay utilidad.",
 "79": "SALELGI sin deuda + Exergy; los pagos intragrupo se netean (09 memo).",
 "80": "Una palanca a la vez (15 barras) · CAPEX × tarifa · tasa × plazo · piso (10).",
@@ -13529,7 +13605,7 @@ null
 },
 "labels_b": {
 "1": "Guía de lectura",
-"2": "El libro en cinco minutos, convenciones de color, seis preguntas frecuentes y un glosario de treinta términos con su cifra viva (fórmulas que cambian con 01_Supuestos); cada término enlaza (→) a su celda.",
+"2": "El libro en cinco minutos, convenciones de color, siete preguntas frecuentes y un glosario de 38 términos con su cifra viva (fórmulas que cambian con 01_Supuestos); cada término enlaza (→) a su celda.",
 "5": "1 · El libro en cinco minutos",
 "6": "1 · Qué calcula",
 "7": "2 · Lee la portada",
@@ -13602,7 +13678,7 @@ null
 "90": "Ley 2026 · litigio"
 },
 "labels_c": {
-"6": "La planta de Montecristi (SGDA remoto, 005/24) abastece la cuenta de GPM: SALELGI es dueña y paga CAPEX, OPEX, peaje e impuestos incrementales; Exergy gerencia, opera y arrienda el terreno. Cadena: 04 energía → 05 CAPEX → 06 OPEX → 07 fiscal → 08 flujo sin y con deuda → 09 Exergy; el Motor repite esa lógica para 110 casos.",
+"6": "La planta de Montecristi (SGDA remoto, 005/24) abastece la cuenta de GPM: SALELGI es dueña y paga CAPEX, OPEX, peaje e impuestos incrementales; Exergy gerencia, opera y arrienda el terreno. Cadena: 04 energía → 05 CAPEX → 06 OPEX → 07 fiscal → 08 flujo sin y con deuda → 09 Exergy; el Motor repite esa lógica para 111 casos.",
 "8": "El bloque B define los cuatro casos (energía, CAPEX, OPEX, peaje, escalación de tarifa, disponibilidad, escalación del CAPEX): la columna Custom es la suya; C · B · F son fijos (G4 avisa si los toca). Lo demás es capa de diseño compartida. «Sensibilizado en» enlaza a la sección de 10 que barre cada parámetro; el panel de mandos resume los maestros.",
 "9": "§A los cuatro casos · §A.3 puente v2.0 → v3.0 (por qué cambió el Base) · §B tornado de 15 palancas · §C matriz CAPEX × tarifa · §D/§H deuda y deuda máxima · §E piso · §F potencia y ratio · §G terreno y reemplazo. ◆ o borde ciruela = Custom.",
 "13": "entrada editable (01; pasos de 10, drivers de 05, cronograma de 03, 11)",
@@ -13620,7 +13696,7 @@ null
 "45": "BR0–BR5 del Motor: del Base en neutro al Base actual, un parámetro por escalón.",
 "46": "Supuesto sin fuente firme (arcilla, punteado); lista en 12 §A; control I2.",
 "47": "Identidades y candados con dos caminos de cálculo (tol. 1 USD o 10⁻⁶); A–I.",
-"48": "110 casos, uno por columna, con la lógica de 04–09; alimenta 05, 08–10, 13 y 00.",
+"48": "111 casos, uno por columna, con la lógica de 04–09; alimenta 05, 08–10, 13 y 00.",
 "51": "Qué es y dónde vive",
 "52": "Potencia_DC (lista 5–8 MWp); AC = DC / Ratio_DCAC, la que ve la red (art. 7.a).",
 "53": "Energía anual por kWp (pvlib jul-2026); P90 = 90 % de probabilidad de superarse.",
@@ -13643,7 +13719,7 @@ null
 "74": "(CAPEX + VP(OPEX + peaje)) ÷ VP(energía), sin impuestos (08).",
 "75": "Préstamo corporativo (% del CAPEX), cuota francesa tras gracia; IDC × meses/12.",
 "76": "EBITDA − impuestos + IVA recuperado + residual − reemplazo, ÷ servicio (08 §B).",
-"77": "FCF + desembolsos (t ≤ 0), CFADS − servicio (t ≥ 1); VAN a tasa del accionista.",
+"77": "FCF + desembolsos (t ≤ 0), CFADS − servicio (t ≥ 1); VAN a tasa del accionista. Excel y el artefacto muestran la TIR real del accionista; si el flujo no tiene TIR única en dominio (o no hay deuda), «n/a».",
 "78": "Fee de gerencia − costo, margen O&M, terreno; impuestos 36,25 % si hay utilidad.",
 "79": "SALELGI sin deuda + Exergy; los pagos intragrupo se netean (09 memo).",
 "80": "Una palanca a la vez (15 barras) · CAPEX × tarifa · tasa × plazo · piso (10).",
@@ -15052,7 +15128,7 @@ null
 },
 "labels_f": {
 "6": "Lectura",
-"7": "Apalancamiento positivo si la TIR del accionista supera la del proyecto.",
+"7": "Apalancamiento positivo si la TIR del accionista supera la del proyecto. «n/a»: sin deuda o sin solución (TIR ≤ −100 %: el accionista cubre el servicio con flujos negativos casi todo el horizonte).",
 "11": "Interpolado en el último año con acumulado negativo (robusto si el reemplazo de inversores vuelve a hundirlo).",
 "13": "[CAPEX industrial + VP(OPEX + peaje)] / VP(energía producida); sin terreno ni impuestos.",
 "14": "Ponderada por bloques horarios (04_Energia).",
@@ -15205,11 +15281,11 @@ null
 }
 },
 "10_Sensibilidad": {
-"intro": "Qué mueve el resultado y cuánto instalar, en vivo desde el Motor (110 casos): cuatro casos y puente (§A), tornado (§B), matrices (§C), deuda (§D, §H), piso (§E), potencia (§F), terreno y reemplazo (§G). ◆ = Custom.",
+"intro": "Qué mueve el resultado y cuánto instalar, en vivo desde el Motor (111 casos): cuatro casos y puente (§A), tornado (§B), matrices (§C), deuda (§D, §H), piso (§E), potencia (§F), terreno y reemplazo (§G). ◆ = Custom.",
 "title": "10 · Sensibilidad",
 "labels": {
 "1": "10 · Sensibilidad",
-"2": "Qué mueve el resultado y cuánto instalar, en vivo desde el Motor (110 casos): cuatro casos y puente (§A), tornado (§B), matrices (§C), deuda (§D, §H), piso (§E), potencia (§F), terreno y reemplazo (§G). ◆ = Custom.",
+"2": "Qué mueve el resultado y cuánto instalar, en vivo desde el Motor (111 casos): cuatro casos y puente (§A), tornado (§B), matrices (§C), deuda (§D, §H), piso (§E), potencia (§F), terreno y reemplazo (§G). ◆ = Custom.",
 "5": "Parámetros de sensibilidad (editables)",
 "6": "Variación del CAPEX (±)",
 "7": "OPEX al alza (+)",
@@ -15353,7 +15429,7 @@ null
 },
 "labels_b": {
 "1": "10 · Sensibilidad",
-"2": "Qué mueve el resultado y cuánto instalar, en vivo desde el Motor (110 casos): cuatro casos y puente (§A), tornado (§B), matrices (§C), deuda (§D, §H), piso (§E), potencia (§F), terreno y reemplazo (§G). ◆ = Custom.",
+"2": "Qué mueve el resultado y cuánto instalar, en vivo desde el Motor (111 casos): cuatro casos y puente (§A), tornado (§B), matrices (§C), deuda (§D, §H), piso (§E), potencia (§F), terreno y reemplazo (§G). ◆ = Custom.",
 "5": "Parámetros de sensibilidad (editables)",
 "6": "Variación del CAPEX (±)",
 "7": "OPEX al alza (+)",
@@ -15506,7 +15582,7 @@ null
 "5": "pasos del tornado, las matrices y los barridos; el resto de la hoja se recalcula",
 "6": "Variación de la tarifa evitable (±)",
 "7": "OPEX a la baja (−)",
-"8": "Escalación anual de la tarifa",
+"8": "Escalación de la tarifa: aumento frente al Custom (pp/año)",
 "9": "Escalación del CAPEX: aumento (pp/año)",
 "10": "Potencia AC fija del barrido §F.3 (kWac)",
 "20": "leídos del Motor con la potencia, el contrato, el terreno y la deuda vigentes; el Custom gobierna 04–09 y la portada",
@@ -15619,9 +15695,9 @@ null
 "18": "• Pct_Elegible_DedAd = 65 % — porción «maquinaria, equipos y tecnología» del CAPEX.",
 "19": "• Ingresos_SALELGI = 10.000.000 USD/año — rango 8–12 M (tope 5 % del art. 10.7).",
 "20": "• Costo_Gerencia_Pct = 2,5 % del valor del proyecto — costo interno de Exergy.",
-"21": "• Peaje_SGDA (bloque B: Custom 0 · C 0,015 · B 0,005 · F 0 $/kWh inyectado) — valor no publicado por ARCONEL — bloque B: Base y Custom 0,5 ¢, Conservador 1,5 ¢, Favorable 0; 10 §B y §E lo barren.",
-"22": "• Disponibilidad (bloque B: Custom 97 % · C 97 % · B 98 % · F 99 %) — garantía de disponibilidad del contrato de O&M de Exergy (típica 98–99 %); bloque B 98 / 97 / 98 / 99 %.",
-"23": "• Escalacion_CAPEX (bloque B: Custom 0 % · C 5 % · B 3 % · F 0 %/año) — índice de precios de módulos e inversores hasta la compra (2027–28); bloque B 3 / 5 / 3 / 0 %/año desde el 22-jul-2026.",
+"21": "• Peaje_SGDA (bloque B: Custom 0 · C 0,015 · B 0,005 · F 0 $/kWh inyectado) — valor no publicado por ARCONEL (los cuatro casos llevan su valor en el bloque B); 10 §B y §E lo barren.",
+"22": "• Disponibilidad (bloque B: Custom 97 % · C 97 % · B 98 % · F 99 %) — garantía de disponibilidad del contrato de O&M de Exergy (típica 98–99 %); cada caso lleva la suya en el bloque B.",
+"23": "• Escalacion_CAPEX (bloque B: Custom 0 % · C 5 % · B 3 % · F 0 %/año) — índice de precios de módulos e inversores hasta la compra (2027–28) desde el 22-jul-2026 (Fecha_Precios); cada caso lleva el suyo en el bloque B.",
 "24": "• Drivers de escala Wp / Wac / fijo de cada rubro (05_CAPEX, tabla «Drivers de escala») — pesos estimados; validez del CAPEX por drivers 3–8 MWp.",
 "25": "• Además (no contados): aranceles 2026 de inversores 5 % / estructura 20 % / trafos 10 % — no cotejados en 2026 (Atlas P-03; COMEX 002-2025 vencida el 31-dic-2025); demanda promedio 2.200 kW y FGD 0,956 (sólo para la factura de referencia).",
 "26": "• Pendientes legales del Atlas Regulatorio v2.0 (no son entradas del modelo y no cuentan en N_Por_Confirmar; detalle en 02 zonas grises): P-01 certificación ambiental de la deducción · P-02 techo de gasto tributario 2026 · P-03 arancel 2026 · P-04 alcance del IVA 0 % · P-06 umbrales del CCAN en SUIA · P-07 uso de suelo del predio · P-08 capacidad remanente del alimentador · P-09 textos ilegibles · P-11 precedentes de recaracterización · P-12 figura inscribible · P-13 litigio de la Ley 2026 · P-14 exceso sobre el tope.",
@@ -15695,9 +15771,9 @@ null
 "18": "• Pct_Elegible_DedAd = 65 % — porción «maquinaria, equipos y tecnología» del CAPEX.",
 "19": "• Ingresos_SALELGI = 10.000.000 USD/año — rango 8–12 M (tope 5 % del art. 10.7).",
 "20": "• Costo_Gerencia_Pct = 2,5 % del valor del proyecto — costo interno de Exergy.",
-"21": "• Peaje_SGDA (bloque B: Custom 0 · C 0,015 · B 0,005 · F 0 $/kWh inyectado) — valor no publicado por ARCONEL — bloque B: Base y Custom 0,5 ¢, Conservador 1,5 ¢, Favorable 0; 10 §B y §E lo barren.",
-"22": "• Disponibilidad (bloque B: Custom 97 % · C 97 % · B 98 % · F 99 %) — garantía de disponibilidad del contrato de O&M de Exergy (típica 98–99 %); bloque B 98 / 97 / 98 / 99 %.",
-"23": "• Escalacion_CAPEX (bloque B: Custom 0 % · C 5 % · B 3 % · F 0 %/año) — índice de precios de módulos e inversores hasta la compra (2027–28); bloque B 3 / 5 / 3 / 0 %/año desde el 22-jul-2026.",
+"21": "• Peaje_SGDA (bloque B: Custom 0 · C 0,015 · B 0,005 · F 0 $/kWh inyectado) — valor no publicado por ARCONEL (los cuatro casos llevan su valor en el bloque B); 10 §B y §E lo barren.",
+"22": "• Disponibilidad (bloque B: Custom 97 % · C 97 % · B 98 % · F 99 %) — garantía de disponibilidad del contrato de O&M de Exergy (típica 98–99 %); cada caso lleva la suya en el bloque B.",
+"23": "• Escalacion_CAPEX (bloque B: Custom 0 % · C 5 % · B 3 % · F 0 %/año) — índice de precios de módulos e inversores hasta la compra (2027–28) desde el 22-jul-2026 (Fecha_Precios); cada caso lleva el suyo en el bloque B.",
 "24": "• Drivers de escala Wp / Wac / fijo de cada rubro (05_CAPEX, tabla «Drivers de escala») — pesos estimados; validez del CAPEX por drivers 3–8 MWp.",
 "25": "• Además (no contados): aranceles 2026 de inversores 5 % / estructura 20 % / trafos 10 % — no cotejados en 2026 (Atlas P-03; COMEX 002-2025 vencida el 31-dic-2025); demanda promedio 2.200 kW y FGD 0,956 (sólo para la factura de referencia).",
 "26": "• Pendientes legales del Atlas Regulatorio v2.0 (no son entradas del modelo y no cuentan en N_Por_Confirmar; detalle en 02 zonas grises): P-01 certificación ambiental de la deducción · P-02 techo de gasto tributario 2026 · P-03 arancel 2026 · P-04 alcance del IVA 0 % · P-06 umbrales del CCAN en SUIA · P-07 uso de suelo del predio · P-08 capacidad remanente del alimentador · P-09 textos ilegibles · P-11 precedentes de recaracterización · P-12 figura inscribible · P-13 litigio de la Ley 2026 · P-14 exceso sobre el tope.",
@@ -17122,7 +17198,7 @@ null
 "Sens_OPEX_Up": 0.3,
 "Sens_OPEX_Dn": 0.15,
 "Sens_Peaje": 0.015,
-"Sens_EscTarifa": 0.02,
+"Sens_EscTarifa": 0.01,
 "Sens_Disponibilidad": 0.02,
 "Sens_EscCAPEX": 0.02,
 "Sens_Peaje_kW": 0.5,

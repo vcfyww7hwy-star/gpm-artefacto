@@ -1,0 +1,19 @@
+· build (ESC_DEF=v30)
+saved /root/gpm13/out30/Modelo_FV_5MWp_GPM_v3.1_r3_raw.xlsx
+  hojas: 16 · celdas con estilo: 107211 · gráficos: 17
+  ✔ 0 hallazgos
+✔ paginación dentro de página
+status:errors_found total_errors:52 total_formulas:97102
+celdas con error: 52 · admitidas (NA() intencionales): 52 · fuera de lista: 0
+✔ sin errores fuera de los rangos permitidos
+  · nombres comparados: 317 (832 valores) · valores distintos 0
+  · Motor: filas REF 824 · NEW 824 · comunes 824 · nuevas en NEW 0
+  · Motor: casos REF 111 · NEW 111 · emparejados 111 · nuevos en NEW 0
+  · Motor: 86085 celdas (escalares, salidas, bloques) comparadas por etiqueta · distintas 0 · parámetros distintos (informativo) 0
+  ✖ 1 problema(s):
+    - controles: 78/79 · ● Controles 78/79 en orden
+sombra30 sobre Motor v3.0: 111 casos · 4218 KPI/escalares comparados · 0 difieren · peor Δrel 1.37e-12
+  bloques (28: E, Eval, Ahorro, OPEX, Peaje, EBITDA, Dep, Part_u, IR_u, Terr, FCF_u, Cum_u, Int, Amort, Part_l, IR_l, CFADS, EQ, DSCR, DF, Ux, Ix, Tx, Fx, Gx, Krep, PoolU, PoolL): 81867 celdas anuales comparadas · 0 difieren · peor Δrel 2.84e-12
+08_Flujo FCF Δmáx 5.82e-10 · equity Δmáx 9.9e-10 · 09_Exergy FCF Δmáx 7.28e-12 · TIR_Proyecto libro 10.641393% sombra 10.641393% · VAN_Exergy 113,787.36 / 113,787.36
+inyectados: {'num': 93881, 'str': 598, 'none': 2623}
+2193919 /root/gpm13/out30/Modelo_FV_5MWp_GPM_v3.1_r3.xlsx

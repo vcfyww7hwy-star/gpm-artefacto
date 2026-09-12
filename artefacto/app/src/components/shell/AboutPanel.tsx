@@ -8,10 +8,11 @@ import { BASELINE_EXTRAS, BASELINE_INPUTS } from "@/model/store";
  * A9/G4 (doc 25): panel «Acerca de esta versión». Todo lo que aquí se muestra son METADATOS del artefacto y de la extracción
  * del libro (book.meta, oráculo, edición, entradas modificadas) — textos de interfaz, no contenido del modelo.
  */
-export const ARTEFACTO_VERSION = "v2 · ola 1 · r3 (11-sep-2026)";
+export const ARTEFACTO_VERSION = "v2 · ola 1 · r4 (11-sep-2026) · libro v3.1 r3";
 
 /** Historial de publicaciones (se actualiza en cada promoción; G4). */
 export const CHANGELOG: ReadonlyArray<{ version: string; fecha: string; nota: string }> = [
+  { version: "v2 · ola 1 · r4 · libro v3.1 r3", fecha: "11-sep-2026", nota: "Libro v3.1 r3 (G-L2 aprobado): la barra «Escalación tarifa» del tornado pasa a Custom + 1 pp (antes coincidía con el Custom y medía 0); 00b explica la regla de la TIR del accionista (D-V2-9); el Resumen para el Directorio corrige su etiqueta (v3.1 · 08-sep-2026). Motor ≡ libro r3: 91.546/0." },
   { version: "F5 r2 · hotfix F1-01", fecha: "09-sep-2026", nota: "Resumen: el criterio de los candados 4 y 5 se evalúa en vivo (antes se mostraba la fórmula sin evaluar)." },
   { version: "v2 · ola 1 · r3", fecha: "11-sep-2026", nota: "Prueba en el visor real (A1): recuerda la última vista y caso; «Copiar enlace» copia la URL pública; «Acerca de» también desde ⌘K; reglas de escritura en escenarios verificadas." },
   { version: "v2 · ola 1 · r2", fecha: "09-sep-2026", nota: "TIR ≡ Excel (D-V2-9) · contraste AA en ambos temas · tamaños mínimos · límite de error por vista · panel «Acerca de» · indicador de desplazamiento en tablas · borrado lógico con papelera." },

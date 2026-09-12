@@ -1,0 +1,10 @@
+s00 PASS 91546 celdas · 0 fuera · 25 s · Potencia_DC=7000, Ratio_DCAC=1.11, Comprador_Terreno=SALELGI, Tasa_Descuento=0.113, Tasa_Descuento_Equity=0.097, Pct_Apalancamiento=1.0
+s01 PASS 91546 celdas · 0 fuera · 25 s · Potencia_DC=5000, Ratio_DCAC=1.41, Comprador_Terreno=Exergy, Tasa_Descuento=0.065, Tasa_Descuento_Equity=0.101, Pct_Apalancamiento=0.6
+s02 PASS 91546 celdas · 0 fuera · 23 s · Potencia_DC=8000, Ratio_DCAC=1.24, Comprador_Terreno=Exergy, Tasa_Descuento=0.072, Tasa_Descuento_Equity=0.165, Pct_Apalancamiento=1.0
+s03 PASS 91546 celdas · 0 fuera · 25 s · Potencia_DC=6000, Ratio_DCAC=1.32, Comprador_Terreno=SALELGI, Tasa_Descuento=0.069, Tasa_Descuento_Equity=0.124, Pct_Apalancamiento=0.8
+s04 PASS 91546 celdas · 0 fuera · 26 s · Potencia_DC=7000, Ratio_DCAC=1.1, Comprador_Terreno=Exergy, Tasa_Descuento=0.114, Tasa_Descuento_Equity=0.098, Pct_Apalancamiento=0.7
+s05 PASS 91546 celdas · 0 fuera · 25 s · Potencia_DC=5000, Ratio_DCAC=1.45, Comprador_Terreno=SALELGI, Tasa_Descuento=0.132, Tasa_Descuento_Equity=0.095, Pct_Apalancamiento=0.7
+s06 PASS 91546 celdas · 0 fuera · 25 s · Potencia_DC=7000, Ratio_DCAC=1.26, Comprador_Terreno=SALELGI, Tasa_Descuento=0.081, Tasa_Descuento_Equity=0.128, Pct_Apalancamiento=0.6
+s07 PASS 91546 celdas · 0 fuera · 26 s · Potencia_DC=7000, Ratio_DCAC=1.21, Comprador_Terreno=Exergy, Tasa_Descuento=0.125, Tasa_Descuento_Equity=0.168, Pct_Apalancamiento=1.0
+
+8/8 muestras PASS · 201 s

@@ -1,0 +1,13 @@
+saved /root/gpm13/out30/Modelo_FV_5MWp_Resumen_Directorio_v3.1_r3_raw.xlsx
+  hojas: 8 · celdas con estilo: 98881 · gráficos: 6
+  ✔ 0 hallazgos
+✔ paginación dentro de página
+status:success total_errors:0 total_formulas:92582
+✔ sin errores fuera de los rangos permitidos
+  · nombres comparados: 246 (408 valores) · valores distintos 0
+  · Motor: filas REF 824 · NEW 824 · comunes 824 · nuevas en NEW 0
+  · Motor: casos REF 111 · NEW 111 · emparejados 111 · nuevos en NEW 0
+  · Motor: 86085 celdas (escalares, salidas, bloques) comparadas por etiqueta · distintas 0 · parámetros distintos (informativo) 0
+  ✔ regresión sin diferencias fuera de lo previsto
+inyectados: {'num': 90362, 'str': 170, 'none': 2050}
+2005280 /root/gpm13/out30/Modelo_FV_5MWp_Resumen_Directorio_v3.1_r3.xlsx

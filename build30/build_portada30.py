@@ -220,7 +220,7 @@ def build_portada(wb, ws_flujo, ws_fiscal, ws_capex, ws_sens, tornado_rows):
     ws.cell(row=ar + 6, column=2, value="Título del gráfico de flujo").font = font(size=SZ_NOTE, color=PIEDRA)
     ws.cell(row=ar + 6, column=3, value='="Flujo acumulado del proyecto (sin deuda) · millones de USD"').font = font(size=SZ_NOTE, color=PIEDRA)
     ws.cell(row=ar + 7, column=2, value="Título del tornado").font = font(size=SZ_NOTE, color=PIEDRA)
-    ws.cell(row=ar + 7, column=3, value='="Tornado · Δ TIR del proyecto en pp · las 9 variables de mayor amplitud (14 en 10 §B) · "&IF(LEFT(Estado_Custom,1)="●","Custom (= Base)","Custom (≠ Base)")').font = font(size=SZ_NOTE, color=PIEDRA)
+    ws.cell(row=ar + 7, column=3, value=f'="Tornado · Δ TIR del proyecto en pp · las {BC.PORTADA_TORNADO_N} variables de mayor amplitud ({len(BC.TORNADO)} en 10 §B) · "&IF(LEFT(Estado_Custom,1)="●","Custom (= Base)","Custom (≠ Base)")').font = font(size=SZ_NOTE, color=PIEDRA)
     for t in TS:
         cc = COL0 + (t + 1)
         a = ws.cell(row=ar, column=cc, value=f"='{S8}'!{C(t)}{F['acum']}")                                  # Custom = 08 (control D12 lo concilia con el Motor)

@@ -14,6 +14,8 @@ log() { printf '\n\033[1m== %s ==\033[0m\n' "$*"; }
 
 log "1/8 motor ≡ LibreOffice (verify.ts)"
 ( cd "$ENGINE" && npx tsx test/verify.ts | tail -1 )
+log "1b/8 oráculo y entradas del libro (make:oracle) + edición externa (make:externo)"
+( cd "$APP" && python3 scripts/make-oracle.py | tail -1 && python3 scripts/make-externo.py | tail -1 )
 log "2/8 TIR ≡ Excel (irr_excel.test.ts) + invariante VAN(TIR)≈0"
 ( cd "$ENGINE" && npx tsx test/irr_excel.test.ts | tail -1 )
 log "3/8 textos vivos (live.test) y formato es-EC (format.test)"

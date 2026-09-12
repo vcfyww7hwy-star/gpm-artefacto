@@ -57,7 +57,8 @@ def _dtir(idx):
 TORNADO = [
     ('="Tarifa evitable ±"&TEXT(Sens_Tarifa,"0%")', T_TAR_DN, T_TAR_UP, f'="(1) La tarifa evitable domina junto con el CAPEX: ±"&TEXT(Sens_Tarifa,"0%")&" mueve la TIR "&{_dtir(T_TAR_DN)}&" / "&{_dtir(T_TAR_UP)}&" pp."'),
     ('="CAPEX ±"&TEXT(Sens_CAPEX,"0%")', T_CAPEX_DN, T_CAPEX_UP, f'="(2) El CAPEX fijo del Favorable ("&TEXT(INDEX(Esc_CAPEX_Fijo_Wp,4),"0.00")&" $/Wp, deck v4) equivale a "&TEXT(INDEX(Esc_CAPEX_Fijo_Wp,4)*Potencia_DC*1000/CAPEX_Base_f1-1,"+0%;-0%")&" frente al costo real bottom-up."'),
-    ('="Escalación tarifa +"&TEXT(Sens_EscTarifa,"0.0%")&"/año"', T_ESC, None, f'="(3) Cada 1 % de escalación real de la tarifa añade ≈ "&IFERROR(TEXT(({mo(T_ESC, "TIR")}-{mo(CASE_X, "TIR")})/(Sens_EscTarifa*100)*100,"+0.0;-0.0"),"n/a")&" pp de TIR (caso Custom)."'),
+    # r3 (R3-6, G-L2 10-1): la barra se define como Custom + Sens_EscTarifa (antes «= Sens_EscTarifa», degenerada cuando el Custom ya llevaba +2 %)
+    ('="Escalación tarifa +"&TEXT(Sens_EscTarifa*100,"0")&" pp/año"', T_ESC, None, f'="(3) Escalación del Custom "&TEXT(Escalacion_Tarifa,"0%")&" → "&TEXT(Escalacion_Tarifa+Sens_EscTarifa,"0%")&"/año: cada punto adicional de escalación real de la tarifa añade ≈ "&IFERROR(TEXT(({mo(T_ESC, "TIR")}-{mo(CASE_X, "TIR")})/(Sens_EscTarifa*100)*100,"+0.0;-0.0"),"n/a")&" pp de TIR."'),
     ('="Peaje SGDA 2029 = "&TEXT(Sens_Peaje*100,"0.0")&" ¢/kWh"', T_PEAJE, None, '="(4) Orden de magnitud: "&TEXT(Sens_Peaje*100,"0.0")&" ¢/kWh sobre "&IFERROR(TEXT(P50_Ahorro1/Tarifa_Evitable/1000000,"0.0"),"n/a")&" GWh ≈ "&IFERROR(TEXT(Sens_Peaje*P50_Ahorro1/Tarifa_Evitable/1000,"#,##0"),"n/a")&" k$/año desde "&TEXT(Fecha_Peaje,"yyyy")&"."'),
     ("Energía: escenario alterno (P90 si el Custom usa P50)", T_ENERGIA, None, '="(5) P90 = 90 % de probabilidad de excedencia (energía "&IFERROR(TEXT(P90_Ahorro1/P50_Ahorro1-1,"0.0%"),"n/a")&")."'),
     ('="OPEX +"&TEXT(Sens_OPEX_Up,"0%")&" / −"&TEXT(Sens_OPEX_Dn,"0%")', T_OPEX_UP, T_OPEX_DN, "(6) Incluye fee O&M, seguros, arriendo o predial y tributos."),
@@ -121,7 +122,7 @@ def build_cases():
              case("Tarifa −", "Factor tarifa 1−Sens_Tarifa", fT="=1-Sens_Tarifa"), case("Tarifa +", "Factor tarifa 1+Sens_Tarifa", fT="=1+Sens_Tarifa"),
              case("Energía alt.", "P90 si el Custom usa P50 (y viceversa)", scen=f"=IF($B${R['scen']}=1,2,1)"),
              case("OPEX +", "Factor OPEX del Custom × (1+Sens_OPEX_Up)", fO=f"=$B${R['fO']}*(1+Sens_OPEX_Up)"), case("OPEX −", "Factor OPEX del Custom × (1−Sens_OPEX_Dn)", fO=f"=$B${R['fO']}*(1-Sens_OPEX_Dn)"),
-             case("Peaje", "Peaje SGDA = Sens_Peaje", pj="=Sens_Peaje"), case("Esc. tarifa", "Escalación = Sens_EscTarifa", escT="=Sens_EscTarifa"),
+             case("Peaje", "Peaje SGDA = Sens_Peaje", pj="=Sens_Peaje"), case("Esc. tarifa", "Escalación del Custom + Sens_EscTarifa", escT=f"=$B${R['escT']}+Sens_EscTarifa"),
              case("Participación alt.", "Participación alterna", part=f"=1-$B${R['part']}"), case("IVA alt.", "IVA recuperable alterno", iva=f"=1-$B${R['iva']}"),
              case("Contrato alt.", "Contrato de Inversión alterno", cont=f"=1-$B${R['cont']}"),
              case("PISO", "P90 + CAPEX+ + OPEX+ + peaje + IVA no recuperable", scen="=2", fK=f"=$B${R['fK']}*(1+Sens_CAPEX)", kfix=f"=$B${R['kfix']}*(1+Sens_CAPEX)", fO=f"=$B${R['fO']}*(1+Sens_OPEX_Up)", pj="=Sens_Peaje", iva="=0")]
@@ -179,7 +180,7 @@ SENS_ANCHORS = {}   # clave de sección → celda ancla en 10_Sensibilidad (enla
 TORNADO_SHORT_COL = 21   # columna U: etiquetas cortas del tornado (orden de la tabla)
 TORNADO_RANK_COLS = (22, 23, 24, 25, 26)   # v3.0 (V6): V amplitud con desempate · W fila · X etiqueta · Y Δ bajo · Z Δ alto, ordenados por amplitud (gráfico de 10 §B y portada)
 PORTADA_TORNADO_N = 9    # la portada muestra las 9 barras de mayor amplitud (misma retícula que la v2.0)
-TORNADO_SHORT = ['="Tarifa ±"&TEXT(Sens_Tarifa,"0%")', '="CAPEX ±"&TEXT(Sens_CAPEX,"0%")', '="Escalación +"&TEXT(Sens_EscTarifa,"0.0%")&"/año"',
+TORNADO_SHORT = ['="Tarifa ±"&TEXT(Sens_Tarifa,"0%")', '="CAPEX ±"&TEXT(Sens_CAPEX,"0%")', '="Escalación tarifa +"&TEXT(Sens_EscTarifa*100,"0")&" pp/año"',
                  '="Peaje "&TEXT(Sens_Peaje*100,"0.0")&" ¢/kWh"', '=IF(Eff_Scen=1,"Energía P90","Energía P50")', '="OPEX +"&TEXT(Sens_OPEX_Up,"0%")&" / −"&TEXT(Sens_OPEX_Dn,"0%")',
                  '=IF(IVA_Recuperable="Sí","IVA no recuperable","IVA recuperable")', '=IF(Incluir_Participacion="Sí","Sin participación","Con participación")',
                  '=IF(Contrato_Inversion="Sí","Sin Contrato de Inversión","Con Contrato de Inversión")',

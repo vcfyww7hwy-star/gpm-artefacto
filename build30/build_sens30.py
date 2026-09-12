@@ -48,7 +48,7 @@ def build_sensibilidad(wb):
     section(ws, r, 2, LC, "Parámetros de sensibilidad (editables)", guide="pasos del tornado, las matrices y los barridos; el resto de la hoja se recalcula", guide_col=6)
     params = [("Sens_CAPEX", "Variación del CAPEX (±)", 0.15, FMT_PCT), ("Sens_Tarifa", "Variación de la tarifa evitable (±)", 0.15, FMT_PCT),
               ("Sens_OPEX_Up", "OPEX al alza (+)", 0.30, FMT_PCT), ("Sens_OPEX_Dn", "OPEX a la baja (−)", 0.15, FMT_PCT),
-              ("Sens_Peaje", "Peaje SGDA ($/kWh inyectado, desde 2029)", 0.015, FMT_KWH), ("Sens_EscTarifa", "Escalación anual de la tarifa", 0.02, FMT_PCT),
+              ("Sens_Peaje", "Peaje SGDA ($/kWh inyectado, desde 2029)", 0.015, FMT_KWH), ("Sens_EscTarifa", "Escalación de la tarifa: aumento frente al Custom (pp/año)", 0.01, FMT_PCT),
               ("Sens_Disponibilidad", "Disponibilidad: reducción frente al Custom (pp)", 0.02, FMT_PCT), ("Sens_EscCAPEX", "Escalación del CAPEX: aumento (pp/año)", 0.02, FMT_PCT),
               ("Sens_Peaje_kW", "Peaje por potencia ($/kW-mes sobre la AC)", 0.5, FMT_DEC2), ("Sweep_AC_Fija", "Potencia AC fija del barrido §F.3 (kWac)", 3800, FMT_INT)]
     r += 1

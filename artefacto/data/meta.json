@@ -2,12 +2,12 @@
  "version": "v3.1",
  "fecha_analisis": "2026-09-08",
  "raw": {
-  "path": "/root/gpm13/out30/Modelo_FV_5MWp_GPM_v3.1_raw.xlsx",
-  "sha256": "1d9229bbe0efb8bdc2b29335963e361da2d8e489999cd27f2ec848ba5f41271d"
+  "path": "/root/gpm13/out30/Modelo_FV_5MWp_GPM_v3.1_r3_raw.xlsx",
+  "sha256": "0cd8bffb6d2bb2f5bbbdcbe1bcb766ecbe1a5e4d22ed2f2df21ada3f835cb8b6"
  },
  "calc": {
-  "path": "/root/gpm13/out30/Modelo_FV_5MWp_GPM_v3.1_calc.xlsx",
-  "sha256": "7318bbdcb7f11dd44aa58ea9d60a7ebfe98b844cb9aed5eeaf3872aaf1ea21eb"
+  "path": "/root/gpm13/out30/Modelo_FV_5MWp_GPM_v3.1_r3_calc.xlsx",
+  "sha256": "6d80e87c4312efed595f13dfcd4504d82b1fbec31d08261c1c89f74d7040c331"
  },
  "n_names": 317,
  "n_cases": 111,
@@ -15,5 +15,5 @@
  "n_scalars": 22,
  "n_outputs": 16,
  "n_blocks": 28,
- "extracted": "2026-09-08T17:24:36.525194Z"
+ "extracted": "2026-09-11T22:21:43.261375Z"
 }

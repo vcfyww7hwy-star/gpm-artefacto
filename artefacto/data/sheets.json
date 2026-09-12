@@ -1375,8 +1375,8 @@
 "v": "Título del tornado"
 },
 "C107": {
-"v": "Tornado · Δ TIR del proyecto en pp · las 9 variables de mayor amplitud (14 en 10 §B) · Custom (≠ Base)",
-"f": "=\"Tornado · Δ TIR del proyecto en pp · las 9 variables de mayor amplitud (14 en 10 §B) · \"&IF(LEFT(Estado_Custom,1)=\"●\",\"Custom (= Base)\",\"Custom (≠ Base)\")"
+"v": "Tornado · Δ TIR del proyecto en pp · las 9 variables de mayor amplitud (15 en 10 §B) · Custom (≠ Base)",
+"f": "=\"Tornado · Δ TIR del proyecto en pp · las 9 variables de mayor amplitud (15 en 10 §B) · \"&IF(LEFT(Estado_Custom,1)=\"●\",\"Custom (= Base)\",\"Custom (≠ Base)\")"
 },
 "B108": {
 "v": "Cruces hacia arriba · serie 1 (año)"
@@ -1688,11 +1688,11 @@
 "f": "='10_Sensibilidad'!Z101"
 },
 "B118": {
-"v": "IVA no recuperable    ",
+"v": "Escalación tarifa +1 pp/año    ",
 "f": "='10_Sensibilidad'!X102&\"    \""
 },
 "C118": {
-"v": -0.838987174346245,
+"v": 0.899826939053656,
 "f": "='10_Sensibilidad'!Y102"
 },
 "D118": {
@@ -1700,11 +1700,11 @@
 "f": "='10_Sensibilidad'!Z102"
 },
 "B119": {
-"v": "Con Contrato de Inversión    ",
+"v": "IVA no recuperable    ",
 "f": "='10_Sensibilidad'!X103&\"    \""
 },
 "C119": {
-"v": 0.605596221882024,
+"v": -0.838987174346245,
 "f": "='10_Sensibilidad'!Y103"
 },
 "D119": {
@@ -2146,7 +2146,7 @@
 "v": "← Portada"
 },
 "B2": {
-"v": "El libro en cinco minutos, convenciones de color, seis preguntas frecuentes y un glosario de treinta términos con su cifra viva (fórmulas que cambian con 01_Supuestos); cada término enlaza (→) a su celda."
+"v": "El libro en cinco minutos, convenciones de color, siete preguntas frecuentes y un glosario de 38 términos con su cifra viva (fórmulas que cambian con 01_Supuestos); cada término enlaza (→) a su celda."
 },
 "B5": {
 "v": "1 · El libro en cinco minutos"
@@ -2158,7 +2158,7 @@
 "v": "1 · Qué calcula"
 },
 "C6": {
-"v": "La planta de Montecristi (SGDA remoto, 005/24) abastece la cuenta de GPM: SALELGI es dueña y paga CAPEX, OPEX, peaje e impuestos incrementales; Exergy gerencia, opera y arrienda el terreno. Cadena: 04 energía → 05 CAPEX → 06 OPEX → 07 fiscal → 08 flujo sin y con deuda → 09 Exergy; el Motor repite esa lógica para 110 casos."
+"v": "La planta de Montecristi (SGDA remoto, 005/24) abastece la cuenta de GPM: SALELGI es dueña y paga CAPEX, OPEX, peaje e impuestos incrementales; Exergy gerencia, opera y arrienda el terreno. Cadena: 04 energía → 05 CAPEX → 06 OPEX → 07 fiscal → 08 flujo sin y con deuda → 09 Exergy; el Motor repite esa lógica para 111 casos."
 },
 "F6": {
 "v": "→"
@@ -2461,7 +2461,7 @@
 "v": "Motor_Sens"
 },
 "C48": {
-"v": "110 casos, uno por columna, con la lógica de 04–09; alimenta 05, 08–10, 13 y 00."
+"v": "111 casos, uno por columna, con la lógica de 04–09; alimenta 05, 08–10, 13 y 00."
 },
 "E48": {
 "v": "No editar; su columna B ≡ 08/09 (A8, D12, D13, E6, H1–H5)."
@@ -2764,7 +2764,7 @@
 "v": "TIR y VAN del accionista"
 },
 "C77": {
-"v": "FCF + desembolsos (t ≤ 0), CFADS − servicio (t ≥ 1); VAN a tasa del accionista."
+"v": "FCF + desembolsos (t ≤ 0), CFADS − servicio (t ≥ 1); VAN a tasa del accionista. Excel y el artefacto muestran la TIR real del accionista; si el flujo no tiene TIR única en dominio (o no hay deuda), «n/a»."
 },
 "E77": {
 "v": "TIR 18.5% vs proyecto 10.6%; VAN 563,612 USD; léala con el DSCR.",
@@ -15420,7 +15420,7 @@
 "f": "=IF($D$12>0,D7/$D$12,0)"
 },
 "H7": {
-"v": "Referencia: estudio CAPEX/OPEX (jul-2026), 20 $/kWp-año «todo incluido» a suelo (desglose en 12 §D). SALELGI paga fee 20 + seguros 3,5 + arriendo o predial + tributos ≈ 30 $/kWp-año; el IVA de estos servicios es crédito y no se modela."
+"v": "Referencia: estudio CAPEX/OPEX (jul-2026), 20 $/kWp-año «todo incluido» a suelo (desglose en 12 §D). SALELGI paga fee 16 + seguros 3,5 + arriendo o predial + tributos ≈ 21,3 $/kWp-año (año 1, 5 MWp); el IVA de estos servicios es crédito y no se modela."
 },
 "B8": {
 "v": "Seguros all-risk + RC (dueño)"
@@ -20529,10 +20529,10 @@
 },
 "E7": {
 "v": 0.185393622224785,
-"f": "=IFERROR(IRR($D$75:$AD$75,0.02),\"n/a\")"
+"f": "=IFERROR(IF(IRR($D$75:$AD$75,0.02)<=-1,\"n/a\",IRR($D$75:$AD$75,0.02)),\"n/a\")"
 },
 "F7": {
-"v": "Apalancamiento positivo si la TIR del accionista supera la del proyecto."
+"v": "Apalancamiento positivo si la TIR del accionista supera la del proyecto. «n/a»: sin deuda o sin solución (TIR ≤ −100 %: el accionista cubre el servicio con flujos negativos casi todo el horizonte)."
 },
 "B8": {
 "v": "VAN en el COD (t = 0): proyecto @ tasa de descuento · accionista @ tasa del accionista"
@@ -27061,7 +27061,7 @@
 "v": "? Guía"
 },
 "B2": {
-"v": "Qué mueve el resultado y cuánto instalar, en vivo desde el Motor (110 casos): cuatro casos y puente (§A), tornado (§B), matrices (§C), deuda (§D, §H), piso (§E), potencia (§F), terreno y reemplazo (§G). ◆ = Custom."
+"v": "Qué mueve el resultado y cuánto instalar, en vivo desde el Motor (111 casos): cuatro casos y puente (§A), tornado (§B), matrices (§C), deuda (§D, §H), piso (§E), potencia (§F), terreno y reemplazo (§G). ◆ = Custom."
 },
 "B5": {
 "v": "Parámetros de sensibilidad (editables)"
@@ -27115,10 +27115,10 @@
 "v": "Sens_Peaje"
 },
 "F8": {
-"v": "Escalación anual de la tarifa"
+"v": "Escalación de la tarifa: aumento frente al Custom (pp/año)"
 },
 "J8": {
-"v": 0.02
+"v": 0.01
 },
 "K8": {
 "v": "Sens_EscTarifa"
@@ -28333,11 +28333,11 @@
 "f": "=INDEX($F$95:$F$109,W96)"
 },
 "B97": {
-"v": "Escalación tarifa +2.0%/año",
-"f": "=\"Escalación tarifa +\"&TEXT(Sens_EscTarifa,\"0.0%\")&\"/año\""
+"v": "Escalación tarifa +1 pp/año",
+"f": "=\"Escalación tarifa +\"&TEXT(Sens_EscTarifa*100,\"0\")&\" pp/año\""
 },
 "C97": {
-"v": 0.106413933073245,
+"v": 0.115412202463781,
 "f": "='Motor_Sens'!$P$57"
 },
 "D97": {
@@ -28345,7 +28345,7 @@
 "f": "=$C$94"
 },
 "E97": {
-"v": 0,
+"v": 0.899826939053656,
 "f": "=IFERROR((C97-$C$94)*100,0)"
 },
 "F97": {
@@ -28353,7 +28353,7 @@
 "f": "=IFERROR((D97-$C$94)*100,0)"
 },
 "G97": {
-"v": 214690.31942476,
+"v": 550342.669170436,
 "f": "='Motor_Sens'!$P$58"
 },
 "H97": {
@@ -28361,18 +28361,18 @@
 "f": "=$G$94"
 },
 "I97": {
-"v": 0,
+"v": 0.899826939053656,
 "f": "=ABS(F97-E97)"
 },
 "J97": {
 "v": "(3)"
 },
 "U97": {
-"v": "Escalación +2.0%/año",
-"f": "=\"Escalación +\"&TEXT(Sens_EscTarifa,\"0.0%\")&\"/año\""
+"v": "Escalación tarifa +1 pp/año",
+"f": "=\"Escalación tarifa +\"&TEXT(Sens_EscTarifa*100,\"0\")&\" pp/año\""
 },
 "V97": {
-"v": 1.3e-08,
+"v": 0.899826952053656,
 "f": "=I97+(15-2)*0.000000001"
 },
 "W97": {
@@ -28668,15 +28668,15 @@
 "f": "=I102+(15-7)*0.000000001"
 },
 "W102": {
-"v": 7,
+"v": 3,
 "f": "=MATCH(LARGE($V$95:$V$109,8),$V$95:$V$109,0)"
 },
 "X102": {
-"v": "IVA no recuperable",
+"v": "Escalación tarifa +1 pp/año",
 "f": "=INDEX($U$95:$U$109,W102)"
 },
 "Y102": {
-"v": -0.838987174346245,
+"v": 0.899826939053656,
 "f": "=INDEX($E$95:$E$109,W102)"
 },
 "Z102": {
@@ -28726,15 +28726,15 @@
 "f": "=I103+(15-8)*0.000000001"
 },
 "W103": {
-"v": 9,
+"v": 7,
 "f": "=MATCH(LARGE($V$95:$V$109,9),$V$95:$V$109,0)"
 },
 "X103": {
-"v": "Con Contrato de Inversión",
+"v": "IVA no recuperable",
 "f": "=INDEX($U$95:$U$109,W103)"
 },
 "Y103": {
-"v": 0.605596221882024,
+"v": -0.838987174346245,
 "f": "=INDEX($E$95:$E$109,W103)"
 },
 "Z103": {
@@ -28785,15 +28785,15 @@
 "f": "=I104+(15-9)*0.000000001"
 },
 "W104": {
-"v": 12,
+"v": 9,
 "f": "=MATCH(LARGE($V$95:$V$109,10),$V$95:$V$109,0)"
 },
 "X104": {
-"v": "Peaje 0.5 $/kW-mes",
+"v": "Con Contrato de Inversión",
 "f": "=INDEX($U$95:$U$109,W104)"
 },
 "Y104": {
-"v": -0.364365114636817,
+"v": 0.605596221882024,
 "f": "=INDEX($E$95:$E$109,W104)"
 },
 "Z104": {
@@ -28844,15 +28844,15 @@
 "f": "=I105+(15-10)*0.000000001"
 },
 "W105": {
-"v": 11,
+"v": 12,
 "f": "=MATCH(LARGE($V$95:$V$109,11),$V$95:$V$109,0)"
 },
 "X105": {
-"v": "Escalación CAPEX +2 pp/año",
+"v": "Peaje 0.5 $/kW-mes",
 "f": "=INDEX($U$95:$U$109,W105)"
 },
 "Y105": {
-"v": -0.303706989814914,
+"v": -0.364365114636817,
 "f": "=INDEX($E$95:$E$109,W105)"
 },
 "Z105": {
@@ -28903,15 +28903,15 @@
 "f": "=I106+(15-11)*0.000000001"
 },
 "W106": {
-"v": 10,
+"v": 11,
 "f": "=MATCH(LARGE($V$95:$V$109,12),$V$95:$V$109,0)"
 },
 "X106": {
-"v": "Disponibilidad −2 pp",
+"v": "Escalación CAPEX +2 pp/año",
 "f": "=INDEX($U$95:$U$109,W106)"
 },
 "Y106": {
-"v": -0.258328239019393,
+"v": -0.303706989814914,
 "f": "=INDEX($E$95:$E$109,W106)"
 },
 "Z106": {
@@ -28960,15 +28960,15 @@
 "f": "=I107+(15-12)*0.000000001"
 },
 "W107": {
-"v": 13,
+"v": 10,
 "f": "=MATCH(LARGE($V$95:$V$109,13),$V$95:$V$109,0)"
 },
 "X107": {
-"v": "Sin absorción fiscal",
+"v": "Disponibilidad −2 pp",
 "f": "=INDEX($U$95:$U$109,W107)"
 },
 "Y107": {
-"v": -0.235131619443235,
+"v": -0.258328239019393,
 "f": "=INDEX($E$95:$E$109,W107)"
 },
 "Z107": {
@@ -29019,15 +29019,15 @@
 "f": "=I108+(15-13)*0.000000001"
 },
 "W108": {
-"v": 14,
+"v": 13,
 "f": "=MATCH(LARGE($V$95:$V$109,14),$V$95:$V$109,0)"
 },
 "X108": {
-"v": "Reemplazo paga Exergy",
+"v": "Sin absorción fiscal",
 "f": "=INDEX($U$95:$U$109,W108)"
 },
 "Y108": {
-"v": 0.147014864574714,
+"v": -0.235131619443235,
 "f": "=INDEX($E$95:$E$109,W108)"
 },
 "Z108": {
@@ -29078,15 +29078,15 @@
 "f": "=I109+(15-14)*0.000000001"
 },
 "W109": {
-"v": 3,
+"v": 14,
 "f": "=MATCH(LARGE($V$95:$V$109,15),$V$95:$V$109,0)"
 },
 "X109": {
-"v": "Escalación +2.0%/año",
+"v": "Reemplazo paga Exergy",
 "f": "=INDEX($U$95:$U$109,W109)"
 },
 "Y109": {
-"v": 0,
+"v": 0.147014864574714,
 "f": "=INDEX($E$95:$E$109,W109)"
 },
 "Z109": {
@@ -29102,8 +29102,8 @@
 "f": "=\"(2) El CAPEX fijo del Favorable (\"&TEXT(INDEX(Esc_CAPEX_Fijo_Wp,4),\"0.00\")&\" $/Wp, deck v4) equivale a \"&TEXT(INDEX(Esc_CAPEX_Fijo_Wp,4)*Potencia_DC*1000/CAPEX_Base_f1-1,\"+0%;-0%\")&\" frente al costo real bottom-up.\""
 },
 "B135": {
-"v": "(3) Cada 1 % de escalación real de la tarifa añade ≈ +0.0 pp de TIR (caso Custom).",
-"f": "=\"(3) Cada 1 % de escalación real de la tarifa añade ≈ \"&IFERROR(TEXT(('Motor_Sens'!$P$57-'Motor_Sens'!$B$57)/(Sens_EscTarifa*100)*100,\"+0.0;-0.0\"),\"n/a\")&\" pp de TIR (caso Custom).\""
+"v": "(3) Escalación del Custom 2% → 3%/año: cada punto adicional de escalación real de la tarifa añade ≈ +0.9 pp de TIR.",
+"f": "=\"(3) Escalación del Custom \"&TEXT(Escalacion_Tarifa,\"0%\")&\" → \"&TEXT(Escalacion_Tarifa+Sens_EscTarifa,\"0%\")&\"/año: cada punto adicional de escalación real de la tarifa añade ≈ \"&IFERROR(TEXT(('Motor_Sens'!$P$57-'Motor_Sens'!$B$57)/(Sens_EscTarifa*100)*100,\"+0.0;-0.0\"),\"n/a\")&\" pp de TIR.\""
 },
 "B136": {
 "v": "(4) Orden de magnitud: 1.5 ¢/kWh sobre 6.3 GWh ≈ 94 k$/año desde 2029.",
@@ -32535,13 +32535,13 @@
 "v": "• Costo_Gerencia_Pct = 2,5 % del valor del proyecto — costo interno de Exergy."
 },
 "B21": {
-"v": "• Peaje_SGDA (bloque B: Custom 0 · C 0,015 · B 0,005 · F 0 $/kWh inyectado) — valor no publicado por ARCONEL — bloque B: Base y Custom 0,5 ¢, Conservador 1,5 ¢, Favorable 0; 10 §B y §E lo barren."
+"v": "• Peaje_SGDA (bloque B: Custom 0 · C 0,015 · B 0,005 · F 0 $/kWh inyectado) — valor no publicado por ARCONEL (los cuatro casos llevan su valor en el bloque B); 10 §B y §E lo barren."
 },
 "B22": {
-"v": "• Disponibilidad (bloque B: Custom 97 % · C 97 % · B 98 % · F 99 %) — garantía de disponibilidad del contrato de O&M de Exergy (típica 98–99 %); bloque B 98 / 97 / 98 / 99 %."
+"v": "• Disponibilidad (bloque B: Custom 97 % · C 97 % · B 98 % · F 99 %) — garantía de disponibilidad del contrato de O&M de Exergy (típica 98–99 %); cada caso lleva la suya en el bloque B."
 },
 "B23": {
-"v": "• Escalacion_CAPEX (bloque B: Custom 0 % · C 5 % · B 3 % · F 0 %/año) — índice de precios de módulos e inversores hasta la compra (2027–28); bloque B 3 / 5 / 3 / 0 %/año desde el 22-jul-2026."
+"v": "• Escalacion_CAPEX (bloque B: Custom 0 % · C 5 % · B 3 % · F 0 %/año) — índice de precios de módulos e inversores hasta la compra (2027–28) desde el 22-jul-2026 (Fecha_Precios); cada caso lleva el suyo en el bloque B."
 },
 "B24": {
 "v": "• Drivers de escala Wp / Wac / fijo de cada rubro (05_CAPEX, tabla «Drivers de escala») — pesos estimados; validez del CAPEX por drivers 3–8 MWp."

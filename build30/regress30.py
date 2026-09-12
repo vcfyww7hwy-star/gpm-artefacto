@@ -165,7 +165,7 @@ info.append(f"Motor: filas REF {len(rr)} · NEW {len(rn)} · comunes {len(common
 unmatched = [nm for nm in ref_cases if nm not in new_cases]
 cases_new = [nm for nm in new_cases if nm not in ref_cases]
 n_cmp = n_bad = n_param_diff = 0
-worst = []; param_notes = []
+worst = []; param_notes = []; by_case = {}   # r3: desglose de celdas distintas por caso (para aislar cambios de definición)
 for nm, c in ref_cases.items():
     if nm not in new_cases:
         continue
@@ -184,6 +184,7 @@ for nm, c in ref_cases.items():
         if not is_num(vb) or abs(va - vb) > tol:
             n_bad += 1
             worst.append((abs(va - vb) if is_num(vb) else float("inf"), f"{nm} · {k}: {va!r} → {vb!r}"))
+            by_case[nm] = by_case.get(nm, 0) + 1
 info.append(f"Motor: casos REF {len(ref_cases)} · NEW {len(new_cases)} · emparejados {len(ref_cases) - len(unmatched)} · nuevos en NEW {len(cases_new)}" + (f" {cases_new}" if cases_new and not quiet else ""))
 info.append(f"Motor: {n_cmp} celdas (escalares, salidas, bloques) comparadas por etiqueta · distintas {n_bad} · parámetros distintos (informativo) {n_param_diff}")
 if not quiet:
@@ -193,7 +194,8 @@ if unmatched:
     problems.append(f"Motor: casos de REF sin homólogo en NEW: {unmatched}")
 if n_bad:
     worst.sort(reverse=True)
-    problems.append(f"Motor: {n_bad} celdas distintas; peores: " + " | ".join(w for _, w in worst[:8]))
+    resumen = ", ".join(f"{nm} {n}" for nm, n in sorted(by_case.items(), key=lambda t: -t[1])[:10])
+    problems.append(f"Motor: {n_bad} celdas distintas en {len(by_case)} caso(s) [{resumen}]; peores: " + " | ".join(w for _, w in worst[:8]))
 
 # 3. controles
 try:

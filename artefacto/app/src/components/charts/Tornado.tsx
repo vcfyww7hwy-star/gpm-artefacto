@@ -26,7 +26,15 @@ interface Props {
 }
 
 const ROW_H = 26;
-const LABEL_W = 176;
+const LABEL_W_MIN = 176;
+/** r4 (F1-13): la columna de rótulos crece con el rótulo más largo (medido con canvas) en vez de recortarlo por la izquierda. */
+function measureLabels(labels: string[], font: string): number {
+  if (typeof document === "undefined") return LABEL_W_MIN;
+  const ctx = document.createElement("canvas").getContext("2d");
+  if (!ctx) return LABEL_W_MIN;
+  ctx.font = font;
+  return Math.max(0, ...labels.map((l) => ctx.measureText(l).width));
+}
 const PAD_R = 44;
 
 /**
@@ -49,6 +57,12 @@ export function Tornado({ rows, ref, selected, onSelect, className }: Props) {
   }, [rows, ref]);
   const ext = Math.max(0.5, ...data.map((d) => Math.max(-d.left, d.right)));
   const w = Math.max(320, width);
+  const LABEL_W = useMemo(() => {
+    const family = typeof document !== "undefined" ? getComputedStyle(document.body).fontFamily || "sans-serif" : "sans-serif";
+    const widest = measureLabels(data.map((d) => d.label), `12px ${family}`);
+    // 10 px de holgura a la derecha del rótulo; nunca más del 45 % del ancho para que las barras conserven sitio
+    return Math.min(Math.max(LABEL_W_MIN, Math.ceil(widest) + 14), Math.floor(w * 0.45));
+  }, [data, w]);
   const plotW = w - LABEL_W - PAD_R;
   const x = linear([-ext, ext], [LABEL_W, LABEL_W + plotW]);
   const h = data.length * ROW_H + 28;

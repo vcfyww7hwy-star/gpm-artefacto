@@ -21,7 +21,8 @@
     "smoke": "node scripts/smoke.mjs interno && node scripts/smoke.mjs externo",
     "make:externo": "python3 scripts/make-externo.py",
     "select:edition": "node scripts/select-edition.mjs",
-    "release": "bash scripts/release.sh"
+    "release": "bash scripts/release.sh",
+    "make:oracle": "python3 scripts/make-oracle.py"
   },
   "@parcel/resolver-default": {
     "packageExports": true

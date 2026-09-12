@@ -106,7 +106,8 @@ export function buildCases(i: Inputs, d: Derived): CaseDef[] {
   cases.push(kase("OPEX +", "Factor OPEX del Custom × (1+Sens_OPEX_Up)", { fO: B.fO * (1 + i.Sens_OPEX_Up) }));
   cases.push(kase("OPEX −", "Factor OPEX del Custom × (1−Sens_OPEX_Dn)", { fO: B.fO * (1 - i.Sens_OPEX_Dn) }));
   cases.push(kase("Peaje", "Peaje SGDA = Sens_Peaje", { pj: i.Sens_Peaje }));
-  cases.push(kase("Esc. tarifa", "Escalación = Sens_EscTarifa", { escT: i.Sens_EscTarifa }));
+  // r3 (R3-6, G-L2 10-1): Custom + Sens_EscTarifa (antes «= Sens_EscTarifa», degenerada cuando el Custom ya llevaba +2 %)
+  cases.push(kase("Esc. tarifa", "Escalación del Custom + Sens_EscTarifa", { escT: B.escT + i.Sens_EscTarifa }));
   cases.push(kase("Participación alt.", "Participación alterna", { part: 1 - B.part }));
   cases.push(kase("IVA alt.", "IVA recuperable alterno", { iva: 1 - B.iva }));
   cases.push(kase("Contrato alt.", "Contrato de Inversión alterno", { cont: 1 - B.cont }));

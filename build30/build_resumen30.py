@@ -31,8 +31,10 @@ from build_content import (build_cases, CASE_X, CASE_C, CASE_B, CASE_F, CASE_ESC
 
 OUT = sys.argv[1] if len(sys.argv) > 1 else "/root/gpm13/out20/Modelo_FV_5MWp_Resumen_Directorio_v2.0.xlsx"
 REF_PATH = sys.argv[sys.argv.index("--ref") + 1] if "--ref" in sys.argv else "/root/gpm13/out20/Modelo_FV_5MWp_GPM_v2.0_calc.xlsx"
-VERSION_RES = "Resumen Directorio v3.0"
-FECHA_RES = "04-sep-2026"
+# r3 (R3-8): la etiqueta seguía en «v3.0 · 04-sep-2026» en r2 (hallazgo 11-sep-2026); ahora sigue a la versión y a la fecha de corte del modelo
+VERSION_RES = f"Resumen Directorio {VERSION}"
+_MES = ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"]
+FECHA_RES = f"{FECHA_ANALISIS.day:02d}-{_MES[FECHA_ANALISIS.month - 1]}-{FECHA_ANALISIS.year}"
 R0, R1, R2, R3, R4, R5, RI = "Resumen", "Supuestos", "Costos", "Resultados", "Sensibilidad", "Legal y riesgos", "Inputs"
 RM = SM   # el Motor conserva el nombre del modelo («Motor_Sens») para que mo() y las regresiones sean las mismas
 NS = 6    # hojas visibles
@@ -260,7 +262,7 @@ BLOQUES = [
 SHOWN = {nm for _, _, names_ in BLOQUES for nm in names_}
 SENS_PARAMS = {"Sens_CAPEX": ("Tornado: variación del CAPEX (±)", 0.15, "%", FMT_PCT), "Sens_Tarifa": ("Tornado: variación de la tarifa evitable (±)", 0.15, "%", FMT_PCT),
                "Sens_OPEX_Up": ("Tornado: OPEX al alza (+)", 0.30, "%", FMT_PCT), "Sens_OPEX_Dn": ("Tornado: OPEX a la baja (−)", 0.15, "%", FMT_PCT),
-               "Sens_Peaje": ("Tornado: peaje SGDA desde 28-feb-2029", 0.015, "$/kWh", FMT_KWH), "Sens_EscTarifa": ("Tornado: escalación anual de la tarifa", 0.02, "%/año", FMT_PCT),
+               "Sens_Peaje": ("Tornado: peaje SGDA desde 28-feb-2029", 0.015, "$/kWh", FMT_KWH), "Sens_EscTarifa": ("Tornado: escalación de la tarifa, aumento frente al Custom", 0.01, "pp/año", FMT_PCT),
                "Sens_Disponibilidad": ("Tornado: disponibilidad, reducción frente al Custom", 0.02, "pp", FMT_PCT), "Sens_EscCAPEX": ("Tornado: escalación del CAPEX, aumento", 0.02, "pp/año", FMT_PCT),
                "Sens_Peaje_kW": ("Tornado: peaje por potencia", 0.5, "$/kW-mes", FMT_DEC2)}
 MODEL_VALUES = {}   # valores del modelo completo recalculado que el Resumen toma como constante (Meses_Construccion = Mes_COD_Cron de 03)

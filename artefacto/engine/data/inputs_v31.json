@@ -388,7 +388,7 @@
  "Sens_OPEX_Up": 0.3,
  "Sens_OPEX_Dn": 0.15,
  "Sens_Peaje": 0.015,
- "Sens_EscTarifa": 0.02,
+ "Sens_EscTarifa": 0.01,
  "Sens_Disponibilidad": 0.02,
  "Sens_EscCAPEX": 0.02,
  "Sens_Peaje_kW": 0.5,

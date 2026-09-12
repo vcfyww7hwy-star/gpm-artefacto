@@ -58,6 +58,7 @@ def sample():
         "Sens_CAPEX": round(random.uniform(0.05, 0.3), 3),
         "Sens_Tarifa": round(random.uniform(0.05, 0.3), 3),
         "Sens_Peaje": round(random.uniform(0.0025, 0.03), 4),
+        "Sens_EscTarifa": round(random.uniform(0.0, 0.03), 3),   # r3 (R3-6): la barra «Esc. tarifa» es Custom + Sens_EscTarifa
         "DSCR_Objetivo": round(random.uniform(1.1, 1.4), 2),
         "03_Tramites!G21": random.choice([5, 7, 9, 12, 16]),   # duración de RC-12 → Mes_COD_Cron → Meses_Construccion
     }

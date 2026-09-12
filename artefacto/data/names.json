@@ -1556,8 +1556,8 @@
 "Sens_EscTarifa": {
 "sheet": "10_Sensibilidad",
 "ref": "J8",
-"value": 0.02,
-"formula": 0.02
+"value": 0.01,
+"formula": 0.01
 },
 "Sens_Disponibilidad": {
 "sheet": "10_Sensibilidad",
@@ -2163,7 +2163,7 @@
 "sheet": "08_Flujo",
 "ref": "E7",
 "value": 0.185393622224785,
-"formula": "=IFERROR(IRR($D$75:$AD$75,0.02),\"n/a\")"
+"formula": "=IFERROR(IF(IRR($D$75:$AD$75,0.02)<=-1,\"n/a\",IRR($D$75:$AD$75,0.02)),\"n/a\")"
 },
 "VAN_Proyecto": {
 "sheet": "08_Flujo",
