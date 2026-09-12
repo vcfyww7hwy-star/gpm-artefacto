@@ -37,9 +37,14 @@ cd artefacto/app && bash scripts/release.sh "<etiqueta>"
 
 ## 6. Actualizar el libro (cuando haya r3): cadena de extracción
 ```
-REF=/root/gpm13/out30/…_calc.xlsx ./build30/pipeline.sh Modelo_FV_5MWp_GPM_v3.1_r3          # libro (generador)
+REF=<calc de la revisión anterior> ALLOW="N_Controles,N_Controles_OK,N_Por_Confirmar_Esperado,N_Por_Confirmar[,nombres que cambian por diseño]" ./build30/pipeline.sh Modelo_FV_5MWp_GPM_v3.1_rN
+MODEL=/root/gpm13/out30/Modelo_FV_5MWp_GPM_v3.1_rN_calc.xlsx ./build30/pipeline_res.sh Modelo_FV_5MWp_Resumen_Directorio_v3.1_rN     # Resumen ≡ modelo
 python3 build30/extract_model.py RAW CALC artefacto/data && python3 build30/extract_book.py artefacto/data artefacto/data/book.json
-cp artefacto/data/book.json artefacto/app/src/model/book_v31.json && cd artefacto/engine && npx tsx test/verify.ts && cd ../app && npm run make:externo && bash scripts/release.sh "r3"
+cp artefacto/data/book.json artefacto/app/src/model/book_v31.json && cd artefacto/app && bash scripts/release.sh "<etiqueta>"
+#   release.sh: 1 verify (escribe engine/data/inputs_v31.json) → 1b make-oracle.py (inputs_v31.json + oracle_v31.json desde data/) + make-externo.py
+#   → 2 irr → 3 live/format → 4 tsc → 5 build:editions + check:exclusion → 6 smoke → 7 SHA + publicados/ → 8 candidatos
+# regress30 desglosa las celdas distintas por caso: un cambio de definición de una palanca debe aparecer en UN solo caso.
+# Tercer motor y render en el Mac (con aviso): ver memoria del proyecto (AppleScript `value of range` sobre Motor_Sens!B57:DH72; export_pdf; close sin guardar).
 ```
 Cruce aleatorio (LibreOffice, ~20 s/muestra): `ENGINE_DIR=$PWD/artefacto/engine python3 build30/crosscheck_engine.py <RAW o _calc> <out> 24 <semilla>`.
 
